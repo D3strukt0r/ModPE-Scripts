@@ -65,495 +65,46 @@ function useItem(x, y, z, itemId, blockId, side)
 {
 	if (a6 == 1 && itemId == 58)
 	{
-		a6 = 2;
-		ctx.runOnUiThread(new java.lang.Runnable()
-		{
-			run: function()
-			{
-				try
-				{
-					var anim = new  android.view.animation.AlphaAnimation(1.0 , 0.0);
-					var animstart = new  android.view.animation.AlphaAnimation(0.0, 1.0);
-					GUI = new android.widget.PopupWindow();
-					var layout = new android.widget.LinearLayout(ctx);
-					var ac = new android.widget.ImageView(ctx);
-					
-					ac.setImageDrawable(ac6);
-					layout.setOrientation(android.widget.LinearLayout.VERTICAL);
-					layout.addView(ac);
-					GUI.setContentView(layout);
-					GUI.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.TOP, 0, 0);
-					ac.startAnimation(animstart);
-					animstart.setDuration(2000);
-					
-					ac.postDelayed(new java.lang.Runnable({run:function()
-					{
-						anim.setFillAfter(true);
-						ac.startAnimation(anim);
-						anim.setDuration(2000);
-					}}), 10000)
-					
-					/*
-					ac.setOnClickListener(new android.view.View.OnClickListener()
-					{
-						onClick: function(view)
-						{
-							anim.setFillAfter(true);
-							ac.startAnimation(anim);
-							anim.setDuration(2000);
-						}
-					});
-					*/
-				} catch (e) {
-					print ("Error: "+e)
-				}
-			}
-		});
+		addonShowAchievement(6);
 	}
 	if (a7 == 1 && itemId == 61)
 	{
-		a7 = 2;
-		ctx.runOnUiThread(new java.lang.Runnable()
-		{
-			run: function()
-			{
-				try
-				{
-					var anim = new  android.view.animation.AlphaAnimation(1.0 , 0.0);
-					var animstart = new  android.view.animation.AlphaAnimation(0.0, 1.0);
-					GUI = new android.widget.PopupWindow();
-					var layout = new android.widget.LinearLayout(ctx);
-					var ac = new android.widget.ImageView(ctx);
-					
-					ac.setImageDrawable(ac7);
-					layout.setOrientation(android.widget.LinearLayout.VERTICAL);
-					layout.addView(ac);
-					GUI.setContentView(layout);
-					GUI.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.TOP, 0, 0);
-					ac.startAnimation(animstart);
-					animstart.setDuration(2000);
-					
-					ac.postDelayed(new java.lang.Runnable({run:function(){
-					anim.setFillAfter(true);
-					ac.startAnimation(anim);
-					anim.setDuration(2000);
-					}}), 10000)
-					
-					/*
-					ac.setOnClickListener(new android.view.View.OnClickListener()
-					{
-						onClick: function(view)
-						{
-							anim.setFillAfter(true);
-							ac.startAnimation(anim);
-							anim.setDuration(2000);
-						}
-					});
-					*/
-				} catch (e) {
-					print ("Error: "+e)
-				}
-			}
-		});
+		addonShowAchievement(7);
 	}
 	if (a8 == 1 && itemId == 270)
 	{
-		a8 = 2;
-		ctx.runOnUiThread(new java.lang.Runnable()
-		{
-			run: function()
-			{
-				try
-				{
-					var anim = new  android.view.animation.AlphaAnimation(1.0 , 0.0);
-					var animstart = new  android.view.animation.AlphaAnimation(0.0, 1.0);
-					GUI = new android.widget.PopupWindow();
-					var layout = new android.widget.LinearLayout(ctx);
-					var ac = new android.widget.ImageView(ctx);
-					
-					ac.setImageDrawable(ac8);
-					layout.setOrientation(android.widget.LinearLayout.VERTICAL);
-					layout.addView(ac);
-					GUI.setContentView(layout);
-					GUI.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.TOP, 0, 0);
-					ac.startAnimation(animstart);
-					animstart.setDuration(2000);
-					
-					ac.postDelayed(new java.lang.Runnable({run:function()
-					{
-						anim.setFillAfter(true);
-						ac.startAnimation(anim);
-						anim.setDuration(2000);
-					}}), 10000)
-					
-					/*
-					ac.setOnClickListener(new android.view.View.OnClickListener()
-					{
-						onClick: function(view)
-						{
-							anim.setFillAfter(true);
-							ac.startAnimation(anim);
-							anim.setDuration(2000);
-						}
-					});
-					*/
-				} catch (e) {
-					print ("Error: "+e)
-				}
-			}
-		});
+		addonShowAchievement(8);
 	}
 	if (a9 == 1 && itemId == 265)
 	{
-		a9 = 2;
-		ctx.runOnUiThread(new java.lang.Runnable()
-		{
-			run: function()
-			{
-				try
-				{
-					var anim = new  android.view.animation.AlphaAnimation(1.0 , 0.0);
-					var animstart = new  android.view.animation.AlphaAnimation(0.0, 1.0);
-					GUI = new android.widget.PopupWindow();
-					var layout = new android.widget.LinearLayout(ctx);
-					var ac = new android.widget.ImageView(ctx);
-					
-					ac.setImageDrawable(ac9);
-					layout.setOrientation(android.widget.LinearLayout.VERTICAL);
-					layout.addView(ac);
-					GUI.setContentView(layout);
-					GUI.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.TOP, 0, 0);
-					ac.startAnimation(animstart);
-					animstart.setDuration(2000);
-					
-					ac.postDelayed(new java.lang.Runnable({run:function()
-					{
-						anim.setFillAfter(true);
-						ac.startAnimation(anim);
-						anim.setDuration(2000);
-					}}), 10000)
-					
-					/*
-					ac.setOnClickListener(new android.view.View.OnClickListener()
-					{
-						onClick: function(view)
-						{
-							anim.setFillAfter(true);
-							ac.startAnimation(anim);
-							anim.setDuration(2000);
-						}
-					});
-					*/
-				} catch (e) {
-					print ("Error: "+e)
-				}
-			}
-		});
+		addonShowAchievement(9);
 	}
 	if (a10 == 1 && itemId == 290)
 	{
-		a10 = 2;
-		ctx.runOnUiThread(new java.lang.Runnable()
-		{
-			run: function()
-			{
-				try
-				{
-					var anim = new  android.view.animation.AlphaAnimation(1.0 , 0.0);
-					var animstart = new  android.view.animation.AlphaAnimation(0.0, 1.0);
-					GUI = new android.widget.PopupWindow();
-					var layout = new android.widget.LinearLayout(ctx);
-					var ac = new android.widget.ImageView(ctx);
-					
-					ac.setImageDrawable(ac10);
-					layout.setOrientation(android.widget.LinearLayout.VERTICAL);
-					layout.addView(ac);
-					GUI.setContentView(layout);
-					GUI.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.TOP, 0, 0);
-					ac.startAnimation(animstart);
-					animstart.setDuration(2000);
-					
-					ac.postDelayed(new java.lang.Runnable({run:function()
-					{
-						anim.setFillAfter(true);
-						ac.startAnimation(anim);
-						anim.setDuration(2000);
-					}}), 10000)
-					
-					/*
-					ac.setOnClickListener(new android.view.View.OnClickListener()
-					{
-						onClick: function(view)
-						{
-							anim.setFillAfter(true);
-							ac.startAnimation(anim);
-							anim.setDuration(2000);
-						}
-					});
-					*/
-				} catch (e) {
-					print ("Error: "+e)
-				}
-			}
-		});
+		addonShowAchievement(10);
 	}
 	if (a11 == 1 && itemId == 297)
 	{
-		a11 = 2;
-		ctx.runOnUiThread(new java.lang.Runnable()
-		{
-			run: function()
-			{
-				try
-				{
-					var anim = new  android.view.animation.AlphaAnimation(1.0 , 0.0);
-					var animstart = new  android.view.animation.AlphaAnimation(0.0, 1.0);
-					GUI = new android.widget.PopupWindow();
-					var layout = new android.widget.LinearLayout(ctx);
-					var ac = new android.widget.ImageView(ctx);
-					
-					ac.setImageDrawable(ac11);
-					layout.setOrientation(android.widget.LinearLayout.VERTICAL);
-					layout.addView(ac);
-					GUI.setContentView(layout);
-					GUI.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.TOP, 0, 0);
-					ac.startAnimation(animstart);
-					animstart.setDuration(2000);
-					
-					ac.postDelayed(new java.lang.Runnable({run:function()
-					{
-						anim.setFillAfter(true);
-						ac.startAnimation(anim);
-						anim.setDuration(2000);
-					}}), 10000)
-					
-					/*
-					ac.setOnClickListener(new android.view.View.OnClickListener()
-					{
-						onClick: function(view)
-						{
-							anim.setFillAfter(true);
-							ac.startAnimation(anim);
-							anim.setDuration(2000);
-						}
-					});
-					*/
-				} catch (e) {
-					print ("Error: "+e)
-				}
-			}
-		});
+		addonShowAchievement(11);
 	}
 	if (a12 == 1 && itemId == 354)
 	{
-		a12 = 2;
-		ctx.runOnUiThread(new java.lang.Runnable()
-		{
-			run: function()
-			{
-				try
-				{
-					var anim = new  android.view.animation.AlphaAnimation(1.0 , 0.0);
-					var animstart = new  android.view.animation.AlphaAnimation(0.0, 1.0);
-					GUI = new android.widget.PopupWindow();
-					var layout = new android.widget.LinearLayout(ctx);
-					var ac = new android.widget.ImageView(ctx);
-					
-					ac.setImageDrawable(ac12);
-					layout.setOrientation(android.widget.LinearLayout.VERTICAL);
-					layout.addView(ac);
-					GUI.setContentView(layout);
-					GUI.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.TOP, 0, 0);
-					ac.startAnimation(animstart);
-					animstart.setDuration(2000);
-					
-					ac.postDelayed(new java.lang.Runnable({run:function()
-					{
-						anim.setFillAfter(true);
-						ac.startAnimation(anim);
-						anim.setDuration(2000);
-					}}), 10000)
-					
-					/*
-					ac.setOnClickListener(new android.view.View.OnClickListener()
-					{
-						onClick: function(view)
-						{
-							anim.setFillAfter(true);
-							ac.startAnimation(anim);
-							anim.setDuration(2000);
-						}
-					});
-					*/
-				} catch (e) {
-					print ("Error: "+e)
-				}
-			}
-		});
+		addonShowAchievement(12);
 	}
 	if (a13 == 1)
 	{
 		if (itemId == 274 || itemId == 257 || itemId == 285 || itemId == 278)
 		{
-			a13 = 2;
-			ctx.runOnUiThread(new java.lang.Runnable()
-			{
-				run: function()
-				{
-					try
-					{
-						var anim = new  android.view.animation.AlphaAnimation(1.0 , 0.0);
-						var animstart = new  android.view.animation.AlphaAnimation(0.0, 1.0);
-						GUI = new android.widget.PopupWindow();
-						var layout = new android.widget.LinearLayout(ctx);
-						var ac = new android.widget.ImageView(ctx);
-
-						ac.setImageDrawable(ac13);
-						layout.setOrientation(android.widget.LinearLayout.VERTICAL);
-						layout.addView(ac);
-						GUI.setContentView(layout);
-						GUI.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-						GUI.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-						GUI.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.TOP, 0, 0);
-						ac.startAnimation(animstart);
-						animstart.setDuration(2000);
-
-						ac.postDelayed(new java.lang.Runnable({run:function()
-						{
-							anim.setFillAfter(true);
-							ac.startAnimation(anim);
-							anim.setDuration(2000);
-						}}), 10000)
-
-						/*
-						ac.setOnClickListener(new android.view.View.OnClickListener()
-						{
-							onClick: function(view)
-							{
-								anim.setFillAfter(true);
-								ac.startAnimation(anim);
-								anim.setDuration(2000);
-							}
-						});
-						*/
-					} catch (e) {
-						print ("Error: "+e)
-					}
-				}
-			});
+			addonShowAchievement(13);
 		}
 	}
 	if (a14 == 1 && itemId == 268)
 	{
-		a14 = 2;
-		ctx.runOnUiThread(new java.lang.Runnable()
-		{
-			run: function()
-			{
-				try
-				{
-					var anim = new  android.view.animation.AlphaAnimation(1.0 , 0.0);
-					var animstart = new  android.view.animation.AlphaAnimation(0.0, 1.0);
-					GUI = new android.widget.PopupWindow();
-					var layout = new android.widget.LinearLayout(ctx);
-					var ac = new android.widget.ImageView(ctx);
-					
-					ac.setImageDrawable(ac14);
-					layout.setOrientation(android.widget.LinearLayout.VERTICAL);
-					layout.addView(ac);
-					GUI.setContentView(layout);
-					GUI.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.TOP, 0, 0);
-					ac.startAnimation(animstart);
-					animstart.setDuration(2000);
-					
-					ac.postDelayed(new java.lang.Runnable({run:function()
-					{
-						anim.setFillAfter(true);
-						ac.startAnimation(anim);
-						anim.setDuration(2000);
-					}}), 10000)
-					
-					/*
-					ac.setOnClickListener(new android.view.View.OnClickListener()
-					{
-						onClick: function(view)
-						{
-							anim.setFillAfter(true);
-							ac.startAnimation(anim);
-							anim.setDuration(2000);
-						}
-					});
-					*/
-				} catch (e) {
-					print ("Error: "+e)
-				}
-			}
-		});
+		addonShowAchievement(14);
 	}
 	if (a15 == 1 && itemId == 47)
 	{
-		a15 = 2;
-		ctx.runOnUiThread(new java.lang.Runnable()
-		{
-			run: function()
-			{ 
-				try
-				{
-					var anim = new  android.view.animation.AlphaAnimation(1.0 , 0.0);
-					var animstart = new  android.view.animation.AlphaAnimation(0.0, 1.0);
-					GUI = new android.widget.PopupWindow();
-					var layout = new android.widget.LinearLayout(ctx);
-					var ac = new android.widget.ImageView(ctx);
-					
-					ac.setImageDrawable(ac15);
-					layout.setOrientation(android.widget.LinearLayout.VERTICAL);
-					layout.addView(ac);
-					GUI.setContentView(layout);
-					GUI.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.TOP, 0, 0);
-					ac.startAnimation(animstart);
-					animstart.setDuration(2000);
-					
-					ac.postDelayed(new java.lang.Runnable({run:function()
-					{
-						anim.setFillAfter(true);
-						ac.startAnimation(anim);
-						anim.setDuration(2000);
-					}}), 10000)
-					
-					/*
-					ac.setOnClickListener(new android.view.View.OnClickListener()
-					{
-						onClick: function(view)
-						{
-							anim.setFillAfter(true);
-							ac.startAnimation(anim);
-							anim.setDuration(2000);
-						}
-					});
-					*/
-				} catch (e) {
-					print ("Error: "+e)
-				}
-			}
-		});
+		addonShowAchievement(15);
 	}
 }
 function attackHook(attacker, victim)
@@ -562,151 +113,16 @@ function attackHook(attacker, victim)
 	{
 		if(Entity.getEntityTypeId(victim) == 32 || Entity.getEntityTypeId(victim) == 33 || Entity.getEntityTypeId(victim) == 34 || Entity.getEntityTypeId(victim) == 35 || Entity.getEntityTypeId(victim) == 36)
 		{
-			a1 = 2;
-			ctx.runOnUiThread(new java.lang.Runnable()
-			{
-				run: function()
-				{
-					try
-					{
-						var anim = new  android.view.animation.AlphaAnimation(1.0 , 0.0);
-						var animstart = new  android.view.animation.AlphaAnimation(0.0, 1.0);
-						GUI = new android.widget.PopupWindow();
-						var layout = new android.widget.LinearLayout(ctx);
-						var ac = new android.widget.ImageView(ctx);
-
-						ac.setImageDrawable(ac1);
-						layout.setOrientation(android.widget.LinearLayout.VERTICAL);
-						layout.addView(ac);
-						GUI.setContentView(layout);
-						GUI.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-						GUI.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-						GUI.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.TOP, 0, 0);
-						ac.startAnimation(animstart);
-						animstart.setDuration(2000);
-
-						ac.postDelayed(new java.lang.Runnable({run:function()
-						{
-							anim.setFillAfter(true);
-							ac.startAnimation(anim);
-							anim.setDuration(2000);
-						}}), 10000)
-
-						/*
-						ac.setOnClickListener(new android.view.View.OnClickListener()
-						{
-							onClick: function(view)
-							{
-								anim.setFillAfter(true);
-								ac.startAnimation(anim);
-								anim.setDuration(2000);
-							}
-						});
-						*/
-					} catch (e) {
-						print ("Error: "+e)
-					}
-				}
-			});
+			addonShowAchievement(1);
 		}
 	}
 	if(a2 == 1 && Entity.getEntityTypeId(victim) == 11)
 	{
-		a2 = 2;
-		ctx.runOnUiThread(new java.lang.Runnable()
-		{
-			run: function()
-			{
-				try
-				{
-					var anim = new  android.view.animation.AlphaAnimation(1.0 , 0.0);
-					var animstart = new  android.view.animation.AlphaAnimation(0.0, 1.0);
-					GUI = new android.widget.PopupWindow();
-					var layout = new android.widget.LinearLayout(ctx);
-					var ac = new android.widget.ImageView(ctx);
-					
-					ac.setImageDrawable(ac2);
-					layout.setOrientation(android.widget.LinearLayout.VERTICAL);
-					layout.addView(ac);
-					GUI.setContentView(layout);
-					GUI.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.TOP, 0, 0);
-					ac.startAnimation(animstart);
-					animstart.setDuration(2000);
-					
-					ac.postDelayed(new java.lang.Runnable({run:function()
-					{
-						anim.setFillAfter(true);
-						ac.startAnimation(anim);
-						anim.setDuration(2000);
-					}}), 10000)
-					
-					/*
-					ac.setOnClickListener(new android.view.View.OnClickListener()
-					{
-						onClick: function(view)
-						{
-							anim.setFillAfter(true);
-							ac.startAnimation(anim);
-							anim.setDuration(2000);
-						}
-					});
-					*/
-				} catch (e) {
-					print ("Error: "+e)
-				}
-			}
-		});
+		addonShowAchievement(2);
 	}
 	if(a3 == 1 && Entity.getEntityTypeId(victim) == 34 && getCarriedItem() == 261)
 	{
-		a3 = 2;
-		ctx.runOnUiThread(new java.lang.Runnable()
-		{
-			run: function()
-			{
-				try
-				{
-					var anim = new  android.view.animation.AlphaAnimation(1.0 , 0.0);
-					var animstart = new  android.view.animation.AlphaAnimation(0.0, 1.0);
-					GUI = new android.widget.PopupWindow();
-					var layout = new android.widget.LinearLayout(ctx);
-					var ac = new android.widget.ImageView(ctx);
-					
-					ac.setImageDrawable(ac3);
-					layout.setOrientation(android.widget.LinearLayout.VERTICAL);
-					layout.addView(ac);
-					GUI.setContentView(layout);
-					GUI.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.TOP, 0, 0);
-					ac.startAnimation(animstart);
-					animstart.setDuration(2000);
-					
-					ac.postDelayed(new java.lang.Runnable({run:function()
-					{
-						anim.setFillAfter(true);
-						ac.startAnimation(anim);
-						anim.setDuration(2000);
-					}}), 10000)
-					
-					/*
-					ac.setOnClickListener(new android.view.View.OnClickListener()
-					{
-						onClick: function(view)
-						{
-							anim.setFillAfter(true);
-							ac.startAnimation(anim);
-							anim.setDuration(2000);
-						}
-					});
-					*/
-				} catch (e) {
-					print ("Error: "+e)
-				}
-			}
-		});
+		addonShowAchievement(3);
 	}
 }
 function procCmd(command)
@@ -808,40 +224,40 @@ function procCmd(command)
 }
 function newLevel()
 {
+	achievement[1] = ModPE.readData("a1");
+	achievement[2] = ModPE.readData("a2");
+	achievement[3] = ModPE.readData("a3");
+	achievement[4] = ModPE.readData("a4");
+	achievement[5] = ModPE.readData("a5");
+	achievement[6] = ModPE.readData("a6");
+	achievement[7] = ModPE.readData("a7");
+	achievement[8] = ModPE.readData("a8");
+	achievement[9] = ModPE.readData("a9");
+	achievement[10] = ModPE.readData("a10");
+	achievement[11] = ModPE.readData("a11");
+	achievement[12] = ModPE.readData("a12");
+	achievement[13] = ModPE.readData("a13");
+	achievement[14] = ModPE.readData("a14");
+	achievement[15] = ModPE.readData("a15");
 	clientMessage("§7[INFO] §fAchievements loaded");
-	a1 = ModPE.readData("a1");
-	a2 = ModPE.readData("a2");
-	a3 = ModPE.readData("a3");
-	a4 = ModPE.readData("a4");
-	a5 = ModPE.readData("a5");
-	a6 = ModPE.readData("a6");
-	a7 = ModPE.readData("a7");
-	a8 = ModPE.readData("a8");
-	a9 = ModPE.readData("a9");
-	a10 = ModPE.readData("a10");
-	a11 = ModPE.readData("a11");
-	a12 = ModPE.readData("a12");
-	a13 = ModPE.readData("a13");
-	a14 = ModPE.readData("a14");
-	a15 = ModPE.readData("a15");
 }
 function leaveGame()
 {
-	ModPE.saveData("a1", a1);
-	ModPE.saveData("a2", a2);
-	ModPE.saveData("a3", a3);
-	ModPE.saveData("a4", a4);
-	ModPE.saveData("a5", a5);
-	ModPE.saveData("a6", a6);
-	ModPE.saveData("a7", a7);
-	ModPE.saveData("a8", a8);
-	ModPE.saveData("a9", a9);
-	ModPE.saveData("a10", a10);
-	ModPE.saveData("a11", a11);
-	ModPE.saveData("a12", a12);
-	ModPE.saveData("a13", a13);
-	ModPE.saveData("a14", a14);
-	ModPE.saveData("a15", a15);
+	ModPE.saveData("a1", achievement[1]);
+	ModPE.saveData("a2", achievement[2]);
+	ModPE.saveData("a3", achievement[3]);
+	ModPE.saveData("a4", achievement[4]);
+	ModPE.saveData("a5", achievement[5]);
+	ModPE.saveData("a6", achievement[6]);
+	ModPE.saveData("a7", achievement[7]);
+	ModPE.saveData("a8", achievement[8]);
+	ModPE.saveData("a9", achievement[9]);
+	ModPE.saveData("a10", achievement[10]);
+	ModPE.saveData("a11", achievement[11]);
+	ModPE.saveData("a12", achievement[12]);
+	ModPE.saveData("a13", achievement[13]);
+	ModPE.saveData("a14", achievement[14]);
+	ModPE.saveData("a15", achievement[15]);
 	ctx.runOnUiThread(new java.lang.Runnable()
 	{
 		run: function()
@@ -860,98 +276,60 @@ function destroyBlock(x, y, z, side)
 {
 	if (a4 == 1 && getTile(x, y, z) == 17)
 	{
-		a4 = 2;
-		ctx.runOnUiThread(new java.lang.Runnable()
-		{
-			run: function()
-			{
-				try
-				{
-					var anim = new  android.view.animation.AlphaAnimation(1.0 , 0.0);
-					var animstart = new  android.view.animation.AlphaAnimation(0.0, 1.0);
-					GUI = new android.widget.PopupWindow();
-					var layout = new android.widget.LinearLayout(ctx);
-					var ac = new android.widget.ImageView(ctx);
-					
-					ac.setImageDrawable(ac4);
-					layout.setOrientation(android.widget.LinearLayout.VERTICAL);
-					layout.addView(ac);
-					GUI.setContentView(layout);
-					GUI.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.TOP, 0, 0);
-					ac.startAnimation(animstart);
-					animstart.setDuration(2000);
-					
-					ac.postDelayed(new java.lang.Runnable({run:function()
-					{
-						anim.setFillAfter(true);
-						ac.startAnimation(anim);
-						anim.setDuration(2000);
-					}}), 10000)
-					
-					/*
-					ac.setOnClickListener(new android.view.View.OnClickListener(){
-						onClick: function(view)
-						{
-							anim.setFillAfter(true);
-							ac.startAnimation(anim);
-							anim.setDuration(2000);
-						}
-					});
-					*/
-				} catch (e) {
-					print ("Error: "+e)
-				}
-			}
-		});
+		addonShowAchievement(4);
 	}
 	if (a5 == 1 && getTile(x, y, z) == 56 && getCarriedItem() == 257)
 	{
-		a5 = 2;
-		ctx.runOnUiThread(new java.lang.Runnable()
+		addonShowAchievement(5);
+	}
+}
+function addonShowAchievement(achievementID)
+{
+	achievement[achievementID] = true;
+	ctx.runOnUiThread(new java.lang.Runnable()
+	{
+		run: function()
 		{
-			run: function()
+			try
 			{
-				try
-				{
-					var anim = new  android.view.animation.AlphaAnimation(1.0 , 0.0);
-					var animstart = new  android.view.animation.AlphaAnimation(0.0, 1.0);
-					GUI = new android.widget.PopupWindow();
-					var layout = new android.widget.LinearLayout(ctx);
-					var ac = new android.widget.ImageView(ctx);
-					
-					ac.setImageDrawable(ac5);
-					layout.setOrientation(android.widget.LinearLayout.VERTICAL);
-					layout.addView(ac);
-					GUI.setContentView(layout);
-					GUI.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
-					GUI.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.TOP, 0, 0);
-					ac.startAnimation(animstart);
-					animstart.setDuration(2000);
-					
-					ac.postDelayed(new java.lang.Runnable({run:function()
+				var anim = new android.view.animation.AlphaAnimation(1.0 , 0.0);
+				var animstart = new android.view.animation.AlphaAnimation(0.0, 1.0);
+				GUI = new android.widget.PopupWindow();
+				var layout = new android.widget.LinearLayout(ctx);
+				var ac = new android.widget.ImageView(ctx);
+				
+				ac.setImageDrawable(achievementImg[achievementID]);
+				layout.setOrientation(android.widget.LinearLayout.VERTICAL);
+				layout.addView(ac);
+				GUI.setContentView(layout);
+				GUI.setHeight(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				GUI.setWidth(android.widget.LinearLayout.LayoutParams.WRAP_CONTENT);
+				GUI.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.TOP, 0, 0);
+				ac.startAnimation(animstart);
+				animstart.setDuration(2000);
+				
+				ac.postDelayed(new java.lang.Runnable({
+					run: function()
 					{
 						anim.setFillAfter(true);
 						ac.startAnimation(anim);
 						anim.setDuration(2000);
-					}}), 10000)
-					
-					/*
-					ac.setOnClickListener(new android.view.View.OnClickListener(){
-						onClick: function(view)
-						{
-							anim.setFillAfter(true);
-							ac.startAnimation(anim);
-							anim.setDuration(2000);
-						}
-					});
-					*/
-				} catch (e) {
-					print ("Error: "+e)
-				}
+					}
+				}), 10000)
+				
+				ac.setOnClickListener(new android.view.View.OnClickListener(){
+					onClick: function(view)
+					{
+						anim.setFillAfter(true);
+						ac.startAnimation(anim);
+						anim.setDuration(2000);
+						GUI.dismiss();
+					}
+				});
+				
+			} catch (e) {
+				print ("Error: "+e)
 			}
-		});
-	}
+		}
+	});
 }
