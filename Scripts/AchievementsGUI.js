@@ -1,81 +1,63 @@
 /*
- *               _     _                                     _       
- *     /\       | |   (_)                                   | |      
- *    /  \   ___| |__  _  _____   _____ _ __ ___   ___ _ __ | |_ ___ 
- *   / /\ \ / __| '_ \| |/ _ \ \ / / _ \ '_ ` _ \ / _ \ '_ \| __/ __|
- *  / ____ \ (__| | | | |  __/\ V /  __/ | | | | |  __/ | | | |_\__ \
- * /_/    \_\___|_| |_|_|\___| \_/ \___|_| |_| |_|\___|_| |_|\__|___/
- *
  * === ABOUT US ===
- * @name:		Achievements by Orbitron
+ * @name:		Orbitron
  * @website:	http://www.team-orbitron.com
  * === ABOUT PROJECT ===
  * @author:		Orbitron
+ * @project:	AchievementsGUI
  * @version:	v1.0.0
- * @website:	http://store.team-orbitron.com/mcpe-scripts/Achievements.js
+ * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/AchievementsGUI.js
  *
  * Testet with:
- * MCPE: v0.8.1
- * BlockLauncher: v1.6.10
+ * MCPE: v0.9.5
+ * BlockLauncher: v1.7
  *
  */
 
-/* Project info
- ***********************************************/
+// Project info
 var project = "Achievements";
 var sname = "[ACH]";
-var version = "v1.0.0";
+var version = "1.0.0";
 var author = "Orbitron";
 
-/* Variables
- ***********************************************/
-var GUI;
+// Values
 var ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
-var a1 = 1;
-var a2 = 1;
-var a3 = 1;
-var a4 = 1;
-var a5 = 1;
-var a6 = 1;
-var a7 = 1;
-var a8 = 1;
-var a9 = 1;
-var a10 = 1;
-var a11 = 1;
-var a12 = 1;
-var a13 = 1;
-var a14 = 1;
-var a15 = 1;
-var folder1 = new android.graphics.BitmapFactory.decodeFile("mnt/sdcard/games/com.mojang/minecraftRessources/Achievements/ac1.png");
-var folder2 = new android.graphics.BitmapFactory.decodeFile("mnt/sdcard/games/com.mojang/minecraftRessources/Achievements/ac2.png");
-var folder3 = new android.graphics.BitmapFactory.decodeFile("mnt/sdcard/games/com.mojang/minecraftRessources/Achievements/ac3.png");
-var folder4 = new android.graphics.BitmapFactory.decodeFile("mnt/sdcard/games/com.mojang/minecraftRessources/Achievements/ac4.png");
-var folder5 = new android.graphics.BitmapFactory.decodeFile("mnt/sdcard/games/com.mojang/minecraftRessources/Achievements/ac5.png");
-var folder6 = new android.graphics.BitmapFactory.decodeFile("mnt/sdcard/games/com.mojang/minecraftRessources/Achievements/ac6.png");
-var folder7 = new android.graphics.BitmapFactory.decodeFile("mnt/sdcard/games/com.mojang/minecraftRessources/Achievements/ac7.png");
-var folder8 = new android.graphics.BitmapFactory.decodeFile("mnt/sdcard/games/com.mojang/minecraftRessources/Achievements/ac8.png");
-var folder9 = new android.graphics.BitmapFactory.decodeFile("mnt/sdcard/games/com.mojang/minecraftRessources/Achievements/ac9.png");
-var folder10 = new android.graphics.BitmapFactory.decodeFile("mnt/sdcard/games/com.mojang/minecraftRessources/Achievements/ac10.png");
-var folder11 = new android.graphics.BitmapFactory.decodeFile("mnt/sdcard/games/com.mojang/minecraftRessources/Achievements/ac11.png");
-var folder12 = new android.graphics.BitmapFactory.decodeFile("mnt/sdcard/games/com.mojang/minecraftRessources/Achievements/ac12.png");
-var folder13 = new android.graphics.BitmapFactory.decodeFile("mnt/sdcard/games/com.mojang/minecraftRessources/Achievements/ac13.png");
-var folder14 = new android.graphics.BitmapFactory.decodeFile("mnt/sdcard/games/com.mojang/minecraftRessources/Achievements/ac14.png");
-var folder15 = new android.graphics.BitmapFactory.decodeFile("mnt/sdcard/games/com.mojang/minecraftRessources/Achievements/ac15.png");
-var ac1 = new android.graphics.drawable.BitmapDrawable(folder1);
-var ac2 = new android.graphics.drawable.BitmapDrawable(folder2);
-var ac3 = new android.graphics.drawable.BitmapDrawable(folder3);
-var ac4 = new android.graphics.drawable.BitmapDrawable(folder4);
-var ac5 = new android.graphics.drawable.BitmapDrawable(folder5);
-var ac6 = new android.graphics.drawable.BitmapDrawable(folder6);
-var ac7 = new android.graphics.drawable.BitmapDrawable(folder7);
-var ac8 = new android.graphics.drawable.BitmapDrawable(folder8);
-var ac9 = new android.graphics.drawable.BitmapDrawable(folder9);
-var ac10 = new android.graphics.drawable.BitmapDrawable(folder10);
-var ac11 = new android.graphics.drawable.BitmapDrawable(folder11);
-var ac12 = new android.graphics.drawable.BitmapDrawable(folder12);
-var ac13 = new android.graphics.drawable.BitmapDrawable(folder13);
-var ac14 = new android.graphics.drawable.BitmapDrawable(folder14);
-var ac15 = new android.graphics.drawable.BitmapDrawable(folder15);
+var GUI;
+var directory = android.os.Environment.getExternalStorageDirectory().getPath() + "/games/com.mojang/minecraftRessources/" + project;
+var achievement = new Array(
+	1: false,
+	2: false,
+	3: false,
+	4: false,
+	5: false,
+	6: false,
+	7: false,
+	8: false,
+	9: false,
+	10: false,
+	11: false,
+	12: false,
+	13: false,
+	14: false,
+	15: false
+);
+var achievementImg = new Array(
+	1: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac1.png")),
+	2: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac2.png")),
+	3: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac3.png")),
+	4: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac4.png")),
+	5: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac5.png")),
+	6: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac6.png")),
+	7: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac7.png")),
+	8: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac8.png")),
+	9: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac9.png")),
+	10: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac10.png")),
+	11: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac11.png")),
+	12: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac12.png")),
+	13: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac13.png")),
+	14: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac14.png")),
+	15: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac15.png"))
+);
 
 /* Main functions
  ***********************************************/

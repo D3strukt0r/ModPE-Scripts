@@ -4,11 +4,12 @@
  * @website:	http://www.team-orbitron.com
  * === ABOUT PROJECT ===
  * @author:		Orbitron
+ * @project:	AchievementsGUI
  * @version:	v1.0.0
- * @website:	http://store.team-orbitron.com/1000000
+ * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/SinglePlayerCommands.js
  *
  * Testet with:
- * MCPE: v0.9.2
+ * MCPE: v0.9.5
  * BlockLauncher: v1.7
  *
  */
@@ -30,17 +31,17 @@ var ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
 var cmdBack_x = null;
 var cmdBack_y = null;
 var cmdBack_z = null;
-/*var bindCommand = [];
-var bindLft = false;
-var bindBtn = null;*/
+//var bindCommand = [];
+//var bindLft = false;
+//var bindBtn = null;
 var cmdBomb_set = false;
 var cmdBomb_x = null;
 var cmdBomb_y = null;
 var cmdBomb_z = null;
 var cmdCoords_show = false;
 var cmdEval_msg = "";
-/*var cmdEntity_entities = [];
-var cmdEntity_count = 0;*/
+//var cmdEntity_entities = [];
+//var cmdEntity_count = 0;
 var cmdHelp_pages = new Array(
 	new Array(
 		"/ascend",
