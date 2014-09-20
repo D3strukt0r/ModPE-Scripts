@@ -59,8 +59,7 @@ var achievementImg = new Array(
 	15: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac15.png"))
 );
 
-/* Main functions
- ***********************************************/
+// Main functions
 function useItem(x, y, z, itemId, blockId, side)
 {
 	if (a6 == 1 && itemId == 58)
@@ -127,86 +126,75 @@ function attackHook(attacker, victim)
 }
 function procCmd(command)
 {
-	var p = command.split(" ");
-	var command = p[0];
-	switch(command.toLowerCase())
+v	ar cmd = command.toLowerCase().split(" ");
+	switch(cmd[0])
 	{
 		case "ach":
+		case "achievements":
 		
-			switch(p[1])
+			switch(cmd[1])
 			{
 				case "save":
 				
-					ModPE.saveData("a1", a1);
-					ModPE.saveData("a2", a2);
-					ModPE.saveData("a3", a3);
-					ModPE.saveData("a4", a4);
-					ModPE.saveData("a5", a5);
-					ModPE.saveData("a6", a6);
-					ModPE.saveData("a7", a7);
-					ModPE.saveData("a8", a8);
-					ModPE.saveData("a9", a9);
-					ModPE.saveData("a10", a10);
-					ModPE.saveData("a11", a11);
-					ModPE.saveData("a12", a12);
-					ModPE.saveData("a13", a13);
-					ModPE.saveData("a14", a14);
-					ModPE.saveData("a15", a15);
+					ModPE.saveData("a1", achievement[1]);
+					ModPE.saveData("a2", achievement[2]);
+					ModPE.saveData("a3", achievement[3]);
+					ModPE.saveData("a4", achievement[4]);
+					ModPE.saveData("a5", achievement[5]);
+					ModPE.saveData("a6", achievement[6]);
+					ModPE.saveData("a7", achievement[7]);
+					ModPE.saveData("a8", achievement[8]);
+					ModPE.saveData("a9", achievement[9]);
+					ModPE.saveData("a10", achievement[10]);
+					ModPE.saveData("a11", achievement[11]);
+					ModPE.saveData("a12", achievement[12]);
+					ModPE.saveData("a13", achievement[13]);
+					ModPE.saveData("a14", achievement[14]);
+					ModPE.saveData("a15", achievement[15]);
 					clientMessage("§9[ACH] §fSaved achievements!");
 					break;
 				
 				case "load":
 				
-					a1 = ModPE.readData("a1");
-					a2 = ModPE.readData("a2");
-					a3 = ModPE.readData("a3");
-					a4 = ModPE.readData("a4");
-					a5 = ModPE.readData("a5");
-					a6 = ModPE.readData("a6");
-					a7 = ModPE.readData("a7");
-					a8 = ModPE.readData("a8");
-					a9 = ModPE.readData("a9");
-					a10 = ModPE.readData("a10");
-					a11 = ModPE.readData("a11");
-					a12 = ModPE.readData("a12");
-					a13 = ModPE.readData("a13");
-					a14 = ModPE.readData("a14");
-					a15 = ModPE.readData("a15");
+					achievement[1] = ModPE.readData("a1");
+					achievement[2] = ModPE.readData("a2");
+					achievement[3] = ModPE.readData("a3");
+					achievement[4] = ModPE.readData("a4");
+					achievement[5] = ModPE.readData("a5");
+					achievement[6] = ModPE.readData("a6");
+					achievement[7] = ModPE.readData("a7");
+					achievement[8] = ModPE.readData("a8");
+					achievement[9] = ModPE.readData("a9");
+					achievement[10] = ModPE.readData("a10");
+					achievement[11] = ModPE.readData("a11");
+					achievement[12] = ModPE.readData("a12");
+					achievement[13] = ModPE.readData("a13");
+					achievement[14] = ModPE.readData("a14");
+					achievement[15] = ModPE.readData("a15");
 					clientMessage("§9[ACH] §fLoaded achievements!");
 					break;
 				
 				case "reset":
 				
-					a1 = 1;
-					a2 = 1;
-					a3 = 1;
-					a4 = 1;
-					a5 = 1;
-					a6 = 1;
-					a7 = 1;
-					a8 = 1;
-					a9 = 1;
-					a10 = 1;
-					a11 = 1;
-					a12 = 1;
-					a13 = 1;
-					a14 = 1;
-					a15 = 1;
-					ModPE.saveData("a1", a1);
-					ModPE.saveData("a2", a2);
-					ModPE.saveData("a3", a3);
-					ModPE.saveData("a4", a4);
-					ModPE.saveData("a5", a5);
-					ModPE.saveData("a6", a6);
-					ModPE.saveData("a7", a7);
-					ModPE.saveData("a8", a8);
-					ModPE.saveData("a9", a9);
-					ModPE.saveData("a10", a10);
-					ModPE.saveData("a11", a11);
-					ModPE.saveData("a12", a12);
-					ModPE.saveData("a13", a13);
-					ModPE.saveData("a14", a14);
-					ModPE.saveData("a15", a15);
+					for(i = 0; i < achievement.lenght; i++)
+					{
+						achievement[i] = false;
+					}
+					ModPE.saveData("a1", achievement[1]);
+					ModPE.saveData("a2", achievement[2]);
+					ModPE.saveData("a3", achievement[3]);
+					ModPE.saveData("a4", achievement[4]);
+					ModPE.saveData("a5", achievement[5]);
+					ModPE.saveData("a6", achievement[6]);
+					ModPE.saveData("a7", achievement[7]);
+					ModPE.saveData("a8", achievement[8]);
+					ModPE.saveData("a9", achievement[9]);
+					ModPE.saveData("a10", achievement[10]);
+					ModPE.saveData("a11", achievement[11]);
+					ModPE.saveData("a12", achievement[12]);
+					ModPE.saveData("a13", achievement[13]);
+					ModPE.saveData("a14", achievement[14]);
+					ModPE.saveData("a15", achievement[15]);
 					clientMessage("§9[ACH] §fResetted achievements!");
 					break;
 				
@@ -269,9 +257,6 @@ function leaveGame()
 		}
 	});
 }
-
-/* Special functions
- ***********************************************/
 function destroyBlock(x, y, z, side)
 {
 	if (a4 == 1 && getTile(x, y, z) == 17)
@@ -283,6 +268,8 @@ function destroyBlock(x, y, z, side)
 		addonShowAchievement(5);
 	}
 }
+
+// Additional functions
 function addonShowAchievement(achievementID)
 {
 	achievement[achievementID] = true;
