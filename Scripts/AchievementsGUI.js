@@ -109,7 +109,7 @@ function attackHook(attacker, victim)
 }
 function procCmd(command)
 {
-v	ar cmd = command.toLowerCase().split(" ");
+	var cmd = command.toLowerCase().split(" ");
 	switch(cmd[0])
 	{
 		case "ach":
