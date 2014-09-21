@@ -10,7 +10,7 @@
  *
  * Testet with:
  * MCPE: v0.9.5
- * BlockLauncher: v1.7
+ * BlockLauncher: v1.7.9
  *
  */
 

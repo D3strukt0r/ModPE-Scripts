@@ -10,7 +10,7 @@
  *
  * Testet with:
  * MCPE: v0.9.5
- * BlockLauncher: v1.7
+ * BlockLauncher: v1.7.9
  *
  */
 
@@ -40,23 +40,6 @@ var achievement = new Array(
 	13: false,
 	14: false,
 	15: false
-);
-var achievementImg = new Array(
-	1: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac1.png")),
-	2: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac2.png")),
-	3: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac3.png")),
-	4: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac4.png")),
-	5: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac5.png")),
-	6: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac6.png")),
-	7: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac7.png")),
-	8: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac8.png")),
-	9: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac9.png")),
-	10: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac10.png")),
-	11: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac11.png")),
-	12: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac12.png")),
-	13: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac13.png")),
-	14: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac14.png")),
-	15: new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac15.png"))
 );
 
 // Main functions
@@ -228,7 +211,7 @@ function addonShowAchievement(achievementID)
 				var layout = new android.widget.LinearLayout(ctx);
 				var ac = new android.widget.ImageView(ctx);
 				
-				ac.setImageDrawable(achievementImg[achievementID]);
+				ac.setImageDrawable(new android.graphics.drawable.BitmapDrawable(new android.graphics.BitmapFactory.decodeFile(directory + "/ac" + achievementID + ".png")));
 				layout.setOrientation(android.widget.LinearLayout.VERTICAL);
 				layout.addView(ac);
 				GUI.setContentView(layout);
