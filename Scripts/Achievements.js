@@ -16,7 +16,7 @@
 
 // Project info
 var project = "Achievements";
-var sname = "[ACH]";
+var sname = "ACH";
 var version = "1.0.0";
 var author = "Orbitron";
 
@@ -25,77 +25,77 @@ var achievement = [
 	{
 		"id": 1,
 		"reached": false,
-		"message": "1"
+		"message": "Monster Hunter!"
 	},
 	{
 		"id": 2,
 		"reached": false,
-		"message": "2"
+		"message": "Cow Tipper"
 	},
 	{
 		"id": 3,
 		"reached": false,
-		"message": "3"
+		"message": "Sniper Duel"
 	},
 	{
 		"id": 4,
 		"reached": false,
-		"message": "4"
+		"message": "Getting Wood"
 	},
 	{
 		"id": 5,
 		"reached": false,
-		"message": "5"
+		"message": "DIAMONDS!"
 	},
 	{
 		"id": 6,
 		"reached": false,
-		"message": "6"
+		"message": "Benchmarking"
 	},
 	{
 		"id": 7,
 		"reached": false,
-		"message": "7"
+		"message": "Hot Topic"
 	},
 	{
 		"id": 8,
 		"reached": false,
-		"message": "8"
+		"message": "Time to Mine!"
 	},
 	{
 		"id": 9,
 		"reached": false,
-		"message": "9"
+		"message": "Acquire Hardware"
 	},
 	{
 		"id": 10,
 		"reached": false,
-		"message": "10"
+		"message": "Time to Farm!"
 	},
 	{
 		"id": 11,
 		"reached": false,
-		"message": "11"
+		"message": "Bake Bread"
 	},
 	{
 		"id": 12,
 		"reached": false,
-		"message": "12"
+		"message": "The Lie"
 	},
 	{
 		"id": 13,
 		"reached": false,
-		"message": "13"
+		"message": "Getting an Upgrade"
 	},
 	{
 		"id": 14,
 		"reached": false,
-		"message": "14"
+		"message": "Time to Strike!"
 	},
 	{
 		"id": 15,
 		"reached": false,
-		"message": "15"
+		"message": "Librarian"
 	}
 ];
 
@@ -244,5 +244,5 @@ function leaveGame()
 function addonShowAchievement(achievementID)
 {
 	achievement[achievementID] = true;
-	clientMessage("");
+	clientMessage("Achievement get! " + achievement[achievementID]["message"]);
 }

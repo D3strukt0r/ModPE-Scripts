@@ -16,7 +16,7 @@
 
 // Project info
 var project = "Achievements";
-var sname = "[ACH]";
+var sname = "ACH";
 var version = "1.0.0";
 var author = "Orbitron";
 
