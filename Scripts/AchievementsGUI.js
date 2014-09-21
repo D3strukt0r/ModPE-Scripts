@@ -136,41 +136,19 @@ v	ar cmd = command.toLowerCase().split(" ");
 			{
 				case "save":
 				
-					ModPE.saveData("a1", achievement[1]);
-					ModPE.saveData("a2", achievement[2]);
-					ModPE.saveData("a3", achievement[3]);
-					ModPE.saveData("a4", achievement[4]);
-					ModPE.saveData("a5", achievement[5]);
-					ModPE.saveData("a6", achievement[6]);
-					ModPE.saveData("a7", achievement[7]);
-					ModPE.saveData("a8", achievement[8]);
-					ModPE.saveData("a9", achievement[9]);
-					ModPE.saveData("a10", achievement[10]);
-					ModPE.saveData("a11", achievement[11]);
-					ModPE.saveData("a12", achievement[12]);
-					ModPE.saveData("a13", achievement[13]);
-					ModPE.saveData("a14", achievement[14]);
-					ModPE.saveData("a15", achievement[15]);
+					for(i = 0; i < achievement.lenght; i++)
+					{
+						ModPE.saveData("a" + i, achievement[i]);
+					}
 					clientMessage("§9[ACH] §fSaved achievements!");
 					break;
 				
 				case "load":
 				
-					achievement[1] = ModPE.readData("a1");
-					achievement[2] = ModPE.readData("a2");
-					achievement[3] = ModPE.readData("a3");
-					achievement[4] = ModPE.readData("a4");
-					achievement[5] = ModPE.readData("a5");
-					achievement[6] = ModPE.readData("a6");
-					achievement[7] = ModPE.readData("a7");
-					achievement[8] = ModPE.readData("a8");
-					achievement[9] = ModPE.readData("a9");
-					achievement[10] = ModPE.readData("a10");
-					achievement[11] = ModPE.readData("a11");
-					achievement[12] = ModPE.readData("a12");
-					achievement[13] = ModPE.readData("a13");
-					achievement[14] = ModPE.readData("a14");
-					achievement[15] = ModPE.readData("a15");
+					for(i = 0; i < achievement.lenght; i++)
+					{
+						achievement[i] = ModPE.readData("a" + i);
+					}
 					clientMessage("§9[ACH] §fLoaded achievements!");
 					break;
 				
@@ -179,22 +157,8 @@ v	ar cmd = command.toLowerCase().split(" ");
 					for(i = 0; i < achievement.lenght; i++)
 					{
 						achievement[i] = false;
+						ModPE.saveData("a" + i, achievement[i]);
 					}
-					ModPE.saveData("a1", achievement[1]);
-					ModPE.saveData("a2", achievement[2]);
-					ModPE.saveData("a3", achievement[3]);
-					ModPE.saveData("a4", achievement[4]);
-					ModPE.saveData("a5", achievement[5]);
-					ModPE.saveData("a6", achievement[6]);
-					ModPE.saveData("a7", achievement[7]);
-					ModPE.saveData("a8", achievement[8]);
-					ModPE.saveData("a9", achievement[9]);
-					ModPE.saveData("a10", achievement[10]);
-					ModPE.saveData("a11", achievement[11]);
-					ModPE.saveData("a12", achievement[12]);
-					ModPE.saveData("a13", achievement[13]);
-					ModPE.saveData("a14", achievement[14]);
-					ModPE.saveData("a15", achievement[15]);
 					clientMessage("§9[ACH] §fResetted achievements!");
 					break;
 				
@@ -212,40 +176,19 @@ v	ar cmd = command.toLowerCase().split(" ");
 }
 function newLevel()
 {
-	achievement[1] = ModPE.readData("a1");
-	achievement[2] = ModPE.readData("a2");
-	achievement[3] = ModPE.readData("a3");
-	achievement[4] = ModPE.readData("a4");
-	achievement[5] = ModPE.readData("a5");
-	achievement[6] = ModPE.readData("a6");
-	achievement[7] = ModPE.readData("a7");
-	achievement[8] = ModPE.readData("a8");
-	achievement[9] = ModPE.readData("a9");
-	achievement[10] = ModPE.readData("a10");
-	achievement[11] = ModPE.readData("a11");
-	achievement[12] = ModPE.readData("a12");
-	achievement[13] = ModPE.readData("a13");
-	achievement[14] = ModPE.readData("a14");
-	achievement[15] = ModPE.readData("a15");
+	for(i = 0; i < achievement.lenght; i++)
+	{
+		achievement[i] = ModPE.readData("a" + i);
+	}
 	clientMessage("§7[INFO] §fAchievements loaded");
 }
 function leaveGame()
 {
-	ModPE.saveData("a1", achievement[1]);
-	ModPE.saveData("a2", achievement[2]);
-	ModPE.saveData("a3", achievement[3]);
-	ModPE.saveData("a4", achievement[4]);
-	ModPE.saveData("a5", achievement[5]);
-	ModPE.saveData("a6", achievement[6]);
-	ModPE.saveData("a7", achievement[7]);
-	ModPE.saveData("a8", achievement[8]);
-	ModPE.saveData("a9", achievement[9]);
-	ModPE.saveData("a10", achievement[10]);
-	ModPE.saveData("a11", achievement[11]);
-	ModPE.saveData("a12", achievement[12]);
-	ModPE.saveData("a13", achievement[13]);
-	ModPE.saveData("a14", achievement[14]);
-	ModPE.saveData("a15", achievement[15]);
+	for(i = 0; i < achievement.lenght; i++)
+	{
+		achievement[i] = false;
+		ModPE.saveData("a" + i, achievement[i]);
+	}
 	ctx.runOnUiThread(new java.lang.Runnable()
 	{
 		run: function()
