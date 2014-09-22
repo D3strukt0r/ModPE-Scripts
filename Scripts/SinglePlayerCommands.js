@@ -5,7 +5,7 @@
  * === ABOUT PROJECT ===
  * @author:		Orbitron
  * @project:	AchievementsGUI
- * @version:	v1.0.0
+ * @version:	v1.0.10
  * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/SinglePlayerCommands.js
  *
  * Testet with:
@@ -15,31 +15,31 @@
  */
 
 // Project info
-var project = "SinglePlayerCommands";
-var sname = "[SPC]";
-var version = "1.0.0";
-var author = "Orbitron";
+var project		= "SinglePlayerCommands";
+var sname		= "[SPC]";
+var version		= "1.0.10";
+var author		= "Orbitron";
 
 // Modes
-var modeBomb = false;
-var modeCoords = false;
+var modeBomb	= false;
+var modeCoords	= false;
 var modeEnderpearl = false;
-var modeF3 = false;
+var modeF3		= false;
 
 // Values
-var ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
-var cmdBack_x = null;
-var cmdBack_y = null;
-var cmdBack_z = null;
+var ctx			= com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
+var cmdBack_x	= null;
+var cmdBack_y	= null;
+var cmdBack_z	= null;
 //var bindCommand = [];
 //var bindLft = false;
 //var bindBtn = null;
-var cmdBomb_set = false;
-var cmdBomb_x = null;
-var cmdBomb_y = null;
-var cmdBomb_z = null;
+var cmdBomb_set	= false;
+var cmdBomb_x	= null;
+var cmdBomb_	= null;
+var cmdBomb_z	= null;
 var cmdCoords_show = false;
-var cmdEval_msg = "";
+var cmdEval_msg	= "";
 //var cmdEntity_entities = [];
 //var cmdEntity_count = 0;
 var cmdHelp_pages = new Array(
@@ -74,7 +74,7 @@ var cmdHelp_pages = new Array(
 		"/hole",
 		"/ignite")
 );
-var mobIDs = {
+var mobIDs		= {
 	"chicken": 10,
 	"cow": 11,
 	"pig": 12,
@@ -94,7 +94,7 @@ var mobIDs = {
 	"enderman": 38,
 	"silverfish": 39
 };
-var nameIDs = {
+var nameIDs		= {
 	// BLOCKS
 	"AIR": 0,
 	"STONE": 1,
@@ -1325,7 +1325,7 @@ function procCmd(command)
 }
 function newLevel()
 {
-	addonColourMessage("SinglePlayerCommands loaded");
+	clientMessage("§7[INFO] §fSinglePlayerCommands loaded");
 }
 function leaveGame()
 {
@@ -1351,11 +1351,11 @@ function leaveGame()
 // Additional functions
 function addonColourMessage(string)
 {
-	clientMessage(ChatColor.GRAY + "["+ ChatColor.RED + "SPC" + ChatColor.GRAY +"] " + ChatColor.WHITE + string);
+	clientMessage(ChatColor.GRAY + "["+ ChatColor.RED + sname + ChatColor.GRAY +"] " + ChatColor.WHITE + string);
 }
 function addonErrorMessage(string)
 {
-	clientMessage(ChatColor.GRAY + "["+ ChatColor.RED + "SPC" + ChatColor.GRAY +"] " + ChatColor.RED + string);
+	clientMessage(ChatColor.GRAY + "["+ ChatColor.RED + sname + ChatColor.GRAY +"] " + ChatColor.RED + string);
 }
 function addonShowHelp(command, description, usage, example)
 {

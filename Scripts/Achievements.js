@@ -5,7 +5,7 @@
  * === ABOUT PROJECT ===
  * @author:		Orbitron
  * @project:	Achievements
- * @version:	v1.0.0
+ * @version:	v1.0.5
  * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/Achievements.js
  *
  * Testet with:
@@ -17,7 +17,7 @@
 // Project info
 var project		= "Achievements";
 var sname		= "ACH";
-var version		= "1.0.0";
+var version		= "1.0.5";
 var author		= "Orbitron";
 
 // Values
@@ -180,7 +180,7 @@ function procCmd(command)
 					{
 						ModPE.saveData("a" + i, achievement[i]);
 					}
-					clientMessage("§9[ACH] §fSaved achievements!");
+					addonColourMessage("Saved achievements!");
 					break;
 				
 				case "load":
@@ -189,7 +189,7 @@ function procCmd(command)
 					{
 						achievement[i]["reached"] = ModPE.readData("a" + i);
 					}
-					clientMessage("§9[ACH] §fLoaded achievements!");
+					addonColourMessage("Loaded achievements!");
 					break;
 				
 				case "reset":
@@ -199,12 +199,12 @@ function procCmd(command)
 						achievement[i]["reached"] = false;
 						ModPE.saveData("a" + i, achievement[i]);
 					}
-					clientMessage("§9[ACH] §fResetted achievements!");
+					addonColourMessage("Resetted achievements!");
 					break;
 				
 				default:
 				
-					clientMessage("§9[ACH] §fCommand " + p[1] + " does not exist!");
+					addonErrorMessage("Command " + p[1] + " does not exist!");
 					break;
 			}
 		
@@ -230,7 +230,7 @@ function newLevel()
 	{
 		achievement[i]["reached"] = ModPE.readData("a" + i);
 	}
-	clientMessage("§7[INFO] §fAchievements loaded");
+	clientMessage("§7[INFO] §fAchievement loaded");
 }
 function leaveGame()
 {
@@ -241,6 +241,14 @@ function leaveGame()
 }
 
 // Additional functions
+function addonColourMessage(string)
+{
+	clientMessage(ChatColor.GRAY + "["+ ChatColor.RED + sname + ChatColor.GRAY +"] " + ChatColor.WHITE + string);
+}
+function addonErrorMessage(string)
+{
+	clientMessage(ChatColor.GRAY + "["+ ChatColor.RED + sname + ChatColor.GRAY +"] " + ChatColor.RED + string);
+}
 function addonShowAchievement(achievementID)
 {
 	achievement[achievementID] = true;
