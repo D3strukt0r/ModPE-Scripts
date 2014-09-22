@@ -15,16 +15,16 @@
  */
 
 // Project info
-var project = "Achievements";
-var sname = "ACH";
-var version = "1.0.0";
-var author = "Orbitron";
+var project		= "Achievements";
+var sname		= "ACH";
+var version		= "1.0.0";
+var author		= "Orbitron";
 
 // Values
-var ctx = com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
+var ctx			= com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
 var GUI;
-var directory = android.os.Environment.getExternalStorageDirectory().getPath() + "/games/com.mojang/minecraftRessources/" + project;
-var achievement = new Array(
+var directory	= android.os.Environment.getExternalStorageDirectory().getPath() + "/games/com.mojang/minecraftRessources/" + project;
+var achievement	= [
 	1: false,
 	2: false,
 	3: false,
@@ -40,7 +40,7 @@ var achievement = new Array(
 	13: false,
 	14: false,
 	15: false
-);
+];
 
 // Main functions
 function useItem(x, y, z, itemId, blockId, side)
@@ -227,6 +227,7 @@ function addonShowAchievement(achievementID)
 						anim.setFillAfter(true);
 						ac.startAnimation(anim);
 						anim.setDuration(2000);
+						GUI.dismiss();
 					}
 				}), 10000)
 				

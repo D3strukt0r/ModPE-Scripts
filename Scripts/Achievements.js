@@ -15,13 +15,13 @@
  */
 
 // Project info
-var project = "Achievements";
-var sname = "ACH";
-var version = "1.0.0";
-var author = "Orbitron";
+var project		= "Achievements";
+var sname		= "ACH";
+var version		= "1.0.0";
+var author		= "Orbitron";
 
 // Values
-var achievement = [
+var achievement	= [
 	{
 		"id": 1,
 		"reached": false,
