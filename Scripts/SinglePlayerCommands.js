@@ -4,7 +4,7 @@
  * @website:	http://www.team-orbitron.com
  * === ABOUT PROJECT ===
  * @author:		Orbitron
- * @project:	AchievementsGUI
+ * @project:	SinglePlayerCommands
  * @version:	v1.0.10
  * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/SinglePlayerCommands.js
  *
@@ -16,24 +16,19 @@
 
 // Project info
 var project		= "SinglePlayerCommands";
-var sname		= "[SPC]";
-var version		= "1.0.10";
+var sname		= "SPC";
+var version		= "1.0.11";
 var author		= "Orbitron";
 
 // Modes
 var modeBomb	= false;
-var modeCoords	= false;
 var modeEnderpearl = false;
 var modeF3		= false;
 
 // Values
-var ctx			= com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
 var cmdBack_x	= null;
 var cmdBack_y	= null;
 var cmdBack_z	= null;
-//var bindCommand = [];
-//var bindLft = false;
-//var bindBtn = null;
 var cmdBomb_set	= false;
 var cmdBomb_x	= null;
 var cmdBomb_	= null;
@@ -42,347 +37,355 @@ var cmdCoords_show = false;
 var cmdEval_msg	= "";
 //var cmdEntity_entities = [];
 //var cmdEntity_count = 0;
-var cmdHelp_pages = new Array(
-	new Array(
+var cmdHelp_pages = [
+	{
 		"/ascend",
 		"/back",
-		//"/bind <command> [parameters]",
 		"/bounce <strenght>",
-		"/bomb <on|off|detonate>"),
-	new Array(
+		"/bomb <on|off|detonate>"
+	},
+	{
 		"/cannon",
 		"/clear",
 		"/coords",
 		"/delete",
-		"/delhome"),
-	new Array(
+		"/delhome"
+	},
+	{
 		"/descend",
 		//"/enderpearl",
 		//"/entity",
 		"/eval",
-		"/explode"),
-	new Array(
+		"/explode"
+	},
+	{
 		"/f3",
 		"/give",
 		"/gamemode",
 		"/gms",
-		"/gmc"),
-	new Array(
+		"/gmc"
+	},
+	{
 		"/heal",
 		"/health",
 		"/home",
 		"/hole",
-		"/ignite")
-);
-var mobIDs		= {
-	"chicken": 10,
-	"cow": 11,
-	"pig": 12,
-	"sheep": 13,
-	"wolf": 14,
-	"villager": 15,
-	"mooshroom": 16,
-	"zombie": 32,
-	"creeper": 33,
-	"skeleton": 34,
-	"spider": 35,
-	"zombiepigman": 36,
-	"zombie_pigman": 36,
-	"pigzombie": 36,
-	"pigman": 36,
-	"slime": 37,
-	"enderman": 38,
-	"silverfish": 39
-};
-var nameIDs		= {
-	// BLOCKS
-	"AIR": 0,
-	"STONE": 1,
-	"GRASS": 2,
-	"DIRT": 3,
-	"COBBLESTONE": 4,
-	"COBBLE": 4,
-	"PLANK": 5,
-	"PLANKS": 5,
-	"WOODEN_PLANK": 5,
-	"WOODEN_PLANKS": 5,
-	"SAPLING": 6,
-	"SAPLINGS": 6,
-	"BEDROCK": 7,
-	"WATER": 8,
-	"STILL_WATER": 9,
-	"LAVA": 10,
-	"STILL_LAVA": 11,
-	"SAND": 12,
-	"GRAVEL": 13,
-	"GOLD_ORE": 14,
-	"IRON_ORE": 15,
-	"COAL_ORE": 16,
-	"WOOD": 17,
-	"TRUNK": 17,
-	"LEAVES": 18,
-	"LEAVE": 18,
-	"SPONGE": 19,
-	"GLASS": 20,
-	"LAPIS_ORE": 21,
-	"LAPIS_BLOCK": 22,
-	"SANDSTONE": 24,
-	"BED_BLOCK": 26,
-	"POWERED_RAIL": 27,
-	"COBWEB": 30,
-	"TALL_GRASS": 31,
-	"BUSH": 32,
-	"DEAD_BUSH": 32,
-	"WOOL": 35,
-	"DANDELION": 37,
-	"YELLOW_FLOWER": 37,
-	"ROSE": 38,
-	"CYAN_FLOWER": 38,
-	"BROWN_MUSHROOM": 39,
-	"RED_MUSHROOM": 40,
-	"GOLD_BLOCK": 41,
-	"IRON_BLOCK": 42,
-	"DOUBLE_SLAB": 43,
-	"DOUBLE_SLABS": 43,
-	"SLAB": 44,
-	"SLABS": 44,
-	"BRICK": 45,
-	"BRICK_BLOCK": 45,
-	"TNT": 46,
-	"BOOKSHELF": 47,
-	"MOSS_STONE": 48,
-	"MOSSY_STONE": 48,
-	"OBSIDIAN": 49,
-	"TORCH": 50,
-	"FIRE": 51,
-	"WOOD_STAIRS": 53,
-	"WOODEN_STAIRS": 53,
-	"OAK_WOOD_STAIRS": 53,
-	"OAK_WOODEN_STAIRS": 53,
-	"CHEST": 54,
-	"DIAMOND_ORE": 56,
-	"DIAMOND_BLOCK": 57,
-	"CRAFTING_TABLE": 58,
-	"WORKBENCH": 58,
-	"WHEAT_BLOCK": 59,
-	"SEED_BLOCK": 59,
-	"FARMLAND": 60,
-	"FURNACE": 61,
-	"BURNING_FURNACE": 62,
-	"LIT_FURNACE": 62,
-	"SIGN_POST": 63,
-	"SIGN_BLOCK": 63,
-	"DOOR_BLOCK": 64,
-	"DOOR": 64,
-	"WOODEN_DOOR_BLOCK": 64,
-	"WOOD_DOOR_BLOCK": 64,
-	"LADDER": 65,
-	"COBBLE_STAIRS": 67,
-	"COBBLESTONE_STAIRS": 67,
-	"WALL_SIGN": 68,
-	"IRON_DOOR_BLOCK": 71,
-	"REDSTONE_ORE": 73,
-	"GLOWING_REDSTONE_ORE": 74,
-	"LIT_REDSTONE_ORE": 74,
-	"SNOW": 78,
-	"SNOW_LAYER": 78,
-	"ICE": 79,
-	"SNOW_BLOCK": 80,
-	"CACTUS": 81,
-	"CLAY_BLOCK": 82,
-	"REEDS": 83,
-	"SUGARCANE_BLOCK": 83,
-	"FENCE": 85,
-	"PUMPKIN": 86,
-	"NETHERRACK": 87,
-	"GLOWSTONE": 89,
-	"GLOWSTONE_BLOCK": 89,
-	"LIT_PUMPKIN": 91,
-	"JACK_O_LANTERN": 91,
-	"GLOWING_PUMPKIN": 91,
-	"CAKE_BLOCK": 92,
-	"INVISIBLE_BEDROCK": 95,
-	"TRAPDOOR": 96,
-	"STONE_BRICKS": 98,
-	"STONE_BRICK": 98,
-	"IRON_BAR": 101,
-	"IRON_BARS": 101,
-	"GLASS_PANE": 102,
-	"GLASS_PANEL": 102,
-	"MELON_BLOCK": 103,
-	"PUMPKIN_STEM": 104,
-	"MELON_STEM": 105,
-	"FENCE_GATE": 107,
-	"BRICK_STAIRS": 108,
-	"STONE_BRICK_STAIRS": 109,
-	"NETHER_BRICKS": 112,
-	"NETHER_BRICK_BLOCK": 112,
-	"NETHER_BRICKS_STAIRS": 114,
-	"SANDSTONE_STAIRS": 128,
-	"SPRUCE_WOOD_STAIRS": 134,
-	"SPRUCE_WOODEN_STAIRS": 134,
-	"BIRCH_WOOD_STAIRS": 135,
-	"BIRCH_WOODEN_STAIRS": 135,
-	"JUNGLE_WOOD_STAIRS": 136,
-	"JUNGLE_WOODEN_STAIRS": 136,
-	"COBBLE_WALL": 139,
-	"STONE_WALL": 139,
-	"COBBLESTONE_WALL": 139,
-	"CARROT_BLOCK": 141,
-	"POTATO_BLOCK": 141,
-	"QUARTZ_BLOCK": 155,
-	"QUARTZ_STAIRS": 156,
-	"DOUBLE_WOOD_SLAB": 157,
-	"DOUBLE_WOODEN_SLAB": 157,
-	"DOUBLE_WOOD_SLABS": 157,
-	"DOUBLE_WOODEN_SLABS": 157,
-	"WOOD_SLAB": 158,
-	"WOODEN_SLAB": 158,
-	"WOOD_SLABS": 158,
-	"WOODEN_SLABS": 158,
-	"HAY_BALE": 170,
-	"HAY_BLOCK": 170,
-	"CARPET": 171,
-	"COAL_BLOCK": 173,
-	"BEETROOT_BLOCK": 244,
-	"STONECUTTER": 245,
-	"GLOWING_OBSIDIAN": 246,
-	"NETHER_REACTOR": 247,
-	"NETHER_REACTOR_CORE": 247,
-	"UPDATE_BLOCK": 248,
-	"UPDATE_BLOCK_ATE": 249,
-	"NONAME": 255,
-	
-	// TOOLS
-	"IRON_SHOVEL": 256,
-	"IRON_PICKAXE": 257,
-	"IRON_AXE": 258,
-	"FLINT_STEEL": 259,
-	"FLINT_AND_STEEL": 259,
-	"APPLE": 260,
-	"BOW": 261,
-	"ARROW": 262,
-	"COAL": 263,
-	"DIAMOND": 264,
-	"IRON_INGOT": 265,
-	"GOLD_INGOT": 266,
-	"IRON_SWORD": 267,
-	"WOODEN_SWORD": 268,
-	"WOODEN_SHOVEL": 269,
-	"WOODEN_PICKAXE": 270,
-	"WOODEN_AXE": 271,
-	"STONE_SWORD": 272,
-	"STONE_SHOVEL": 273,
-	"STONE_PICKAXE": 274,
-	"STONE_AXE": 275,
-	"DIAMOND_SWORD": 276,
-	"DIAMOND_SHOVEL": 277,
-	"DIAMOND_PICKAXE": 278,
-	"DIAMOND_AXE": 279,
-	"STICK": 280,
-	"STICKS": 280,
-	"BOWL": 281,
-	"MUSHROOM_STEW": 282,
-	"GOLD_SWORD": 283,
-	"GOLDEN_SWORD": 283,
-	"GOLD_SHOVEL": 284,
-	"GOLDEN_SHOVEL": 284,
-	"GOLD_PICKAXE": 285,
-	"GOLDEN_PICKAXE": 285,
-	"GOLD_AXE": 286,
-	"GOLDEN_AXE": 286,
-	"STRING": 287,
-	"FEATHER": 288,
-	"GUNPOWDER": 289,
-	"WOODEN_HOE": 290,
-	"STONE_HOE": 291,
-	"IRON_HOE": 292,
-	"DIAMOND_HOE": 293,
-	"GOLD_HOE": 294,
-	"GOLDEN_HOE": 294,
-	"SEEDS": 295,
-	"WHEAT_SEEDS": 295,
-	"WHEAT": 296,
-	"BREAD": 297,
-	"LEATHER_CAP": 298,
-	"LEATHER_TUNIC": 299,
-	"LEATHER_PANTS": 300,
-	"LEATHER_BOOTS": 301,
-	"CHAIN_HELMET": 302,
-	"CHAIN_CHESTPLATE": 303,
-	"CHAIN_LEGGINGS": 304,
-	"CHAIN_BOOTS": 305,
-	"IRON_HELMET": 306,
-	"IRON_CHESTPLATE": 307,
-	"IRON_LEGGINGS": 308,
-	"IRON_BOOTS": 309,
-	"DIAMOND_HELMET": 310,
-	"DIAMOND_CHESTPLATE": 311,
-	"DIAMOND_LEGGINGS": 312,
-	"DIAMOND_BOOTS": 313,
-	"GOLD_HELMET": 314,
-	"GOLD_CHESTPLATE": 315,
-	"GOLD_LEGGINGS": 316,
-	"GOLD_BOOTS": 317,
-	"FLINT": 318,
-	"RAW_PORKCHOP": 319,
-	"COOKED_PORKCHOP": 320,
-	"PAINTING": 321,
-	"GOLDEN_APPLE": 322,
-	"SIGN": 323,
-	"WOODEN_DOOR": 324,
-	"BUCKET": 325,
-	"MINECART": 328,
-	"SADDLE": 329,
-	"IRON_DOOR": 330,
-	"REDSTONE": 331,
-	"REDSTONE_DUST": 331,
-	"SNOWBALL": 332,
-	"BOAT": 333,
-	"LEATHER": 334,
-	"BRICK": 336,
-	"CLAY": 337,
-	"SUGARCANE": 338,
-	"SUGAR_CANE": 338,
-	"SUGAR_CANES": 338,
-	"PAPER": 339,
-	"BOOK": 340,
-	"SLIMEBALL": 341,
-	"EGG": 344,
-	"COMPASS": 345,
-	"CLOCK": 347,
-	"GLOWSTONE_DUST": 348,
-	"DYE": 351,
-	"BONE": 352,
-	"SUGAR": 353,
-	"CAKE": 354,
-	"BED": 355,
-	"SHEARS": 359,
-	"MELON": 360,
-	"MELON_SLICE": 360,
-	"PUMPKIN_SEEDS": 361,
-	"MELON_SEEDS": 362,
-	"RAW_BEEF": 363,
-	"STEAK": 364,
-	"COOKED_BEEF": 364,
-	"RAW_CHICKEN": 365,
-	"COOKED_CHICKEN": 366,
-	"SPAWN_EGG": 383,
-	"CARROT": 391,
-	"CARROTS": 391,
-	"POTATO": 392,
-	"POTATOES": 392,
-	"BAKED_POTATO": 393,
-	"BAKED_POTATOES": 393,
-	"NETHER_BRICK": 405,
-	"QUARTZ": 406,
-	"NETHER_QUARTZ": 406,
-	"CAMERA": 456,
-	"BEETROOT": 457,
-	"BEETROOT_SEEDS": 458,
-	"BEETROOT_SEED": 458,
-	"BEETROOT_SOUP": 459
-}
+		"/ignite"
+	}
+];
+var mobIDs		= [
+	{
+		"chicken": 10,
+		"cow": 11,
+		"pig": 12,
+		"sheep": 13,
+		"wolf": 14,
+		"villager": 15,
+		"mooshroom": 16,
+		"zombie": 32,
+		"creeper": 33,
+		"skeleton": 34,
+		"spider": 35,
+		"zombiepigman": 36,
+		"zombie_pigman": 36,
+		"pigzombie": 36,
+		"pigman": 36,
+		"slime": 37,
+		"enderman": 38,
+		"silverfish": 39
+	}
+];
+var nameIDs		= [
+	{
+		// BLOCKS
+		"AIR": 0,
+		"STONE": 1,
+		"GRASS": 2,
+		"DIRT": 3,
+		"COBBLESTONE": 4,
+		"COBBLE": 4,
+		"PLANK": 5,
+		"PLANKS": 5,
+		"WOODEN_PLANK": 5,
+		"WOODEN_PLANKS": 5,
+		"SAPLING": 6,
+		"SAPLINGS": 6,
+		"BEDROCK": 7,
+		"WATER": 8,
+		"STILL_WATER": 9,
+		"LAVA": 10,
+		"STILL_LAVA": 11,
+		"SAND": 12,
+		"GRAVEL": 13,
+		"GOLD_ORE": 14,
+		"IRON_ORE": 15,
+		"COAL_ORE": 16,
+		"WOOD": 17,
+		"TRUNK": 17,
+		"LEAVES": 18,
+		"LEAVE": 18,
+		"SPONGE": 19,
+		"GLASS": 20,
+		"LAPIS_ORE": 21,
+		"LAPIS_BLOCK": 22,
+		"SANDSTONE": 24,
+		"BED_BLOCK": 26,
+		"POWERED_RAIL": 27,
+		"COBWEB": 30,
+		"TALL_GRASS": 31,
+		"BUSH": 32,
+		"DEAD_BUSH": 32,
+		"WOOL": 35,
+		"DANDELION": 37,
+		"YELLOW_FLOWER": 37,
+		"ROSE": 38,
+		"CYAN_FLOWER": 38,
+		"BROWN_MUSHROOM": 39,
+		"RED_MUSHROOM": 40,
+		"GOLD_BLOCK": 41,
+		"IRON_BLOCK": 42,
+		"DOUBLE_SLAB": 43,
+		"DOUBLE_SLABS": 43,
+		"SLAB": 44,
+		"SLABS": 44,
+		"BRICK": 45,
+		"BRICK_BLOCK": 45,
+		"TNT": 46,
+		"BOOKSHELF": 47,
+		"MOSS_STONE": 48,
+		"MOSSY_STONE": 48,
+		"OBSIDIAN": 49,
+		"TORCH": 50,
+		"FIRE": 51,
+		"WOOD_STAIRS": 53,
+		"WOODEN_STAIRS": 53,
+		"OAK_WOOD_STAIRS": 53,
+		"OAK_WOODEN_STAIRS": 53,
+		"CHEST": 54,
+		"DIAMOND_ORE": 56,
+		"DIAMOND_BLOCK": 57,
+		"CRAFTING_TABLE": 58,
+		"WORKBENCH": 58,
+		"WHEAT_BLOCK": 59,
+		"SEED_BLOCK": 59,
+		"FARMLAND": 60,
+		"FURNACE": 61,
+		"BURNING_FURNACE": 62,
+		"LIT_FURNACE": 62,
+		"SIGN_POST": 63,
+		"SIGN_BLOCK": 63,
+		"DOOR_BLOCK": 64,
+		"DOOR": 64,
+		"WOODEN_DOOR_BLOCK": 64,
+		"WOOD_DOOR_BLOCK": 64,
+		"LADDER": 65,
+		"COBBLE_STAIRS": 67,
+		"COBBLESTONE_STAIRS": 67,
+		"WALL_SIGN": 68,
+		"IRON_DOOR_BLOCK": 71,
+		"REDSTONE_ORE": 73,
+		"GLOWING_REDSTONE_ORE": 74,
+		"LIT_REDSTONE_ORE": 74,
+		"SNOW": 78,
+		"SNOW_LAYER": 78,
+		"ICE": 79,
+		"SNOW_BLOCK": 80,
+		"CACTUS": 81,
+		"CLAY_BLOCK": 82,
+		"REEDS": 83,
+		"SUGARCANE_BLOCK": 83,
+		"FENCE": 85,
+		"PUMPKIN": 86,
+		"NETHERRACK": 87,
+		"GLOWSTONE": 89,
+		"GLOWSTONE_BLOCK": 89,
+		"LIT_PUMPKIN": 91,
+		"JACK_O_LANTERN": 91,
+		"GLOWING_PUMPKIN": 91,
+		"CAKE_BLOCK": 92,
+		"INVISIBLE_BEDROCK": 95,
+		"TRAPDOOR": 96,
+		"STONE_BRICKS": 98,
+		"STONE_BRICK": 98,
+		"IRON_BAR": 101,
+		"IRON_BARS": 101,
+		"GLASS_PANE": 102,
+		"GLASS_PANEL": 102,
+		"MELON_BLOCK": 103,
+		"PUMPKIN_STEM": 104,
+		"MELON_STEM": 105,
+		"FENCE_GATE": 107,
+		"BRICK_STAIRS": 108,
+		"STONE_BRICK_STAIRS": 109,
+		"NETHER_BRICKS": 112,
+		"NETHER_BRICK_BLOCK": 112,
+		"NETHER_BRICKS_STAIRS": 114,
+		"SANDSTONE_STAIRS": 128,
+		"SPRUCE_WOOD_STAIRS": 134,
+		"SPRUCE_WOODEN_STAIRS": 134,
+		"BIRCH_WOOD_STAIRS": 135,
+		"BIRCH_WOODEN_STAIRS": 135,
+		"JUNGLE_WOOD_STAIRS": 136,
+		"JUNGLE_WOODEN_STAIRS": 136,
+		"COBBLE_WALL": 139,
+		"STONE_WALL": 139,
+		"COBBLESTONE_WALL": 139,
+		"CARROT_BLOCK": 141,
+		"POTATO_BLOCK": 141,
+		"QUARTZ_BLOCK": 155,
+		"QUARTZ_STAIRS": 156,
+		"DOUBLE_WOOD_SLAB": 157,
+		"DOUBLE_WOODEN_SLAB": 157,
+		"DOUBLE_WOOD_SLABS": 157,
+		"DOUBLE_WOODEN_SLABS": 157,
+		"WOOD_SLAB": 158,
+		"WOODEN_SLAB": 158,
+		"WOOD_SLABS": 158,
+		"WOODEN_SLABS": 158,
+		"HAY_BALE": 170,
+		"HAY_BLOCK": 170,
+		"CARPET": 171,
+		"COAL_BLOCK": 173,
+		"BEETROOT_BLOCK": 244,
+		"STONECUTTER": 245,
+		"GLOWING_OBSIDIAN": 246,
+		"NETHER_REACTOR": 247,
+		"NETHER_REACTOR_CORE": 247,
+		"UPDATE_BLOCK": 248,
+		"UPDATE_BLOCK_ATE": 249,
+		"NONAME": 255,
+		
+		// TOOLS
+		"IRON_SHOVEL": 256,
+		"IRON_PICKAXE": 257,
+		"IRON_AXE": 258,
+		"FLINT_STEEL": 259,
+		"FLINT_AND_STEEL": 259,
+		"APPLE": 260,
+		"BOW": 261,
+		"ARROW": 262,
+		"COAL": 263,
+		"DIAMOND": 264,
+		"IRON_INGOT": 265,
+		"GOLD_INGOT": 266,
+		"IRON_SWORD": 267,
+		"WOODEN_SWORD": 268,
+		"WOODEN_SHOVEL": 269,
+		"WOODEN_PICKAXE": 270,
+		"WOODEN_AXE": 271,
+		"STONE_SWORD": 272,
+		"STONE_SHOVEL": 273,
+		"STONE_PICKAXE": 274,
+		"STONE_AXE": 275,
+		"DIAMOND_SWORD": 276,
+		"DIAMOND_SHOVEL": 277,
+		"DIAMOND_PICKAXE": 278,
+		"DIAMOND_AXE": 279,
+		"STICK": 280,
+		"STICKS": 280,
+		"BOWL": 281,
+		"MUSHROOM_STEW": 282,
+		"GOLD_SWORD": 283,
+		"GOLDEN_SWORD": 283,
+		"GOLD_SHOVEL": 284,
+		"GOLDEN_SHOVEL": 284,
+		"GOLD_PICKAXE": 285,
+		"GOLDEN_PICKAXE": 285,
+		"GOLD_AXE": 286,
+		"GOLDEN_AXE": 286,
+		"STRING": 287,
+		"FEATHER": 288,
+		"GUNPOWDER": 289,
+		"WOODEN_HOE": 290,
+		"STONE_HOE": 291,
+		"IRON_HOE": 292,
+		"DIAMOND_HOE": 293,
+		"GOLD_HOE": 294,
+		"GOLDEN_HOE": 294,
+		"SEEDS": 295,
+		"WHEAT_SEEDS": 295,
+		"WHEAT": 296,
+		"BREAD": 297,
+		"LEATHER_CAP": 298,
+		"LEATHER_TUNIC": 299,
+		"LEATHER_PANTS": 300,
+		"LEATHER_BOOTS": 301,
+		"CHAIN_HELMET": 302,
+		"CHAIN_CHESTPLATE": 303,
+		"CHAIN_LEGGINGS": 304,
+		"CHAIN_BOOTS": 305,
+		"IRON_HELMET": 306,
+		"IRON_CHESTPLATE": 307,
+		"IRON_LEGGINGS": 308,
+		"IRON_BOOTS": 309,
+		"DIAMOND_HELMET": 310,
+		"DIAMOND_CHESTPLATE": 311,
+		"DIAMOND_LEGGINGS": 312,
+		"DIAMOND_BOOTS": 313,
+		"GOLD_HELMET": 314,
+		"GOLD_CHESTPLATE": 315,
+		"GOLD_LEGGINGS": 316,
+		"GOLD_BOOTS": 317,
+		"FLINT": 318,
+		"RAW_PORKCHOP": 319,
+		"COOKED_PORKCHOP": 320,
+		"PAINTING": 321,
+		"GOLDEN_APPLE": 322,
+		"SIGN": 323,
+		"WOODEN_DOOR": 324,
+		"BUCKET": 325,
+		"MINECART": 328,
+		"SADDLE": 329,
+		"IRON_DOOR": 330,
+		"REDSTONE": 331,
+		"REDSTONE_DUST": 331,
+		"SNOWBALL": 332,
+		"BOAT": 333,
+		"LEATHER": 334,
+		"BRICK": 336,
+		"CLAY": 337,
+		"SUGARCANE": 338,
+		"SUGAR_CANE": 338,
+		"SUGAR_CANES": 338,
+		"PAPER": 339,
+		"BOOK": 340,
+		"SLIMEBALL": 341,
+		"EGG": 344,
+		"COMPASS": 345,
+		"CLOCK": 347,
+		"GLOWSTONE_DUST": 348,
+		"DYE": 351,
+		"BONE": 352,
+		"SUGAR": 353,
+		"CAKE": 354,
+		"BED": 355,
+		"SHEARS": 359,
+		"MELON": 360,
+		"MELON_SLICE": 360,
+		"PUMPKIN_SEEDS": 361,
+		"MELON_SEEDS": 362,
+		"RAW_BEEF": 363,
+		"STEAK": 364,
+		"COOKED_BEEF": 364,
+		"RAW_CHICKEN": 365,
+		"COOKED_CHICKEN": 366,
+		"SPAWN_EGG": 383,
+		"CARROT": 391,
+		"CARROTS": 391,
+		"POTATO": 392,
+		"POTATOES": 392,
+		"BAKED_POTATO": 393,
+		"BAKED_POTATOES": 393,
+		"NETHER_BRICK": 405,
+		"QUARTZ": 406,
+		"NETHER_QUARTZ": 406,
+		"CAMERA": 456,
+		"BEETROOT": 457,
+		"BEETROOT_SEEDS": 458,
+		"BEETROOT_SEED": 458,
+		"BEETROOT_SOUP": 459
+	}
+];
 
 // Main functions
 function useItem(x, y, z, itemId, blockId, side)
@@ -409,10 +412,6 @@ function useItem(x, y, z, itemId, blockId, side)
 }
 function modTick()
 {
-	if(modeCoords === true)
-	{
-		addonCoords();
-	}
 	if(modeF3 === true)
 	{
 		var x = Math.round(Player.getX() * 1000) / 1000;
@@ -453,12 +452,7 @@ function procCmd(command)
 				
 					addonShowHelp("back", "Teleports you to last death point", "", "");
 					break;
-				/*
-				case "bind":
 				
-					addonShowHelp("bind", "Binds a command to a GUI button", "<command> [parameters]", "jump");
-					break;
-				*/
 				case "bomb":
 				
 					addonShowHelp("bomb", "Explodes a specified location", "<on|off|detonate>", "");
@@ -478,11 +472,6 @@ function procCmd(command)
 				case "clearinventory":
 				
 					addonShowHelp("clear", "Clears the player's survival inventory", "", "");
-					break;
-				
-				case "commands":
-				
-					addonShowHelp("commands", "Lists all avaiable commands", "", "");
 					break;
 				
 				case "coords":
@@ -631,31 +620,7 @@ function procCmd(command)
 				addonColourMessage("Teleported to death point");
 			}
 			break;
-		/*
-		case "bind":
 		
-			bindLft = false;
-			if(typeof cmd[1] === "undefined")
-			{
-				addonErrorMessage("Not enough parameters");
-			}
-			else if(cmd[1] === "bind" || cmd[1] === "lbind")
-			{
-				addonErrorMessage("Cannot bind itself");
-			}
-			else if(cmd[1] !== "bind" || cmd[1] !== "lbind")
-			{
-				dismissBind();
-				bindCommand = [];
-				for(i = 1; i <= cmd.length; i++)
-				{
-					bindCommand.push(cmd[i]);
-				}
-				showBind();
-				clientMessage("Binded §b" + cmd[1] + "§f.");
-			}
-			break;
-		*/
 		case "bomb":
 		
 			if(typeof cmd[1] === "undefined")
@@ -774,63 +739,14 @@ function procCmd(command)
 			}
 			break;
 		
-		case "commands":
-		
-			addonCommands();
-			break;
 		
 		case "coords":
 		case "coordinates":
 		
-			if(typeof cmd[1] === "undefined")
-			{
-				modeCoords = !modeCoords;
-				addonColourMessage("Showing coordinates is now " + ChatColor.AQUA + (modeCoords ? "on" : "off"));
-				if(modeCoords === false)
-				{
-					addonDismissCoords();
-				}
-			}
-			if(typeof cmd[1] !== "undefined")
-			{
-				switch(cmd[1])
-				{
-					case "on":
-					
-						if(modeCoords === true)
-						{
-							addonErrorMessage("Showing coordinates mode is already on");
-						}
-						if(modeCoords === false)
-						{
-							modeCoords = true;
-							addonColourMessage("Showing coordinates mode has been turned on");
-						}
-						break;
-					
-					case "off":
-					
-						if(modeCoords === false)
-						{
-							addonErrorMessage("Showing coordinates mode is already off");
-						}
-						if(modeCoords === true)
-						{
-							modeCoords = false;
-							addonDismissCoords();
-							addonColourMessage("Showing coordinates mode has been turned off");
-						}
-						break;
-					
-					case "info":
-					
-						addonColourMessage("Current coordinates are:");
-						addonColourMessage("x: " + Math.floor(Player.getX()));
-						addonColourMessage("y: " + Math.floor(Player.getY() - 1));
-						addonColourMessage("z: " + Math.floor(Player.getZ()));
-						break;
-				}
-			}
+			addonColourMessage("Current coordinates are:");
+			addonColourMessage("x: " + Math.floor(Player.getX()));
+			addonColourMessage("y: " + Math.floor(Player.getY() - 1));
+			addonColourMessage("z: " + Math.floor(Player.getZ()));
 			break;
 		
 		case "del":
@@ -1302,6 +1218,148 @@ function procCmd(command)
 			}
 			break;
 		
+		case "instabreak":
+		
+			if(typeof cmd[1] === "undefined")
+			{
+				modeInstabreak = !modeInstabreak;
+				addonColourMessage("Instabreak mode is now " + ChatColor.AQUA + (modeInstabreak ? "on" : "off"));
+			}
+			if(typeof cmd[1] !== "undefined")
+			{
+				switch(cmd[1])
+				{
+					case "on":
+					
+						if(modeInstabreak === true)
+						{
+							addonErrorMessage("Instabreak mode is already on");
+						}
+						if(modeInstabreak === false)
+						{
+							modeInstabreak = true;
+							addonColourMessage("Instabreak mode has been turned on");
+						}
+						break;
+					
+					case "off":
+					
+						if(modeInstabreak === false)
+						{
+							addonErrorMessage("Instabreak mode is already off");
+						}
+						if(modeInstabreak === true)
+						{
+							modeInstabreak = false;
+							addonColourMessage("Instabreak mode has been turned off");
+						}
+						break;
+				}
+			}
+			break;
+		
+		case "itemname":
+		case "iteminfo":
+		
+			addonColourMessage("Carried Item: " + Player.getCarriedItem());
+			addonColourMessage("Count: " + Player.getCarriedItemCount());
+			addonColourMessage("Damage: " + Player.getCarriedItemData());
+			break;
+		
+		case "jump":
+		
+			jump();
+			break;
+		
+		case "kill":
+		case "killme":
+		
+			Player.setHealth(0);
+			break;
+		
+		case "launch": /* Not working */
+		
+			break;
+		
+		case "leave":
+		
+			ModPE.leaveGame();
+			break;
+		
+		case "mc":
+		case "magiccarpet":
+		
+			if(typeof cmd[1] === "undefined")
+			{
+				modeMagiccarpet = !modeMagiccarpet;
+				addonColourMessage("Magiccarpet mode is now " + ChatColor.AQUA + (modeMagiccarpet ? "on" : "off"));
+			}
+			if(typeof cmd[1] !== "undefined")
+			{
+				switch(cmd[1])
+				{
+					case "on":
+					
+						if(modeMagiccarpet === true)
+						{
+							addonErrorMessage("Magiccarpet mode is already on");
+						}
+						if(modeMagiccarpet === false)
+						{
+							modeMagiccarpet = true;
+							addonColourMessage("Magiccarpet mode has been turned on");
+						}
+						break;
+					
+					case "off":
+					
+						if(modeMagiccarpet === false)
+						{
+							addonErrorMessage("Magiccarpet mode is already off");
+						}
+						if(modeMagiccarpet === true)
+						{
+							modeMagiccarpet = false;
+							addonColourMessage("Magiccarpet mode has been turned off");
+						}
+						break;
+				}
+			}
+			if(!modeMagiccarpet)
+			{
+				var x = Math.floor(Player.getX());
+				var y = Math.floor(Player.getY()) - 2;
+				var z = Math.floor(Player.getZ());
+				for(var i = -3 ; i <= 3; i++) {
+					for(var j = -3; j <= 3; j++)
+					{
+						if(i >= -2 && i <= 2)
+						{
+							if(j >= -2 && j <= 2)
+							{
+								if(Level.getTile(x + i, y, z + j) === 20)
+								{
+									Level.setTile(x + i, y, z + j, 0);
+								}
+							}
+						}
+					}
+				}
+			}
+			break;
+		
+		case "nuke":
+		
+			for(var x = -21; x <= 21; x += 3)
+			{
+				for(var z = -21; z <= 21; z += 3)
+				{
+					Level.spawnMob(Player.getX() + x, Player.getY() + 20, Player.getZ() + z,65);
+				}
+			}
+			addonColourMessage("Nuke launched.");
+			break;
+		
 		case "spc":
 		
 			if(typeof cmd[1] === "undefined")
@@ -1315,7 +1373,9 @@ function procCmd(command)
 				{
 					case "about":
 					
-						addonAbout();
+						addonColourMessage("SinglePlayerCommands by Orbitron");
+						addonColourMessage("Version " + version);
+						addonColourMessage("Big thanks to: Connor4898 / CheesyFriedBacon / KMCPE");
 						break;
 				}
 			}
@@ -1392,157 +1452,4 @@ function addonShowHelpPage(page)
 	{
 		addonErrorMessage("The page number must be a whole number!")
 	}
-}
-function dip2px(ctx, dips)
-{
-	return Math.ceil(dips * ctx.getResources().getDisplayMetrics().density);
-}
-/*
-function showBind()
-{
-	ctx.runOnUiThread(new java.lang.Runnable()
-	{
-		run: function ()
-		{
-			try
-			{
-				var btn = new android.widget.Button(ctx);
-				btn.setText(bindCommand[0].toUpperCase());
-				btn.setTextColor(android.graphics.Color.CYAN);
-				btn.setOnClickListener(new android.view.View.OnClickListener()
-				{
-					onClick: function ()
-					{
-						try
-						{
-							procCmd(bindCommand);
-						} catch(err) {
-							print("\nCannot execute " + ChatColor.AQUA + bindCommand);
-						}
-						
-					}
-				});
-				bindBtn = new android.widget.PopupWindow(btn, android.view.ViewGroup.LayoutParams.WRAP_CONTENT, android.view.ViewGroup.LayoutParams.WRAP_CONTENT);
-				if(bindLft)
-				{
-					bindBtn.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.BOTTOM | android.view.Gravity.LEFT, dip2px(ctx, 85), dip2px(ctx, 85));
-				}
-				else
-				{
-					bindBtn.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.BOTTOM | android.view.Gravity.RIGHT, dip2px(ctx, 85), dip2px(ctx, 85));
-				}
-			} catch (e) {
-				print(e);
-			}
-		}
-	});
-}
-function dismissBind()
-{
-	ctx.runOnUiThread(new java.lang.Runnable()
-	{
-		run: function ()
-		{
-			if(bindBtn != null)
-			{
-				bindBtn.dismiss();
-			}
-		}
-	});
-	bindCommand = [];
-}
-*/
-function addonCoords()
-{
-	ctx.runOnUiThread(new java.lang.Runnable({ run: function() {
-		try
-		{
-			if(cmdCoords_show)
-			{
-				coordsTextview.setText("x: " + Math.floor(Player.getX() - 1) + "\ny: " + Math.floor(Player.getY()) + "\nz: " + Math.floor(Player.getZ()));
-			}
-			else
-			{
-				coordsWindow = new android.widget.PopupWindow();
-				var coordsLayout = new android.widget.RelativeLayout(ctx);
-				coordsTextview = new android.widget.TextView(ctx);
-				coordsTextview.setTextSize(25);
-				coordsTextview.setTextColor(android.graphics.Color.WHITE);
-				coordsLayout.addView(coordsTextview);
-				coordsWindow.setContentView(coordsLayout);
-				coordsWindow.setWidth(dip2px(ctx, 100));
-				coordsWindow.setHeight(dip2px(ctx, 100));
-				coordsWindow.setBackgroundDrawable(new android.graphics.drawable.ColorDrawable(android.graphics.Color.TRANSPARENT));
-				coordsWindow.showAtLocation(ctx.getWindow().getDecorView(), android.view.Gravity.LEFT | android.view.Gravity.TOP, dip2px(ctx, 5), dip2px(ctx, 40));
-				cmdCoords_show = true;
-			}
-		} catch(err) {
-			print("Failed to show coordinates." + err);
-		}
-	}}));
-}
-function addonDismissCoords()
-{
-	showingCoords = false;
-	coordsActive = false;
-	ctx.runOnUiThread(new java.lang.Runnable(
-	{
-		run: function()
-		{
-			coordsWindow.dismiss();
-		}
-	}));
-}
-function addonCommands()
-{
-	ctx.runOnUiThread(new java.lang.Runnable(
-	{
-		run: function()
-		{
-			try
-			{
-				var commands = new android.app.AlertDialog.Builder(ctx);
-				commands.setTitle("Commands List");
-				var list = cmdHelp_pages[0];
-				for(i = 1; i < cmdHelp_pages.length; i++)
-				{
-					list = list.concat(cmdHelp_pages[i]);
-				}
-				commands.setMessage(list.join("\n"));
-				commands.setNegativeButton("Ok", new android.content.DialogInterface.OnClickListener() {
-					onClick: function(par1){
-						commands2.dismiss();
-					}
-				});
-				var commands2 = commands.create();
-				commands2.show();
-			} catch (err) {
-				print("Error while executing Java: " + err);
-			}
-		}
-	}));
-}
-function addonAbout()
-{
-	ctx.runOnUiThread(new java.lang.Runnable(
-	{
-		run: function()
-		{
-			try
-			{
-				var info = new android.app.AlertDialog.Builder(ctx);
-				info.setTitle("About");
-				info.setMessage("SinglePlayerCommand (by " + author +")\nVersion v" + version + "\n\nBig thanks to:\nConnor4898\nCheesyFriedBacon\nKMCPE");
-				info.setNegativeButton("Ok", new android.content.DialogInterface.OnClickListener() {
-					onClick: function(par1){
-						info2.dismiss();
-					}
-				});
-				var info2 = info.create();
-				info2.show();
-			} catch (err) {
-				print("Error while executing Java: " + err);
-			}
-		}
-	}));
 }
