@@ -102,6 +102,7 @@ function procCmd(command)
 					addonColourMessage("You are a creeper");
 					break;
 			}
+			break;
 		
 		default:
 		
@@ -110,7 +111,7 @@ function procCmd(command)
 }
 function newLevel()
 {
-	clientMessage("§7[INFO] §fDisguise loaded");
+	clientMessage("§7[INFO] §f" + project + " loaded");
 }
 
 // Additional functions

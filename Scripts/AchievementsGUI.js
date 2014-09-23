@@ -163,7 +163,7 @@ function newLevel()
 	{
 		achievement[i] = ModPE.readData("a" + i);
 	}
-	clientMessage("§7[INFO] §fAchievements loaded");
+	clientMessage("§7[INFO] §f" + project + " loaded");
 }
 function leaveGame()
 {

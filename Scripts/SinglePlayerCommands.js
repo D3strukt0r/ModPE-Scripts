@@ -1385,7 +1385,7 @@ function procCmd(command)
 }
 function newLevel()
 {
-	clientMessage("§7[INFO] §fSinglePlayerCommands loaded");
+	clientMessage("§7[INFO] §f" + project + " loaded");
 }
 function leaveGame()
 {
