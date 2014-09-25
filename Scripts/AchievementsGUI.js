@@ -5,7 +5,7 @@
  * === ABOUT PROJECT ===
  * @author:		Orbitron
  * @project:	AchievementsGUI
- * @version:	v1.0.5
+ * @version:	v1.0.6
  * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/AchievementsGUI.js
  *
  * Testet with:
@@ -17,7 +17,7 @@
 // Project info
 var project		= "Achievements";
 var sname		= "ACH";
-var version		= "1.0.5";
+var version		= "1.0.6";
 var author		= "Orbitron";
 
 // Values
@@ -45,64 +45,64 @@ var achievement	= [
 // Main functions
 function useItem(x, y, z, itemId, blockId, side)
 {
-	if (a6 == 1 && itemId == 58)
+	if(achievement[6] === true && itemId == 58)
 	{
 		addonShowAchievement(6);
 	}
-	if (a7 == 1 && itemId == 61)
+	if(achievement[7] === true && itemId == 61)
 	{
 		addonShowAchievement(7);
 	}
-	if (a8 == 1 && itemId == 270)
+	if(achievement[8] === true && itemId == 270)
 	{
 		addonShowAchievement(8);
 	}
-	if (a9 == 1 && itemId == 265)
+	if(achievement[9] === true && itemId == 265)
 	{
 		addonShowAchievement(9);
 	}
-	if (a10 == 1 && itemId == 290)
+	if(achievement[10] === true && itemId == 290)
 	{
 		addonShowAchievement(10);
 	}
-	if (a11 == 1 && itemId == 297)
+	if(achievement[11] === true && itemId == 297)
 	{
 		addonShowAchievement(11);
 	}
-	if (a12 == 1 && itemId == 354)
+	if(achievement[12] === true && itemId == 354)
 	{
 		addonShowAchievement(12);
 	}
-	if (a13 == 1)
+	if(achievement[13] === true)
 	{
 		if (itemId == 274 || itemId == 257 || itemId == 285 || itemId == 278)
 		{
 			addonShowAchievement(13);
 		}
 	}
-	if (a14 == 1 && itemId == 268)
+	if(achievement[14] === true && itemId == 268)
 	{
 		addonShowAchievement(14);
 	}
-	if (a15 == 1 && itemId == 47)
+	if(achievement[15] === true && itemId == 47)
 	{
 		addonShowAchievement(15);
 	}
 }
 function attackHook(attacker, victim)
 {
-	if(a1 == 1)
+	if(achievement[1] === true)
 	{
 		if(Entity.getEntityTypeId(victim) == 32 || Entity.getEntityTypeId(victim) == 33 || Entity.getEntityTypeId(victim) == 34 || Entity.getEntityTypeId(victim) == 35 || Entity.getEntityTypeId(victim) == 36)
 		{
 			addonShowAchievement(1);
 		}
 	}
-	if(a2 == 1 && Entity.getEntityTypeId(victim) == 11)
+	if(achievement[2] === true && Entity.getEntityTypeId(victim) == 11)
 	{
 		addonShowAchievement(2);
 	}
-	if(a3 == 1 && Entity.getEntityTypeId(victim) == 34 && getCarriedItem() == 261)
+	if(achievement[3] === true && Entity.getEntityTypeId(victim) == 34 && getCarriedItem() == 261)
 	{
 		addonShowAchievement(3);
 	}
@@ -163,7 +163,7 @@ function newLevel()
 	{
 		achievement[i] = ModPE.readData("a" + i);
 	}
-	clientMessage("§7[INFO] §f" + project + " loaded");
+	clientMessage(ChatColor.GRAY + "[INFO] " + ChatColor.WHITE + project + " loaded");
 }
 function leaveGame()
 {
@@ -185,11 +185,11 @@ function leaveGame()
 }
 function destroyBlock(x, y, z, side)
 {
-	if (a4 == 1 && getTile(x, y, z) == 17)
+	if (achievement[4] === true && getTile(x, y, z) == 17)
 	{
 		addonShowAchievement(4);
 	}
-	if (a5 == 1 && getTile(x, y, z) == 56 && getCarriedItem() == 257)
+	if (achievement[5] === true && getTile(x, y, z) == 56 && getCarriedItem() == 257)
 	{
 		addonShowAchievement(5);
 	}

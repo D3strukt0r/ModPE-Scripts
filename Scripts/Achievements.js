@@ -5,7 +5,7 @@
  * === ABOUT PROJECT ===
  * @author:		Orbitron
  * @project:	Achievements
- * @version:	v1.0.5
+ * @version:	v1.0.6
  * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/Achievements.js
  *
  * Testet with:
@@ -17,7 +17,7 @@
 // Project info
 var project		= "Achievements";
 var sname		= "ACH";
-var version		= "1.0.5";
+var version		= "1.0.6";
 var author		= "Orbitron";
 
 // Values
@@ -102,64 +102,64 @@ var achievement	= [
 // Main functions
 function useItem(x, y, z, itemId, blockId, side)
 {
-	if(a6 == 1 && itemId == 58)
+	if(achievement[6]["reached"] === true && itemId == 58)
 	{
 		addonShowAchievement(6);
 	}
-	if(a7 == 1 && itemId == 61)
+	if(achievement[7]["reached"] === true && itemId == 61)
 	{
 		addonShowAchievement(7);
 	}
-	if(a8 == 1 && itemId == 270)
+	if(achievement[8]["reached"] === true && itemId == 270)
 	{
 		addonShowAchievement(8);
 	}
-	if(a9 == 1 && itemId == 265)
+	if(achievement[9]["reached"] === true && itemId == 265)
 	{
 		addonShowAchievement(9);
 	}
-	if(a10 == 1 && itemId == 290)
+	if(achievement[10]["reached"] === true && itemId == 290)
 	{
 		addonShowAchievement(10);
 	}
-	if(a11 == 1 && itemId == 297)
+	if(achievement[11]["reached"] === true && itemId == 297)
 	{
 		addonShowAchievement(11);
 	}
-	if(a12 == 1 && itemId == 354)
+	if(achievement[12]["reached"] === true && itemId == 354)
 	{
 		addonShowAchievement(12);
 	}
-	if(a13 == 1)
+	if(achievement[13]["reached"] === true)
 	{
-		if(itemId == 274 || itemId == 257 || itemId == 285 || itemId == 278)
+		if (itemId == 274 || itemId == 257 || itemId == 285 || itemId == 278)
 		{
 			addonShowAchievement(13);
 		}
 	}
-	if(a14 == 1 && itemId == 268)
+	if(achievement[14]["reached"] === true && itemId == 268)
 	{
 		addonShowAchievement(14);
 	}
-	if(a15 == 1 && itemId == 47)
+	if(achievement[15]["reached"] === true && itemId == 47)
 	{
 		addonShowAchievement(15);
 	}
 }
 function attackHook(attacker, victim)
 {
-	if(a1 == 1)
+	if(achievement[1]["reached"] === true)
 	{
 		if(Entity.getEntityTypeId(victim) == 32 || Entity.getEntityTypeId(victim) == 33 || Entity.getEntityTypeId(victim) == 34 || Entity.getEntityTypeId(victim) == 35 || Entity.getEntityTypeId(victim) == 36)
 		{
 			addonShowAchievement(1);
 		}
 	}
-	if(a2 == 1 && Entity.getEntityTypeId(victim) == 11)
+	if(achievement[2]["reached"] === true && Entity.getEntityTypeId(victim) == 11)
 	{
 		addonShowAchievement(2);
 	}
-	if(a3 == 1 && Entity.getEntityTypeId(victim) == 34 && getCarriedItem() == 261)
+	if(achievement[3]["reached"] === true && Entity.getEntityTypeId(victim) == 34 && getCarriedItem() == 261)
 	{
 		addonShowAchievement(3);
 	}
@@ -178,7 +178,7 @@ function procCmd(command)
 				
 					for(var i = 0; i < achievement.length; i++)
 					{
-						ModPE.saveData("a" + i, achievement[i]);
+						ModPE.saveData("a" + i, achievement[i]["reached"]);
 					}
 					addonColourMessage("Saved achievements!");
 					break;
@@ -215,11 +215,11 @@ function procCmd(command)
 }
 function destroyBlock(x, y, z, side)
 {
-	if (a4 == 1 && getTile(x, y, z) == 17)
+	if (achievement[4]["reached"] === true && getTile(x, y, z) == 17)
 	{
 		addonShowAchievement(4);
 	}
-	if (a5 == 1 && getTile(x, y, z) == 56 && getCarriedItem() == 257)
+	if (achievement[5]["reached"] === true && getTile(x, y, z) == 56 && getCarriedItem() == 257)
 	{
 		addonShowAchievement(5);
 	}
@@ -230,13 +230,13 @@ function newLevel()
 	{
 		achievement[i]["reached"] = ModPE.readData("a" + i);
 	}
-	clientMessage("§7[INFO] §f" + project + " loaded");
+	clientMessage(ChatColor.GRAY + "[INFO] " + ChatColor.WHITE + project + " loaded");
 }
 function leaveGame()
 {
 	for(var i = 0; i < achievement.length; i++)
 	{
-		ModPE.saveData("a" + i, achievement[i]);
+		ModPE.saveData("a" + i, achievement[i]["reached"]);
 	}
 }
 
