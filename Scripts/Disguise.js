@@ -34,28 +34,28 @@ function procCmd(command)
 			{
 				case "chicken":
 				
-					Entity.setRenderType(Player.getEntity(), 10);
+					Entity.setRenderType(Player.getEntity(), EntityRenderType.chicken);
 					Entity.setMobSkin(Player.getEntity(), "mob/chicken.png");
 					addonColourMessage("You are a chicken");
 					break;
 				
 				case "cow":
 				
-					Entity.setRenderType(Player.getEntity(), 11);
+					Entity.setRenderType(Player.getEntity(), EntityRenderType.cow);
 					Entity.setMobSkin(Player.getEntity(), "mob/cow.png");
 					addonColourMessage("You are a cow");
 					break;
 				
 				case "pig":
 				
-					Entity.setRenderType(Player.getEntity(), 12);
+					Entity.setRenderType(Player.getEntity(), EntityRenderType.pig);
 					Entity.setMobSkin(Player.getEntity(), "mob/pig.png");
 					addonColourMessage("You are a pig");
 					break;
 				
 				case "sheep":
 				
-					Entity.setRenderType(Player.getEntity(), 13);
+					Entity.setRenderType(Player.getEntity(), EntityRenderType.sheep);
 					Entity.setMobSkin(Player.getEntity(), "mob/sheep_0.png");
 					addonColourMessage("You are a sheep");
 					break;
@@ -69,14 +69,14 @@ function procCmd(command)
 				
 				case "villager":
 				
-					Entity.setRenderType(Player.getEntity(), 15);
+					Entity.setRenderType(Player.getEntity(), EntityRenderType.villager);
 					Entity.setMobSkin(Player.getEntity(), "mob/villager/villager.png");
 					addonColourMessage("You are a villager");
 					break;
 				
 				case "mushroom":
 				
-					Entity.setRenderType(Player.getEntity(), 16);
+					Entity.setRenderType(Player.getEntity(), EntityRenderType.mushroomCow);
 					Entity.setMobSkin(Player.getEntity(), "mob/mushroom.png");
 					addonColourMessage("You are a mushroom cow");
 					break;
@@ -90,21 +90,21 @@ function procCmd(command)
 				
 				case "creeper":
 				
-					Entity.setRenderType(Player.getEntity(), 33);
+					Entity.setRenderType(Player.getEntity(), EntityRenderType.creeper);
 					Entity.setMobSkin(Player.getEntity(), "mob/creeper.png");
 					addonColourMessage("You are a creeper");
 					break;
 				
 				case "skeleton":
 				
-					Entity.setRenderType(Player.getEntity(), 34);
+					Entity.setRenderType(Player.getEntity(), EntityRenderType.skeleton);
 					Entity.setMobSkin(Player.getEntity(), "mob/skeleton.png");
 					addonColourMessage("You are a skeleton");
 					break;
 				
 				case "spider":
 				
-					Entity.setRenderType(Player.getEntity(), 35);
+					Entity.setRenderType(Player.getEntity(), EntityRenderType.spider);
 					Entity.setMobSkin(Player.getEntity(), "mob/spider.png");
 					addonColourMessage("You are a spider");
 					break;
@@ -125,21 +125,21 @@ function procCmd(command)
 				
 				case "enderman":
 				
-					Entity.setRenderType(Player.getEntity(), 38);
+					Entity.setRenderType(Player.getEntity(), EntityRenderType.enderman);
 					Entity.setMobSkin(Player.getEntity(), "mob/enderman.png");
 					addonColourMessage("You are a ENDERMAN");
 					break;
 				
 				case "silverfish":
 				
-					Entity.setRenderType(Player.getEntity(), 39);
+					Entity.setRenderType(Player.getEntity(), EntityRenderType.silverfish);
 					Entity.setMobSkin(Player.getEntity(), "mob/silverfish.png");
 					addonColourMessage("You are a silverfish");
 					break;
 				
 				case "steve":
 				
-					Entity.setRenderType(Player.getEntity(), 63);
+					Entity.setRenderType(Player.getEntity(), EntityRenderType.player);
 					Entity.setMobSkin(Player.getEntity(), "mob/char.png");
 					addonColourMessage("You are Steve");
 					break;
