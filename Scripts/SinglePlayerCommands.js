@@ -1385,7 +1385,7 @@ function procCmd(command)
 }
 function newLevel()
 {
-	clientMessage("§7[INFO] §f" + project + " loaded");
+	clientMessage(ChatColor.GRAY + "[INFO] " + ChatColor.WHITE + project + " loaded");
 }
 function leaveGame()
 {

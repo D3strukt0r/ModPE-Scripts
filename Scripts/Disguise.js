@@ -13,7 +13,7 @@
  * BlockLauncher: v1.7.9
  *
  */
- 
+
 // Project info
 var project		= "Disguise";
 var sname		= "DIS";
@@ -111,7 +111,7 @@ function procCmd(command)
 }
 function newLevel()
 {
-	clientMessage("§7[INFO] §f" + project + " loaded");
+	clientMessage(ChatColor.GRAY + "[INFO] " + ChatColor.WHITE + project + " loaded");
 }
 
 // Additional functions
