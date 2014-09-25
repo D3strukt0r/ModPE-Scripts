@@ -5,7 +5,7 @@
  * === ABOUT PROJECT ===
  * @author:		Orbitron
  * @project:	Disguise
- * @version:	v1.0.1
+ * @version:	v1.0.2
  * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/Disguise.js
  *
  * Testet with:
@@ -17,7 +17,7 @@
 // Project info
 var project		= "Disguise";
 var sname		= "DIS";
-var version		= "1.0.1";
+var version		= "1.0.2";
 var author		= "Orbitron";
 
 // Values
@@ -30,7 +30,7 @@ function procCmd(command)
 	{
 		case "disguise":
 		
-			switch(cmd[1].toLowerCase())
+			switch(cmd[1])
 			{
 				case "steve":
 				
