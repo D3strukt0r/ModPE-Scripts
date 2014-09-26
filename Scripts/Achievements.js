@@ -100,66 +100,66 @@ var achievement	= [
 ];
 
 // Main functions
-function useItem(x, y, z, itemId, blockId, side)
+function useItem(x, y, z, itemId, blockId, side, itemDamage, blockDamage)
 {
-	if(achievement[5]["reached"] === true && itemId == 58)
+	if(achievement[5]["reached"] === false && itemId == 58)
 	{
 		addonShowAchievement(5);
 	}
-	if(achievement[6]["reached"] === true && itemId == 61)
+	if(achievement[6]["reached"] === false && itemId == 61)
 	{
 		addonShowAchievement(6);
 	}
-	if(achievement[7]["reached"] === true && itemId == 270)
+	if(achievement[7]["reached"] === false && itemId == 270)
 	{
 		addonShowAchievement(7);
 	}
-	if(achievement[8]["reached"] === true && itemId == 265)
+	if(achievement[8]["reached"] === false && itemId == 265)
 	{
 		addonShowAchievement(8);
 	}
-	if(achievement[9]["reached"] === true && itemId == 290)
+	if(achievement[9]["reached"] === false && itemId == 290)
 	{
 		addonShowAchievement(9);
 	}
-	if(achievement[10]["reached"] === true && itemId == 297)
+	if(achievement[10]["reached"] === false && itemId == 297)
 	{
 		addonShowAchievement(10);
 	}
-	if(achievement[11]["reached"] === true && itemId == 354)
+	if(achievement[11]["reached"] === false && itemId == 354)
 	{
 		addonShowAchievement(11);
 	}
-	if(achievement[12]["reached"] === true)
+	if(achievement[12]["reached"] === false)
 	{
 		if (itemId == 274 || itemId == 257 || itemId == 285 || itemId == 278)
 		{
 			addonShowAchievement(12);
 		}
 	}
-	if(achievement[13]["reached"] === true && itemId == 268)
+	if(achievement[13]["reached"] === false && itemId == 268)
 	{
 		addonShowAchievement(13);
 	}
-	if(achievement[14]["reached"] === true && itemId == 47)
+	if(achievement[14]["reached"] === false && itemId == 47)
 	{
 		addonShowAchievement(14);
 	}
 }
 function attackHook(attacker, victim)
 {
-	if(achievement[0]["reached"] === true)
+	if(achievement[0]["reached"] === false)
 	{
 		if(Entity.getEntityTypeId(victim) == 32 || Entity.getEntityTypeId(victim) == 33 || Entity.getEntityTypeId(victim) == 34 || Entity.getEntityTypeId(victim) == 35 || Entity.getEntityTypeId(victim) == 36)
 		{
 			addonShowAchievement(0);
 		}
 	}
-	if(achievement[1]["reached"] === true && Entity.getEntityTypeId(victim) == 11)
+	if(achievement[1]["reached"] === false && Entity.getEntityTypeId(victim) == 11)
 	{
 		addonShowAchievement(1);
 	}
-	if(achievement[2]["reached"] === true && Entity.getEntityTypeId(victim) == 34 && getCarriedItem() == 261)
+	if(achievement[2]["reached"] === false && Entity.getEntityTypeId(victim) == 34 && Player.getCarriedItem() == 261)
 	{
 		addonShowAchievement(2);
 	}
@@ -215,11 +215,11 @@ function procCmd(command)
 }
 function destroyBlock(x, y, z, side)
 {
-	if (achievement[3]["reached"] === true && getTile(x, y, z) == 17)
+	if (achievement[3]["reached"] === false && Level.getTile(x, y, z) == 17)
 	{
 		addonShowAchievement(3);
 	}
-	if (achievement[4]["reached"] === true && getTile(x, y, z) == 56 && getCarriedItem() == 257)
+	if (achievement[4]["reached"] === false && Level.getTile(x, y, z) == 56 && Player.getCarriedItem() == 257)
 	{
 		addonShowAchievement(4);
 	}
