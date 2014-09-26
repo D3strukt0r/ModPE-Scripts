@@ -5,7 +5,7 @@
  * === ABOUT PROJECT ===
  * @author:		Orbitron
  * @project:	Disguise
- * @version:	v1.0.2
+ * @version:	v1.1.0
  * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/Disguise.js
  *
  * Testet with:
@@ -17,7 +17,7 @@
 // Project info
 var project		= "Disguise";
 var sname		= "DIS";
-var version		= "1.0.2";
+var version		= "1.1.0";
 var author		= "Orbitron";
 
 // Values
