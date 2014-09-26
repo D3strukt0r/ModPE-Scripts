@@ -251,6 +251,6 @@ function addonErrorMessage(string)
 }
 function addonShowAchievement(ID)
 {
-	achievement[ID] = true;
+	achievement[ID]["reached"] = true;
 	clientMessage("Achievement get! " + achievement[ID]["message"]);
 }
