@@ -5,7 +5,7 @@
  * === ABOUT PROJECT ===
  * @author:		Orbitron
  * @project:	Achievements
- * @version:	v1.0.6
+ * @version:	v1.0.9
  * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/Achievements.js
  *
  * Testet with:
@@ -17,7 +17,7 @@
 // Project info
 var project		= "Achievements";
 var sname		= "ACH";
-var version		= "1.0.6";
+var version		= "1.0.9";
 var author		= "Orbitron";
 
 // Values
@@ -178,7 +178,7 @@ function procCmd(command)
 				
 					for(var i = 0; i < achievement.length; i++)
 					{
-						ModPE.saveData("a" + i, achievement[i]["reached"]);
+						ModPE.saveData(i, achievement[i]["reached"]);
 					}
 					addonColourMessage("Saved achievements!");
 					break;
@@ -187,7 +187,7 @@ function procCmd(command)
 				
 					for(var i = 0; i < achievement.length; i++)
 					{
-						achievement[i]["reached"] = ModPE.readData("a" + i);
+						achievement[i]["reached"] = ModPE.readData(i);
 					}
 					addonColourMessage("Loaded achievements!");
 					break;
@@ -197,7 +197,7 @@ function procCmd(command)
 					for(var i = 0; i < achievement.length; i++)
 					{
 						achievement[i]["reached"] = false;
-						ModPE.saveData("a" + i, achievement[i]);
+						ModPE.saveData(i, achievement[i]);
 					}
 					addonColourMessage("Resetted achievements!");
 					break;
@@ -228,7 +228,7 @@ function newLevel()
 {
 	for(var i = 0; i < achievement.length; i++)
 	{
-		achievement[i]["reached"] = ModPE.readData("a" + i);
+		achievement[i]["reached"] = ModPE.readData(i);
 	}
 	clientMessage(ChatColor.GRAY + "[INFO] " + ChatColor.WHITE + project + " loaded");
 }
@@ -236,7 +236,7 @@ function leaveGame()
 {
 	for(var i = 0; i < achievement.length; i++)
 	{
-		ModPE.saveData("a" + i, achievement[i]["reached"]);
+		ModPE.saveData(i, achievement[i]["reached"]);
 	}
 }
 
