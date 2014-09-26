@@ -5,7 +5,7 @@
  * === ABOUT PROJECT ===
  * @author:		Orbitron
  * @project:	Achievements
- * @version:	v1.0.9
+ * @version:	v1.1.0
  * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/Achievements.js
  *
  * Testet with:
@@ -17,7 +17,7 @@
 // Project info
 var project		= "Achievements";
 var sname		= "ACH";
-var version		= "1.0.9";
+var version		= "1.1.0";
 var author		= "Orbitron";
 
 // Values
