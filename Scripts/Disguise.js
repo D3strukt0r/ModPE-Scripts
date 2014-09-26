@@ -62,9 +62,10 @@ function procCmd(command)
 				
 				case "wolf":
 				
-					Entity.setRenderType(Player.getEntity(), 14);
-					Entity.setMobSkin(Player.getEntity(), "mob/wolf.png");
-					addonColourMessage("You are a wolf");
+					addonErrorMessage("Not available yet");
+				//	Entity.setRenderType(Player.getEntity(), 1);
+				//	Entity.setMobSkin(Player.getEntity(), "mob/wolf.png");
+				//	addonColourMessage("You are a wolf");
 					break;
 				
 				case "villager":
@@ -83,9 +84,10 @@ function procCmd(command)
 				
 				case "zombie":
 				
-					Entity.setRenderType(Player.getEntity(), 32);
-					Entity.setMobSkin(Player.getEntity(), "mob/zombie.png");
-					addonColourMessage("You are a zombie");
+					addonErrorMessage("Not available yet");
+				//	Entity.setRenderType(Player.getEntity(), 1);
+				//	Entity.setMobSkin(Player.getEntity(), "mob/zombie.png");
+				//	addonColourMessage("You are a zombie");
 					break;
 				
 				case "creeper":
@@ -111,16 +113,18 @@ function procCmd(command)
 				
 				case "zombiepigman":
 				
-					Entity.setRenderType(Player.getEntity(), 36);
-					Entity.setMobSkin(Player.getEntity(), "mob/pigzombie.png");
-					addonColourMessage("You are a zombie pigman");
+					addonErrorMessage("Not available yet");
+				//	Entity.setRenderType(Player.getEntity(), 1);
+				//	Entity.setMobSkin(Player.getEntity(), "mob/pigzombie.png");
+				//	addonColourMessage("You are a zombie pigman");
 					break;
 				
 				case "slime":
 				
-					Entity.setRenderType(Player.getEntity(), 37);
-					Entity.setMobSkin(Player.getEntity(), "mob/slime.png");
-					addonColourMessage("You are a slime");
+					addonErrorMessage("Not available yet");
+				//	Entity.setRenderType(Player.getEntity(), 1);
+				//	Entity.setMobSkin(Player.getEntity(), "mob/slime.png");
+				//	addonColourMessage("You are a slime");
 					break;
 				
 				case "enderman":
@@ -144,6 +148,40 @@ function procCmd(command)
 					addonColourMessage("You are Steve");
 					break;
 				
+				case "tnt":
+				
+					Entity.setRenderType(Player.getEntity(), EntityRenderType.tnt);
+					addonColourMessage("You are a TNT block");
+					break;
+				
+				case "arrow":
+				
+					Entity.setRenderType(Player.getEntity(), EntityRenderType.arrow);
+					addonColourMessage("You are an arrow");
+					break;
+				
+				case "egg":
+				
+					Entity.setRenderType(Player.getEntity(), EntityRenderType.egg);
+					addonColourMessage("You are an egg");
+					break;
+				
+				case "snowball":
+				
+					Entity.setRenderType(Player.getEntity(), EntityRenderType.snowball);
+					addonColourMessage("You are a snowball");
+					break;
+				
+				case "minecart":
+				
+					Entity.setRenderType(Player.getEntity(), EntityRenderType.minecart);
+					addonColourMessage("You are a minecart");
+					break;
+				
+				default:
+				
+					addonErrorMessage("Usage: /disguise <mob>");
+					break;
 			}
 			break;
 		
