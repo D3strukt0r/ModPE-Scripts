@@ -100,48 +100,48 @@ var achievement	= [
 ];
 
 // Main functions
-function useItem(x, y, z, itemId, blockId, side, itemDamage, blockDamage)
+function useItem(x, y, z, itemid, blockid, side, itemDamage, blockDamage)
 {
-	if(achievement[5]["reached"] === false && itemId == 58)
+	if(achievement[5]["reached"] === false && itemid == 58)
 	{
 		addonShowAchievement(5);
 	}
-	if(achievement[6]["reached"] === false && itemId == 61)
+	if(achievement[6]["reached"] === false && itemid == 61)
 	{
 		addonShowAchievement(6);
 	}
-	if(achievement[7]["reached"] === false && itemId == 270)
+	if(achievement[7]["reached"] === false && itemid == 270)
 	{
 		addonShowAchievement(7);
 	}
-	if(achievement[8]["reached"] === false && itemId == 265)
+	if(achievement[8]["reached"] === false && itemid == 265)
 	{
 		addonShowAchievement(8);
 	}
-	if(achievement[9]["reached"] === false && itemId == 290)
+	if(achievement[9]["reached"] === false && itemid == 290)
 	{
 		addonShowAchievement(9);
 	}
-	if(achievement[10]["reached"] === false && itemId == 297)
+	if(achievement[10]["reached"] === false && itemid == 297)
 	{
 		addonShowAchievement(10);
 	}
-	if(achievement[11]["reached"] === false && itemId == 354)
+	if(achievement[11]["reached"] === false && itemid == 354)
 	{
 		addonShowAchievement(11);
 	}
 	if(achievement[12]["reached"] === false)
 	{
-		if (itemId == 274 || itemId == 257 || itemId == 285 || itemId == 278)
+		if (itemid == 274 || itemid == 257 || itemid == 285 || itemid == 278)
 		{
 			addonShowAchievement(12);
 		}
 	}
-	if(achievement[13]["reached"] === false && itemId == 268)
+	if(achievement[13]["reached"] === false && itemid == 268)
 	{
 		addonShowAchievement(13);
 	}
-	if(achievement[14]["reached"] === false && itemId == 47)
+	if(achievement[14]["reached"] === false && itemid == 47)
 	{
 		addonShowAchievement(14);
 	}
@@ -224,7 +224,7 @@ function destroyBlock(x, y, z, side)
 		addonShowAchievement(4);
 	}
 }
-function newLevel()
+function newLevel(hasLevel)
 {
 	for(var i = 0; i < achievement.length; i++)
 	{
@@ -249,8 +249,8 @@ function addonErrorMessage(string)
 {
 	clientMessage(ChatColor.GRAY + "["+ ChatColor.RED + sname + ChatColor.GRAY +"] " + ChatColor.RED + string);
 }
-function addonShowAchievement(ID)
+function addonShowAchievement(id)
 {
-	achievement[ID]["reached"] = true;
-	clientMessage("Achievement get! " + achievement[ID]["message"]);
+	achievement[id]["reached"] = true;
+	clientMessage("Achievement get! " + achievement[id]["message"]);
 }
