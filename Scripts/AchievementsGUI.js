@@ -23,8 +23,9 @@ var author		= "Orbitron";
 // Values
 var ctx			= com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
 var GUI;
-var directory	= android.os.Environment.getExternalStorageDirectory().getPath() + "/games/com.mojang/minecraftRessources/" + project;
+var directory	= android.os.Environment.getExternalStorageDirectory().getPath() + "/games/com.mojang/minecraftResources/" + project;
 var achievement	= [
+	0: false,
 	1: false,
 	2: false,
 	3: false,
@@ -38,73 +39,72 @@ var achievement	= [
 	11: false,
 	12: false,
 	13: false,
-	14: false,
-	15: false
+	14: false
 ];
 
 // Main functions
-function useItem(x, y, z, itemId, blockId, side)
+function useItem(x, y, z, itemid, blockid, side)
 {
-	if(achievement[6] === true && itemId == 58)
+	if(achievement[5] === false && itemid == 58)
+	{
+		addonShowAchievement(5);
+	}
+	if(achievement[6] === false && itemid == 61)
 	{
 		addonShowAchievement(6);
 	}
-	if(achievement[7] === true && itemId == 61)
+	if(achievement[7] === false && itemid == 270)
 	{
 		addonShowAchievement(7);
 	}
-	if(achievement[8] === true && itemId == 270)
+	if(achievement[8] === false && itemid == 265)
 	{
 		addonShowAchievement(8);
 	}
-	if(achievement[9] === true && itemId == 265)
+	if(achievement[9] === false && itemid == 290)
 	{
 		addonShowAchievement(9);
 	}
-	if(achievement[10] === true && itemId == 290)
+	if(achievement[10] === false && itemid == 297)
 	{
 		addonShowAchievement(10);
 	}
-	if(achievement[11] === true && itemId == 297)
+	if(achievement[11] === false && itemid == 354)
 	{
 		addonShowAchievement(11);
 	}
-	if(achievement[12] === true && itemId == 354)
+	if(achievement[12] === false)
 	{
-		addonShowAchievement(12);
-	}
-	if(achievement[13] === true)
-	{
-		if (itemId == 274 || itemId == 257 || itemId == 285 || itemId == 278)
+		if (itemid == 274 || itemid == 257 || itemid == 285 || itemid == 278)
 		{
-			addonShowAchievement(13);
+			addonShowAchievement(12);
 		}
 	}
-	if(achievement[14] === true && itemId == 268)
+	if(achievement[13] === false && itemid == 268)
+	{
+		addonShowAchievement(13);
+	}
+	if(achievement[14] === false && itemid == 47)
 	{
 		addonShowAchievement(14);
-	}
-	if(achievement[15] === true && itemId == 47)
-	{
-		addonShowAchievement(15);
 	}
 }
 function attackHook(attacker, victim)
 {
-	if(achievement[1] === true)
+	if(achievement[0] === false)
 	{
 		if(Entity.getEntityTypeId(victim) == 32 || Entity.getEntityTypeId(victim) == 33 || Entity.getEntityTypeId(victim) == 34 || Entity.getEntityTypeId(victim) == 35 || Entity.getEntityTypeId(victim) == 36)
 		{
-			addonShowAchievement(1);
+			addonShowAchievement(0);
 		}
 	}
-	if(achievement[2] === true && Entity.getEntityTypeId(victim) == 11)
+	if(achievement[1] === false && Entity.getEntityTypeId(victim) == 11)
+	{
+		addonShowAchievement(1);
+	}
+	if(achievement[2] === false && Entity.getEntityTypeId(victim) == 34 && Player.getCarriedItem() == 261)
 	{
 		addonShowAchievement(2);
-	}
-	if(achievement[3] === true && Entity.getEntityTypeId(victim) == 34 && getCarriedItem() == 261)
-	{
-		addonShowAchievement(3);
 	}
 }
 function procCmd(command)
@@ -121,18 +121,18 @@ function procCmd(command)
 				
 					for(i = 0; i < achievement.lenght; i++)
 					{
-						ModPE.saveData("a" + i, achievement[i]);
+						ModPE.saveData(i, achievement[i]);
 					}
-					clientMessage("§9[ACH] §fSaved achievements!");
+					addonColourMessage("Saved achievements!");
 					break;
 				
 				case "load":
 				
 					for(i = 0; i < achievement.lenght; i++)
 					{
-						achievement[i] = ModPE.readData("a" + i);
+						achievement[i] = ModPE.readData(i);
 					}
-					clientMessage("§9[ACH] §fLoaded achievements!");
+					addonColourMessage("Loaded achievements!");
 					break;
 				
 				case "reset":
@@ -140,28 +140,27 @@ function procCmd(command)
 					for(i = 0; i < achievement.lenght; i++)
 					{
 						achievement[i] = false;
-						ModPE.saveData("a" + i, achievement[i]);
+						ModPE.saveData(i, achievement[i]);
 					}
-					clientMessage("§9[ACH] §fResetted achievements!");
+					addonColourMessage("Resetted achievements!");
 					break;
 				
 				default:
 				
-					clientMessage("§9[ACH] §fCommand " + p[1] + " does not exist!");
+					addonErrorMessage("Usage: /achievements <save|load|reset>");
 					break;
 			}
 		
 		default:
 		
-			clientMessage("");
 			break;
 	}
 }
-function newLevel()
+function newLevel(hasLevel)
 {
 	for(i = 0; i < achievement.lenght; i++)
 	{
-		achievement[i] = ModPE.readData("a" + i);
+		achievement[i] = ModPE.readData(i);
 	}
 	clientMessage(ChatColor.GRAY + "[INFO] " + ChatColor.WHITE + project + " loaded");
 }
@@ -170,32 +169,40 @@ function leaveGame()
 	for(i = 0; i < achievement.lenght; i++)
 	{
 		achievement[i] = false;
-		ModPE.saveData("a" + i, achievement[i]);
+		ModPE.saveData(i, achievement[i]);
 	}
-	ctx.runOnUiThread(new java.lang.Runnable()
+	if(GUI != null)
 	{
-		run: function()
+		ctx.runOnUiThread(new java.lang.Runnable()
 		{
-			if(GUI != null)
+			run: function()
 			{
 				GUI.dismiss();
 			}
-		}
-	});
+		});
+	}
 }
 function destroyBlock(x, y, z, side)
 {
-	if (achievement[4] === true && getTile(x, y, z) == 17)
+	if (achievement[4] === false && Level.getTile(x, y, z) == 17)
 	{
 		addonShowAchievement(4);
 	}
-	if (achievement[5] === true && getTile(x, y, z) == 56 && getCarriedItem() == 257)
+	if (achievement[5] === false && Level.getTile(x, y, z) == 56 && getCarriedItem() == 257)
 	{
 		addonShowAchievement(5);
 	}
 }
 
 // Additional functions
+function addonColourMessage(string)
+{
+	clientMessage(ChatColor.GRAY + "["+ ChatColor.RED + sname + ChatColor.GRAY +"] " + ChatColor.WHITE + string);
+}
+function addonErrorMessage(string)
+{
+	clientMessage(ChatColor.GRAY + "["+ ChatColor.RED + sname + ChatColor.GRAY +"] " + ChatColor.RED + string);
+}
 function addonShowAchievement(achievementID)
 {
 	achievement[achievementID] = true;
