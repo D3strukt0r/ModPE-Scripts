@@ -25,7 +25,6 @@ var ctx			= com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
 var GUI;
 var directory	= android.os.Environment.getExternalStorageDirectory().getPath() + "/games/com.mojang/minecraftResources/" + project;
 var achievement	= [
-	0: false,
 	1: false,
 	2: false,
 	3: false,
@@ -39,72 +38,73 @@ var achievement	= [
 	11: false,
 	12: false,
 	13: false,
-	14: false
+	14: false,
+	15: false
 ];
 
 // Main functions
 function useItem(x, y, z, itemid, blockid, side)
 {
-	if(achievement[5] === false && itemid == 58)
-	{
-		addonShowAchievement(5);
-	}
-	if(achievement[6] === false && itemid == 61)
+	if(achievement[6] === false && itemid == 58)
 	{
 		addonShowAchievement(6);
 	}
-	if(achievement[7] === false && itemid == 270)
+	if(achievement[7] === false && itemid == 61)
 	{
 		addonShowAchievement(7);
 	}
-	if(achievement[8] === false && itemid == 265)
+	if(achievement[8] === false && itemid == 270)
 	{
 		addonShowAchievement(8);
 	}
-	if(achievement[9] === false && itemid == 290)
+	if(achievement[9] === false && itemid == 265)
 	{
 		addonShowAchievement(9);
 	}
-	if(achievement[10] === false && itemid == 297)
+	if(achievement[10] === false && itemid == 290)
 	{
 		addonShowAchievement(10);
 	}
-	if(achievement[11] === false && itemid == 354)
+	if(achievement[11] === false && itemid == 297)
 	{
 		addonShowAchievement(11);
 	}
-	if(achievement[12] === false)
+	if(achievement[12] === false && itemid == 354)
+	{
+		addonShowAchievement(12);
+	}
+	if(achievement[13] === false)
 	{
 		if (itemid == 274 || itemid == 257 || itemid == 285 || itemid == 278)
 		{
-			addonShowAchievement(12);
+			addonShowAchievement(13);
 		}
 	}
-	if(achievement[13] === false && itemid == 268)
-	{
-		addonShowAchievement(13);
-	}
-	if(achievement[14] === false && itemid == 47)
+	if(achievement[14] === false && itemid == 268)
 	{
 		addonShowAchievement(14);
+	}
+	if(achievement[15] === false && itemid == 47)
+	{
+		addonShowAchievement(15);
 	}
 }
 function attackHook(attacker, victim)
 {
-	if(achievement[0] === false)
+	if(achievement[1] === false)
 	{
 		if(Entity.getEntityTypeId(victim) == 32 || Entity.getEntityTypeId(victim) == 33 || Entity.getEntityTypeId(victim) == 34 || Entity.getEntityTypeId(victim) == 35 || Entity.getEntityTypeId(victim) == 36)
 		{
-			addonShowAchievement(0);
+			addonShowAchievement(1);
 		}
 	}
-	if(achievement[1] === false && Entity.getEntityTypeId(victim) == 11)
-	{
-		addonShowAchievement(1);
-	}
-	if(achievement[2] === false && Entity.getEntityTypeId(victim) == 34 && Player.getCarriedItem() == 261)
+	if(achievement[2] === false && Entity.getEntityTypeId(victim) == 11)
 	{
 		addonShowAchievement(2);
+	}
+	if(achievement[3] === false && Entity.getEntityTypeId(victim) == 34 && Player.getCarriedItem() == 261)
+	{
+		addonShowAchievement(3);
 	}
 }
 function procCmd(command)
