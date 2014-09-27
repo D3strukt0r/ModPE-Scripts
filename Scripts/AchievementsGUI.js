@@ -24,7 +24,7 @@ var author		= "Orbitron";
 var ctx			= com.mojang.minecraftpe.MainActivity.currentMainActivity.get();
 var GUI;
 var directory	= android.os.Environment.getExternalStorageDirectory().getPath() + "/games/com.mojang/minecraftResources/" + project;
-var achievement	= [
+var achievement	= [{
 	1: false,
 	2: false,
 	3: false,
@@ -40,7 +40,7 @@ var achievement	= [
 	13: false,
 	14: false,
 	15: false
-];
+}];
 
 // Main functions
 function useItem(x, y, z, itemid, blockid, side)
