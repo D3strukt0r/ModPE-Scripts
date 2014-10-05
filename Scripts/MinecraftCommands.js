@@ -253,7 +253,7 @@ function procCmd(command)
 			break;
 	}
 }
-function newLevel()
+function newLevel(hasLevel)
 {
 	clientMessage(ChatColor.GRAY + "[INFO] " + ChatColor.WHITE + project + " loaded");
 }
