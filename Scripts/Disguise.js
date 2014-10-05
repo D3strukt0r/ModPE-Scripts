@@ -127,6 +127,14 @@ function procCmd(command)
 				//	addonColourMessage("You are a slime");
 					break;
 				
+				case "magmacube":
+				
+					addonErrorMessage("Not available yet");
+				//	Entity.setRenderType(Player.getEntity(), 1);
+				//	Entity.setMobSkin(Player.getEntity(), "mob/magmacube.png");
+				//	addonColourMessage("You are a magma cube");
+					break;
+				
 				case "enderman":
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.enderman);
@@ -190,7 +198,7 @@ function procCmd(command)
 			break;
 	}
 }
-function newLevel()
+function newLevel(hasLevel)
 {
 	clientMessage(ChatColor.GRAY + "[INFO] " + ChatColor.WHITE + project + " loaded");
 }
