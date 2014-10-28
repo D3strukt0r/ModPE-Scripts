@@ -6,7 +6,7 @@
  * @author:		Orbitron
  * @project:	Disguise
  * @version:	v1.0.1
- * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/MinecraftCommands.js
+ * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/WorldEdit.js
  *
  * Testet with:
  * MCPE: v0.9.5
@@ -15,8 +15,8 @@
  */
  
 // Project info
-var project		= "MinecraftCommands";
-var sname		= "MCC";
+var project		= "WorldEdit";
+var sname		= "WE";
 var version		= "1.0.0";
 var author		= "Orbitron";
 

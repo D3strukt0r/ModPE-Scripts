@@ -6,7 +6,7 @@
  * @author:		Orbitron
  * @project:	TooManyItemsGUI
  * @version:	v1.0.0
- * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/TooManyItemsGUI.js
+ * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/TooManyItems.js
  *
  * Testet with:
  * MCPE: v0.9.5

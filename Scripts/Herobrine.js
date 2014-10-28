@@ -13,3 +13,13 @@
  * BlockLauncher: v1.7.9
  *
  */
+
+// Project info
+var project		= "Herobrine";
+var sname		= "HB";
+var version		= "1.0.0";
+var author		= "Orbitron";
+
+// Values
+
+// Main functions

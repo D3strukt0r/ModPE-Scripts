@@ -1,15 +1,16 @@
 /*
  * === ABOUT US ===
- * @name:		WorldEdit GUI by Orbitron
+ * @name:		Orbitron
  * @website:	http://www.team-orbitron.com
  * === ABOUT PROJECT ===
  * @author:		Orbitron
- * @version:	v1.0.1
- * @website:	http://store.team-orbitron.com/mcpe-scripts/WorldEdit-GUI.js
+ * @project:	WorldEditGUI
+ * @version:	v1.0.0
+ * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/WorldEditGUI.js
  *
  * Testet with:
- * MCPE: v0.8.1
- * BlockLauncher: v1.6.9 3/4
+ * MCPE: v0.9.5
+ * BlockLauncher: v1.7.9
  *
  */
 
