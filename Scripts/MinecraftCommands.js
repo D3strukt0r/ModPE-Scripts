@@ -19,8 +19,43 @@ var project		= "MinecraftCommands";
 var sname		= "MCC";
 var version		= "1.0.0";
 var author		= "Orbitron";
-
-// Values
+var values		= [{
+	helpPages : [
+	{
+		"/achievement (x)",
+		"/clear",
+		"/debug <start|stop> (x)",
+		"/defaultgamemode <mode> (x)"
+	},
+	{
+		"/difficulty <new difficulty>",
+		"/effect <effect> [seconds] [amplifier] (x)",
+		"/enchant <enchantmentID> [level] (x)",
+		"/gamemode <mode>",
+		"/gamerule <rule name> [value] (x)"
+	},
+	{
+		"/give <item> [amount]",
+		"/kill",
+		"/me <action...> (x)",
+		"/playsound <sound> [x] [y] [z]",
+		"/publish (x)"
+	},
+	{
+		"/say <message...> (x)",
+		"/scoreboard ... (x)",
+		"/seed",
+		"/gms",
+		"/gmc"
+	},
+	{
+		"/heal",
+		"/health",
+		"/home",
+		"/hole",
+		"/ignite"
+	}
+}];
 
 // Main functions
 function procCmd(command)
@@ -28,47 +63,72 @@ function procCmd(command)
 	var cmd = command.toLowerCase().split(" ");
 	switch(cmd[0])
 	{
-		// /achievement give <stat_name> [player]
+		// /achievement give <stat_name>
 		case "achievement": 
 		
 			break;
 		
-		// /clear <player> [item] [data]
+		// /clear [item] [data]
 		case "clear":
 		
+			if(Level.getGameMode() === 1)
+			{
+				clientMessage(ChatColor.RED + "Cannot clear the creative inventory");
+			}
+			else if(Level.getGameMode() === 0)
+			{
+				var amount = 0;
+				for(var i = 9; i <= 44; i++)
+				{
+					if(Player.getInventorySlot(i) !== 0)
+					{
+						for(var j = 1; j <= Player.getInventorySlotCount(i); j++)
+						{
+							amount++;
+						}
+						Player.clearInventorySlot(i);
+					}
+				}
+				clientMessage("Cleared the inventory, removing " + amount + (amount === 1 ? " item" : " items"));
+			}
 			break;
 		
 		// Not working on MCPE, or just on android to tell other scripts the debug is enabled with "function onDebug() {}"
 		// /debug <start|stop>
 		case "debug":
 		
+			print(ChatColor.RED + "Not working on MCPE!");
 			break;
 		
 		// Not working on MCPE, use "/gamemode" instead, or just on android with editing the config
 		// /defaultgamemode <mode>
 		case "defaultgamemode":
 		
+			print(ChatColor.RED + "Not working on MCPE! Use \"/gamemode [mode]\"");
 			break;
 		
 		// Not working on MCPE, or just on android, I'm not sure
 		// /difficulty <new difficulty>
 		case "difficulty":
 		
+			print(ChatColor.RED + "Not working on MCPE! Change in settings of MCPE!");
 			break;
 		
 		// Not working on MCPE
-		// /effect <player> <effect> [seconds] [amplifier]
+		// /effect <effect> [seconds] [amplifier]
 		case "effect":
 		
+			print(ChatColor.RED + "Not working on MCPE!");
 			break;
 		
 		// Not working on MCPE
-		// /enchant <player> <enchantmentID> [level]
+		// /enchant <enchantmentID> [level]
 		case "enchant":
 		
+			print(ChatColor.RED + "Not working on MCPE!");
 			break;
 		
-		// /gamemode <mode> <player>
+		// /gamemode <mode>
 		case "gamemode":
 		
 			if(typeof cmd[1] === "undefined")
@@ -103,57 +163,65 @@ function procCmd(command)
 		// /gamerule <rule name> [value]
 		case "gamerule":
 		
+			print(ChatColor.RED + "Not working on MCPE!");
 			break;
 		
-		// /give <player> <item> [amount] [data] [dataTag]
+		// /give <item> [amount] [data] [dataTag]
 		case "give":
 		
+			if(Level.getGameMode() === 1)
+			{
+				clientMessage(ChatColor.RED + "Cannot use give in creative! Use: \"/gamemode 0\"");
+			}
+			if(Level.getGameMode() === 0)
+			{
 				if(typeof cmd[1] === "undefined")
 				{
-					addonErrorMessage("Not enough parameters");
+					clientMessage(ChatColor.RED + "Usage: /give <item> [amount]");
 				}
 				if(typeof cmd[1] !== "undefined")
 				{
 					if(!parseInt(cmd[1]))
 					{
-						var cmdGive_item = nameIDs[cmd[1].toUpperCase()];
-						if(typeof cmdGive_item === "undefined")
+						values["giveItem"] = nameIDs[cmd[1].toUpperCase()];
+						if(typeof values["giveItem"] === "undefined")
 						{
-							addonErrorMessage("Item/Block doesn't exist");
+							clientMessage(ChatColor.RED + "There is no such item with name " + values["giveItem"]);
 						}
 						else
 						{
 							if(typeof cmd[2] === "undefined")
 							{
-								Player.addItemInventory(cmdGive_item, 1);
-								addonColourMessage("Gave you " + ChatColor.AQUA + "1" + ChatColor.WHITE + " of " + ChatColor.AQUA + cmd[1].toLowerCase() + ChatColor.WHITE + " (ID: " + cmdGive_item + ")");
+								Player.addItemInventory(values["giveItem"], 1);
+								clientMessage("Given [" + cmd[1].toLowerCase() + "(ID: " + values["giveItem"] + ")] * 1");
 							}
 							if(typeof cmd[2] !== "undefined" && !parseInt(cmd[2]))
 							{
-								addonErrorMessage("Quantity must be a number");
+								clientMessage(ChatColor.RED + "'" + cmd[2] + "'" + " is not a valid number");
 							}
 							if(typeof cmd[2] !== "undefined" && parseInt(cmd[2]))
 							{
-								Player.addItemInventory(cmdGive_item, cmd[2]);
-								addonColourMessage("Gave you " + ChatColor.AQUA + cmd[2] + ChatColor.WHITE + " of " + ChatColor.AQUA + cmd[1].toLowerCase() + ChatColor.WHITE + " (ID: " + cmdGive_item + ")");
+								Player.addItemInventory(values["giveItem"], cmd[2]);
+								clientMessage("Given [" + cmd[1].toLowerCase() + "(ID: " + values["giveItem"] + ")] * " + cmd[2]);
 							}
 						}
+						values["giveItem"] = null;
 					}
 					if(parseInt(cmd[1]))
 					{
 						if(typeof cmd[2] === "undefined")
 						{
 							Player.addItemInventory(cmd[1], 1);
-							addonColourMessage("Gave you " + ChatColor.AQUA + "1" + ChatColor.WHITE + " of " + ChatColor.AQUA + cmd[1].toLowerCase() + ChatColor.WHITE + " (ID: " + cmd[1] + ")");
+							clientMessage("Given [" + cmd[1] + "(ID: " + cmd[1] + ")] * 1");
 						}
 						if(typeof cmd[2] !== "undefined" && !parseInt(cmd[2]))
 						{
-							addonErrorMessage("Quantity must be a number");
+							clientMessage(ChatColor.RED + "'" + cmd[2] + "'" + " is not a valid number");
 						}
 						if(typeof cmd[2] !== "undefined" && parseInt(cmd[2]))
 						{
 							Player.addItemInventory(cmd[1], cmd[2]);
-							addonColourMessage("Gave you " + ChatColor.AQUA + cmd[2] + ChatColor.WHITE + " of " + ChatColor.AQUA + cmd[1].toLowerCase() + ChatColor.WHITE + " (ID: " + cmd[1] + ")");
+							clientMessage("Given [" + cmd[1] + "(ID: " + cmd[1] + ")] * " + cmd[2]);
 						}
 					}
 				}
@@ -162,34 +230,74 @@ function procCmd(command)
 		
 		case "help":
 		
+			
 			break;
 		
+		// /kill
 		case "kill":
 		
+			Player.setHealth(0);
+			clientMessage("You died");
 			break;
 		
+		// /me <action...>
 		case "me":
 		
+			if(typeof cmd[1] === "undefined")
+			{
+				clientMessage(ChatColor.RED + "Usage: /me <action...[JSON]>");
+			}
+			if(typeof cmd[1] !== "undefined")
+			{
+				clientMessage("* I " + cmd[2]);
+			}
 			break;
 		
+		// /playsound <sound> [x] [y] [z] [volume] [pitch]
 		case "playsound":
 		
+			if(typeof cmd[1] === "undefined")
+			{
+				clientMessage(ChatColor.RED + "Usage: /playsound <sound> [x] [y] [z] [volume] [pitch]");
+			}
+			if(typeof cmd[1] !== "undefined")
+			{
+				Level.playSound(cmd[3], cmd[4], cmd[5], cmd[2], 1, 1);
+			}
 			break;
 		
+		// Not working on MCPE! Has to be set in MCPE settings
+		// /publish
 		case "publish":
 		
+			print(ChatColor.RED + "Not working on MCPE! Change in settings of MCPE!");
 			break;
 		
+		// /say <message...>
 		case "say":
 		
+			if(typeof cmd[1] === "undefined")
+			{
+				clientMessage(ChatColor.RED + "Usage: /say <message...[JSON]>");
+			}
+			if(typeof cmd[1] !== "undefined")
+			{
+				clientMessage("[Me] " + cmd[2]);
+			}
 			break;
 		
+		// Not working on MCPE! Or just on Android!
+		// /scoreboard ....
 		case "scoreboard":
 		
+			print(ChatColor.RED + "Not working on MCPE!");
 			break;
 		
+		// Not working on MCPE!
+		// /seed
 		case "seed":
 		
+			print(ChatColor.RED + "Not working on MCPE!");
 			break;
 		
 		case "setblock":
@@ -212,12 +320,18 @@ function procCmd(command)
 		
 			break;
 		
+		// Not working on MCPE! This don't gives sense. Who the hell you want to send a message.
+		// /tell <message...>
 		case "tell":
 		
+			print(ChatColor.RED + "Not working on MCPE!");
 			break;
 		
+		// Not working on MCPE! This don't gives sense. Who the hell you want to send a message.
+		// /tellraw <message...>
 		case "tellraw":
 		
+			print(ChatColor.RED + "Not working on MCPE!");
 			break;
 		
 		case "testfor":
@@ -232,20 +346,29 @@ function procCmd(command)
 		
 			break;
 		
+		// Not working on MCPE! Unfortunately ModPE don't support this at the moment
+		// /toggledownfall
 		case "toggledownfall":
 		
+			print(ChatColor.RED + "Not working on MCPE!");
 			break;
 		
 		case "tp":
 		
 			break;
 		
+		// Not working on MCPE! Unfortunately ModPE don't support this at the moment
+		// /weather <clear|rain|thunder> [duration in seconds]
 		case "weather":
 		
+			print(ChatColor.RED + "Not working on MCPE!");
 			break;
 		
+		// Not working on MCPE! MCPE isn't using XP at the moment.
+		// /xp <amount>
 		case "xp":
 		
+			print(ChatColor.RED + "Not working on MCPE!");
 			break;
 		
 		default:
