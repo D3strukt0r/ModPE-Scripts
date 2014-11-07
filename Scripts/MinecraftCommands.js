@@ -19,43 +19,17 @@ var project		= "MinecraftCommands";
 var sname		= "MCC";
 var version		= "1.0.0";
 var author		= "Orbitron";
-var values		= [{
+var values		= {
 	helpPages : [
-	{
-		"/achievement (x)",
-		"/clear",
-		"/debug <start|stop> (x)",
-		"/defaultgamemode <mode> (x)"
-	},
-	{
-		"/difficulty <new difficulty>",
-		"/effect <effect> [seconds] [amplifier] (x)",
-		"/enchant <enchantmentID> [level] (x)",
-		"/gamemode <mode>",
-		"/gamerule <rule name> [value] (x)"
-	},
-	{
-		"/give <item> [amount]",
-		"/kill",
-		"/me <action...> (x)",
-		"/playsound <sound> [x] [y] [z]",
-		"/publish (x)"
-	},
-	{
-		"/say <message...> (x)",
-		"/scoreboard ... (x)",
-		"/seed",
-		"/gms",
-		"/gmc"
-	},
-	{
-		"/heal",
-		"/health",
-		"/home",
-		"/hole",
-		"/ignite"
-	}
-}];
+		{ "/achievement (x)", "/clear", "/debug <start|stop> (x)", "/defaultgamemode <mode> (x)" },
+		{ "/difficulty <new difficulty>", "/effect <effect> [seconds] [amplifier] (x)", "/enchant <enchantmentID> [level] (x)", "/gamemode <mode>", "/gamerule <rule name> [value] (x)" },
+		{ "/give <item> [amount]", "/kill", "/me <action...> (x)", "/playsound <sound> [x] [y] [z]", "/publish (x)" },
+		{ "/say <message...> (x)", "/scoreboard ... (x)", "/seed", "/setblock", "/setworldspawn" },
+		{ "/spawnpoint (x)", "/spreadplayers", "/summon", "/tell <message...> (x)", "/tellraw <message...> (x)" },
+		{ "/testfor", "/testforblocks", "/time <set|add|query> <value>", "/toggledownfall", "/tp <x> <y> <z>" },
+		{ "/weather", "/xp <amount>" }
+	]
+};
 
 // Main functions
 function procCmd(command)
@@ -230,7 +204,6 @@ function procCmd(command)
 		
 		case "help":
 		
-			
 			break;
 		
 		// /kill
@@ -300,24 +273,35 @@ function procCmd(command)
 			print(ChatColor.RED + "Not working on MCPE!");
 			break;
 		
+		// /setblock <x> <y> <z> <TileName> [dataValue] [oldBlockHandling] [dataTag]
 		case "setblock":
 		
+			print(ChatColor.BLUE + "Code in development!");
 			break;
 		
+		// /setworldspawn [<x> <y> <z>]
 		case "setworldspawn":
 		
+			print(ChatColor.BLUE + "Code in development!");
 			break;
 		
+		// Not working on MCPE!
+		// /spawnpoint [player] [<x> <y> <z>]
 		case "spawnpoint":
 		
+			print(ChatColor.RED + "Not working on MCPE!");
 			break;
 		
+		// /spreadplayers <x> <z> <spreadDistance> <maxRange> <respectTeams true|false> <player ...>
 		case "spreadplayers":
 		
+			print(ChatColor.BLUE + "Code in development!");
 			break;
 		
+		// /summon <EntityName> [x] [y] [z] [dataTag]
 		case "summon":
 		
+			print(ChatColor.BLUE + "Code in development!");
 			break;
 		
 		// Not working on MCPE! This don't gives sense. Who the hell you want to send a message.
@@ -334,16 +318,22 @@ function procCmd(command)
 			print(ChatColor.RED + "Not working on MCPE!");
 			break;
 		
+		// /testfor <player> [dataTag]
 		case "testfor":
 		
+			print(ChatColor.BLUE + "Code in development!");
 			break;
 		
-		case "testforblock":
+		// /testforblocks <x1> <y1> <z1> <x2> <y2> <z2> <x> <y> <z> [mode]
+		case "testforblocks":
 		
+			print(ChatColor.BLUE + "Code in development!");
 			break;
 		
+		// /time <set|add|query> <value>
 		case "time":
 		
+			print(ChatColor.BLUE + "Code in development!");
 			break;
 		
 		// Not working on MCPE! Unfortunately ModPE don't support this at the moment
@@ -353,8 +343,10 @@ function procCmd(command)
 			print(ChatColor.RED + "Not working on MCPE!");
 			break;
 		
+		// /tp <x> <y> <z> [<y-rot> <x-rot>]
 		case "tp":
 		
+			print(ChatColor.BLUE + "Code in development!");
 			break;
 		
 		// Not working on MCPE! Unfortunately ModPE don't support this at the moment
@@ -379,14 +371,4 @@ function procCmd(command)
 function newLevel(hasLevel)
 {
 	clientMessage(ChatColor.GRAY + "[INFO] " + ChatColor.WHITE + project + " loaded");
-}
-
-// Additional functions
-function addonColourMessage(string)
-{
-	clientMessage(ChatColor.GRAY + "["+ ChatColor.RED + sname + ChatColor.GRAY +"] " + ChatColor.WHITE + string);
-}
-function addonErrorMessage(string)
-{
-	clientMessage(ChatColor.GRAY + "["+ ChatColor.RED + sname + ChatColor.GRAY +"] " + ChatColor.RED + string);
 }
