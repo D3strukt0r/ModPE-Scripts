@@ -103,40 +103,66 @@ var achievement	= [
 function useItem(x, y, z, itemid, blockid, side, itemDamage, blockDamage)
 {
 	if(achievement[5]["reached"] === false && itemid == 58)
+	{
 		addonShowAchievement(5);
+	}
 	if(achievement[6]["reached"] === false && itemid == 61)
+	{
 		addonShowAchievement(6);
+	}
 	if(achievement[7]["reached"] === false && itemid == 270)
+	{
 		addonShowAchievement(7);
+	}
 	if(achievement[8]["reached"] === false && itemid == 265)
+	{
 		addonShowAchievement(8);
+	}
 	if(achievement[9]["reached"] === false && itemid == 290)
+	{
 		addonShowAchievement(9);
+	}
 	if(achievement[10]["reached"] === false && itemid == 297)
+	{
 		addonShowAchievement(10);
+	}
 	if(achievement[11]["reached"] === false && itemid == 354)
+	{
 		addonShowAchievement(11);
+	}
 	if(achievement[12]["reached"] === false)
 	{
 		if (itemid == 274 || itemid == 257 || itemid == 285 || itemid == 278)
+		{
 			addonShowAchievement(12);
+		}
 	}
 	if(achievement[13]["reached"] === false && itemid == 268)
+	{
 		addonShowAchievement(13);
+	}
 	if(achievement[14]["reached"] === false && itemid == 47)
+	{
 		addonShowAchievement(14);
+	}
 }
 function attackHook(attacker, victim)
 {
 	if(achievement[0]["reached"] === false)
 	{
 		if(Entity.getEntityTypeId(victim) == 32 || Entity.getEntityTypeId(victim) == 33 || Entity.getEntityTypeId(victim) == 34 || Entity.getEntityTypeId(victim) == 35 || Entity.getEntityTypeId(victim) == 36)
+		{
 			addonShowAchievement(0);
+		}
 	}
 	if(achievement[1]["reached"] === false && Entity.getEntityTypeId(victim) == 11)
+	{
 		addonShowAchievement(1);
+	}
 	if(achievement[2]["reached"] === false && Entity.getEntityTypeId(victim) == 34 && Player.getCarriedItem() == 261)
+	{
 		addonShowAchievement(2);
+	}
 }
 function procCmd(command)
 {
@@ -151,14 +177,18 @@ function procCmd(command)
 				case "save":
 				
 					for(var i = 0; i < achievement.length; i++)
+					{
 						ModPE.saveData(i, achievement[i]["reached"]);
+					}
 					addonColourMessage("Saved achievements!");
 					break;
 				
 				case "load":
 				
 					for(var i = 0; i < achievement.length; i++)
+					{
 						achievement[i]["reached"] = ModPE.readData(i);
+					}
 					addonColourMessage("Loaded achievements!");
 					break;
 				
@@ -186,20 +216,28 @@ function procCmd(command)
 function destroyBlock(x, y, z, side)
 {
 	if (achievement[3]["reached"] === false && Level.getTile(x, y, z) == 17)
+	{
 		addonShowAchievement(3);
+	}
 	if (achievement[4]["reached"] === false && Level.getTile(x, y, z) == 56 && Player.getCarriedItem() == 257)
+	{
 		addonShowAchievement(4);
+	}
 }
 function newLevel(hasLevel)
 {
 	for(var i = 0; i < achievement.length; i++)
+	{
 		achievement[i]["reached"] = ModPE.readData(i);
+	}
 	clientMessage(ChatColor.GRAY + "[INFO] " + ChatColor.WHITE + project + " loaded");
 }
 function leaveGame()
 {
 	for(var i = 0; i < achievement.length; i++)
+	{
 		ModPE.saveData(i, achievement[i]["reached"]);
+	}
 }
 
 // Additional functions
