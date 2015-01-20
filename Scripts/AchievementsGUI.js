@@ -1,7 +1,7 @@
 /*
  * === ABOUT US ===
  * @name:		Orbitron
- * @website:	http://www.team-orbitron.com
+ * @website:	http://www.orbitrondev.com
  * === ABOUT PROJECT ===
  * @author:		Orbitron
  * @project:	AchievementsGUI
