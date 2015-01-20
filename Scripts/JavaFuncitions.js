@@ -14,26 +14,46 @@
  *
  */
 
+// Values
+var Java = true,
+	External = true;
+
 // calls "onUseItem(...)"
 function useItem(x, y, z, itemid, blockid, side, itemDamage, blockDamage)
 {
-	if(onUseItem() typeof != "undefined")
-	{
-		onUseItem(x, y, z, itemid, blockid, side, itemDamage, blockDamage);
-	}
+	if(onUseItem() typeof != "undefined") onUseItem(x, y, z, itemid, blockid, side, itemDamage, blockDamage);
+	if(Java && External) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod("onUseItem", x, y, z, itemid, blockid, side, itemDamage, blockDamage);
 }
-// calls "onDestroyBlock(...)"
+// calls "onDestroyedBlock(...)"
 function destroyBlock(x, y, z, side)
 {
-	if(onDestroyBlock() typeof != "undefined")
-	{
-		onDestroyBlock(x, y, z, side);
-	}
+	if(onDestroyedBlock() typeof != "undefined") onDestroyedBlock(x, y, z, side);
+	if(Java && External) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod("onDestroyedBlock", x, y, z, side);
 }
-function startDestroyBlock(x, y, z, side) {} //startDestroyBlockCallback *
-function newLevel(hasLevel) {} //setLevelCallback * isRemote (boolean) **
-function selectLevelHook() {} //selectLevelCallback * wName (String) ** wDir (String) **
-function leaveGame() {} //leaveGameCallback * thatboolean (boolean) **
+// calls "onStartDestroyBlock(...)"
+function startDestroyBlock(x, y, z, side)
+{
+	if(onStartDestroyingBlock() typeof != "undefined") onStartDestroyingBlock(x, y, z, side);
+	if(Java && External) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod("onStartDestroyingBlock", x, y, z, side);
+}
+// calls "onStartNewWorld(...)"
+function newLevel(hasLevel)
+{
+	if(onStartNewWorld() typeof != "undefined") onStartNewWorld(x, y, z, side);
+	if(Java && External) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod("onStartNewWorld", hasLevel);
+}
+// calls "onWorldSelected(...)"
+function selectLevelHook()
+{
+	if(onWorldSelected() typeof != "undefined") onWorldSelected(x, y, z, side);
+	if(Java && External) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod("onWorldSelected");
+}
+// calls "onLeavingWorld(...)"
+function leaveGame()
+{
+	if(onLeavingWorld() typeof != "undefined") onLeavingWorld(x, y, z, side);
+	if(Java && External) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod("onLeavingWorld");
+}
 function attackHook(attacker, victim) {} //attackCallback *
 function modTick() {} //tickCallback *
 function chatHook(message) {}
