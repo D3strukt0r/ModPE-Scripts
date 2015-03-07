@@ -1,34 +1,49 @@
 /*
  * === ABOUT US ===
  * @name:		Orbitron
- * @website:	http://www.team-orbitron.com
+ * @website:	http://www.orbitrondev.com
  * === ABOUT PROJECT ===
- * @author:		Orbitron
+ * @author:		Manuele Vaccari
  * @project:	Disguise
- * @version:	v1.1.0
- * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/Disguise.js
+ * @version:	v1.2.0
+ * @website:	https://raw.githubusercontent.com/OrbitronDev/ModPE/master/Disguise.js
  *
  * Testet with:
- * MCPE: v0.10.4
- * BlockLauncher: v1.8.1
+ * MCPE: v0.10.5
+ * BlockLauncher: v1.8.6
  *
  */
 
 // Project info
-var project		= "Disguise";
-var sname		= "DIS";
-var version		= "1.1.0";
-var author		= "Orbitron";
+var AppInfo = {
+	'projectName': 'Disguise',
+	'shortName': 'DIS',
+	'version': '1.2.0'
+	'author': 'Manuele Vaccari (OrbitronDev)'
+};
 
 // Values
+var AppData = {
+	
+};
+
+// Additional functions
+var AppFunctions = {
+	'printColourMessage': function(sString) {
+		clientMessage(ChatColor.GRAY + '[' + ChatColor.RED + AppInfo.shortName + ChatColor.GRAY + '] ' + ChatColor.WHITE + sString);
+	},
+	'printErrorMessage': function(sString) {
+		clientMessage(ChatColor.GRAY + '[' + ChatColor.RED + AppInfo.shortName + ChatColor.GRAY + '] ' + ChatColor.RED + sString);
+	}
+};
 
 // Main functions
 function procCmd(command)
 {
-	var cmd = command.toLowerCase().split(" ");
+	var cmd = command.toLowerCase().split(' ');
 	switch(cmd[0])
 	{
-		case "disguise":
+		case 'disguise':
 		
 			switch(cmd[1])
 			{
@@ -36,28 +51,28 @@ function procCmd(command)
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.chicken);
 					Entity.setMobSkin(Player.getEntity(), "mob/chicken.png");
-					addonColourMessage("You are a chicken");
+					AppFunctions.printColourMessage('You are a chicken');
 					break;
 				
 				case "cow":
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.cow);
 					Entity.setMobSkin(Player.getEntity(), "mob/cow.png");
-					addonColourMessage("You are a cow");
+					AppFunctions.printColourMessage('You are a cow');
 					break;
 				
 				case "pig":
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.pig);
 					Entity.setMobSkin(Player.getEntity(), "mob/pig.png");
-					addonColourMessage("You are a pig");
+					AppFunctions.printColourMessage('You are a pig');
 					break;
 				
 				case "sheep":
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.sheep);
 					Entity.setMobSkin(Player.getEntity(), "mob/sheep_0.png");
-					addonColourMessage("You are a sheep");
+					AppFunctions.printColourMessage('You are a sheep');
 					break;
 				
 				case "wolf":
@@ -72,14 +87,14 @@ function procCmd(command)
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.villager);
 					Entity.setMobSkin(Player.getEntity(), "mob/villager/villager.png");
-					addonColourMessage("You are a villager");
+					AppFunctions.printColourMessage('You are a villager');
 					break;
 				
 				case "mushroom":
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.mushroomCow);
 					Entity.setMobSkin(Player.getEntity(), "mob/mushroom.png");
-					addonColourMessage("You are a mushroom cow");
+					AppFunctions.printColourMessage('You are a mushroom cow');
 					break;
 				
 				case "zombie":
@@ -94,21 +109,21 @@ function procCmd(command)
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.creeper);
 					Entity.setMobSkin(Player.getEntity(), "mob/creeper.png");
-					addonColourMessage("You are a creeper");
+					AppFunctions.printColourMessage('You are a creeper');
 					break;
 				
 				case "skeleton":
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.skeleton);
 					Entity.setMobSkin(Player.getEntity(), "mob/skeleton.png");
-					addonColourMessage("You are a skeleton");
+					AppFunctions.printColourMessage('You are a skeleton');
 					break;
 				
 				case "spider":
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.spider);
 					Entity.setMobSkin(Player.getEntity(), "mob/spider.png");
-					addonColourMessage("You are a spider");
+					AppFunctions.printColourMessage('You are a spider');
 					break;
 				
 				case "zombiepigman":
@@ -139,76 +154,62 @@ function procCmd(command)
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.enderman);
 					Entity.setMobSkin(Player.getEntity(), "mob/enderman.png");
-					addonColourMessage("You are a ENDERMAN");
+					AppFunctions.printColourMessage('You are a enderman');
 					break;
 				
 				case "silverfish":
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.silverfish);
 					Entity.setMobSkin(Player.getEntity(), "mob/silverfish.png");
-					addonColourMessage("You are a silverfish");
+					AppFunctions.printColourMessage('You are a silverfish');
 					break;
 				
 				case "steve":
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.player);
 					Entity.setMobSkin(Player.getEntity(), "mob/char.png");
-					addonColourMessage("You are Steve");
+					AppFunctions.printColourMessage('You are Steve');
 					break;
 				
 				case "tnt":
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.tnt);
-					addonColourMessage("You are a TNT block");
+					AppFunctions.printColourMessage('You are a TNT block');
 					break;
 				
 				case "arrow":
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.arrow);
-					addonColourMessage("You are an arrow");
+					AppFunctions.printColourMessage('You are an arrow');
 					break;
 				
 				case "egg":
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.egg);
-					addonColourMessage("You are an egg");
+					AppFunctions.printColourMessage('You are an egg');
 					break;
 				
 				case "snowball":
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.snowball);
-					addonColourMessage("You are a snowball");
+					AppFunctions.printColourMessage('You are a snowball');
 					break;
 				
 				case "minecart":
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.minecart);
-					addonColourMessage("You are a minecart");
+					AppFunctions.printColourMessage('You are a minecart');
 					break;
 				
 				default:
 				
-					addonErrorMessage("Usage: /disguise <mob>");
+					AppFunctions.printErrorMessage('Usage: /disguise <mob>');
 					break;
 			}
-			break;
-		
-		default:
-		
 			break;
 	}
 }
 function newLevel(hasLevel)
 {
-	clientMessage(ChatColor.GRAY + "[INFO] " + ChatColor.WHITE + project + " loaded");
-}
-
-// Additional functions
-function addonColourMessage(string)
-{
-	clientMessage(ChatColor.GRAY + "["+ ChatColor.RED + sname + ChatColor.GRAY +"] " + ChatColor.WHITE + string);
-}
-function addonErrorMessage(string)
-{
-	clientMessage(ChatColor.GRAY + "["+ ChatColor.RED + sname + ChatColor.GRAY +"] " + ChatColor.RED + string);
+	clientMessage(ChatColor.GRAY + '[INFO] ' + ChatColor.WHITE + AppInfo.projectName + ' loaded');
 }
