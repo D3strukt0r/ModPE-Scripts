@@ -16,10 +16,10 @@
 
 // Project info
 var AppInfo = {
-	'projectName' : 'Achievements',
-	'shortName' : 'ACH',
-	'version' : '1.2.0'
-	'author' : 'Manuele Vaccari (OrbitronDev)'
+	'projectName': 'Achievements',
+	'shortName': 'ACH',
+	'version': '1.2.0'
+	'author': 'Manuele Vaccari (OrbitronDev)'
 };
 
 // Values
