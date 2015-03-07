@@ -16,12 +16,20 @@
 
 // Project info
 var AppInfo = {
-	'projectName' : 'CommandBlock',
-	'shortName' : 'CMB',
-	'version' : '1.0.0'
-	'author' : 'Manuele Vaccari (OrbitronDev)'
+	'projectName': 'CommandBlock',
+	'shortName': 'CMB',
+	'version': '1.0.0'
+	'author': 'Manuele Vaccari (OrbitronDev)'
 };
 
 // Values
+var AppData = {
+	
+};
+
+// Additional functions
+var AppFunctions = {
+	
+};
 
 // Main functions
