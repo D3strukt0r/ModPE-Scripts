@@ -3,7 +3,7 @@
  * @name:		Orbitron
  * @website:	http://www.orbitrondev.com
  * === ABOUT PROJECT ===
- * @author:		Orbitron
+ * @author:		Manuele Vaccari
  * @project:	CommandBlock
  * @version:	v1.0.0
  * @website:	https://raw.githubusercontent.com/OrbitronDev/ModPE/master/CommandBlock.js
