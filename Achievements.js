@@ -133,24 +133,24 @@ function procCmd(command)
 				case 'save':
 				
 					AppFunctions.saveAchievementData();
-					AppFunctions.printColourMessage("Saved achievements!");
+					AppFunctions.printColourMessage('Saved achievements!');
 					break;
 				
 				case 'load':
 				
 					AppFunctions.loadAchievementData();
-					AppFunctions.printColourMessage("Loaded achievements!");
+					AppFunctions.printColourMessage('Loaded achievements!');
 					break;
 				
 				case 'reset':
 				
 					AppFunctions.resetAchievementData();
-					AppFunctions.printColourMessage("Resetted achievements!");
+					AppFunctions.printColourMessage('Resetted achievements!');
 					break;
 				
 				default:
 				
-					AppFunctions.printErrorMessage("Command " + p[1] + " does not exist!");
+					AppFunctions.printErrorMessage('Usage: /achievements <save|load|reset>');
 					break;
 			}
 			break;
@@ -160,7 +160,7 @@ function procCmd(command)
 function newLevel(hasLevel)
 {
 	AppFunctions.loadAchievementData();
-	clientMessage(ChatColor.GRAY + "[INFO] " + ChatColor.WHITE + AppInfo.projectName + " loaded");
+	clientMessage(ChatColor.GRAY + '[INFO] ' + ChatColor.WHITE + AppInfo.projectName + ' loaded');
 }
 function leaveGame()
 {
