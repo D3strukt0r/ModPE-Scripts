@@ -52,51 +52,51 @@ var AppFunctions = {
 		clientMessage(ChatColor.GRAY + '[' + ChatColor.RED + AppInfo.shortName + ChatColor.GRAY + '] ' + ChatColor.RED + sString);
 	},
 	'showAchievement': function(iID) {
-		AppData.achievement[iID]['reached'] = true;
-		clientMessage('Achievement get! ' + AppData.achievement[iID]['message']);
+		AppData.achievements[iID]['reached'] = true;
+		clientMessage('Achievement get! ' + AppData.achievements[iID]['message']);
 	}
 };
 
 // Main functions
 function useItem(x, y, z, itemid, blockid, side, itemDamage, blockDamage)
 {
-	if(!AppData.achievement[5]['reached'] && itemid === 58)
+	if(!AppData.achievements[5]['reached'] && itemid === 58)
 		AppFunctions.showAchievement(5);
-	if(!AppData.achievement[6]['reached'] && itemid === 61)
+	if(!AppData.achievements[6]['reached'] && itemid === 61)
 		AppFunctions.showAchievement(6);
-	if(!AppData.achievement[7]['reached'] && itemid === 270)
+	if(!AppData.achievements[7]['reached'] && itemid === 270)
 		AppFunctions.showAchievement(7);
-	if(!AppData.achievement[8]['reached'] && itemid === 265)
+	if(!AppData.achievements[8]['reached'] && itemid === 265)
 		AppFunctions.showAchievement(8);
-	if(!AppData.achievement[9]['reached'] && itemid === 290)
+	if(!AppData.achievements[9]['reached'] && itemid === 290)
 		AppFunctions.showAchievement(9);
-	if(!AppData.achievement[10]['reached'] && itemid === 297)
+	if(!AppData.achievements[10]['reached'] && itemid === 297)
 		AppFunctions.showAchievement(10);
-	if(!AppData.achievement[11]['reached'] && itemid === 354)
+	if(!AppData.achievements[11]['reached'] && itemid === 354)
 		AppFunctions.showAchievement(11);
-	if(!AppData.achievement[12]['reached'] && (itemid == 274 || itemid === 257 || itemid === 285 || itemid === 278))
+	if(!AppData.achievements[12]['reached'] && (itemid == 274 || itemid === 257 || itemid === 285 || itemid === 278))
 		AppFunctions.showAchievement(12);
-	if(!AppData.achievement[13]['reached'] && itemid === 268)
+	if(!AppData.achievements[13]['reached'] && itemid === 268)
 		AppFunctions.showAchievement(13);
-	if(!AppData.achievement[14]['reached'] && itemid === 47)
+	if(!AppData.achievements[14]['reached'] && itemid === 47)
 		AppFunctions.showAchievement(14);
 }
 
 function attackHook(attacker, victim)
 {
-	if(!AppData.achievement[0]['reached'] && (Entity.getEntityTypeId(victim) === 32 || Entity.getEntityTypeId(victim) === 33 || Entity.getEntityTypeId(victim) === 34 || Entity.getEntityTypeId(victim) === 35 || Entity.getEntityTypeId(victim) === 36))
+	if(!AppData.achievements[0]['reached'] && (Entity.getEntityTypeId(victim) === 32 || Entity.getEntityTypeId(victim) === 33 || Entity.getEntityTypeId(victim) === 34 || Entity.getEntityTypeId(victim) === 35 || Entity.getEntityTypeId(victim) === 36))
 		AppFunctions.showAchievement(0);
-	if(!AppData.achievement[1]['reached'] && Entity.getEntityTypeId(victim) === 11)
+	if(!AppData.achievements[1]['reached'] && Entity.getEntityTypeId(victim) === 11)
 		AppFunctions.showAchievement(1);
-	if(!AppData.achievement[2]['reached'] && Entity.getEntityTypeId(victim) === 34 && Player.getCarriedItem() === 261)
+	if(!AppData.achievements[2]['reached'] && Entity.getEntityTypeId(victim) === 34 && Player.getCarriedItem() === 261)
 		AppFunctions.showAchievement(2);
 }
 
 function destroyBlock(x, y, z, side)
 {
-	if (!AppData.achievement[3]['reached'] && Level.getTile(x, y, z) === 17)
+	if (!AppData.achievements[3]['reached'] && Level.getTile(x, y, z) === 17)
 		AppFunctions.showAchievement(3);
-	if (!AppData.achievement[4]['reached'] && Level.getTile(x, y, z) === 56 && Player.getCarriedItem() === 257)
+	if (!AppData.achievements[4]['reached'] && Level.getTile(x, y, z) === 56 && Player.getCarriedItem() === 257)
 		AppFunctions.showAchievement(4);
 }
 
@@ -112,26 +112,26 @@ function procCmd(command)
 			{
 				case 'save':
 				
-					for(var i = 0; i < achievement.length; i++)
-						ModPE.saveData(i, AppData.achievement[i]['reached']);
+					for(var i = 0; i < AppData.achievements.length; i++)
+						ModPE.saveData(i, AppData.achievements[i]['reached']);
 					
 					AppFunctions.printColourMessage("Saved achievements!");
 					break;
 				
 				case 'load':
 				
-					for(var i = 0; i < achievement.length; i++)
-						AppData.achievement[i]['reached'] = ModPE.readData(i);
+					for(var i = 0; i < AppData.achievements.length; i++)
+						AppData.achievements[i]['reached'] = ModPE.readData(i);
 					
 					AppFunctions.printColourMessage("Loaded achievements!");
 					break;
 				
 				case 'reset':
 				
-					for(var i = 0; i < achievement.length; i++)
+					for(var i = 0; i < AppData.achievements.length; i++)
 					{
-						AppData.achievement[i]['reached'] = false;
-						ModPE.saveData(i, AppData.achievement[i]);
+						AppData.achievements[i]['reached'] = false;
+						ModPE.saveData(i, AppData.achievements[i]);
 					}
 					AppFunctions.printColourMessage("Resetted achievements!");
 					break;
@@ -150,13 +150,13 @@ function procCmd(command)
 
 function newLevel(hasLevel)
 {
-	for(var i = 0; i < achievement.length; i++)
-		AppData.achievement[i]['reached'] = ModPE.readData(i);
+	for(var i = 0; i < AppData.achievements.length; i++)
+		AppData.achievements[i]['reached'] = ModPE.readData(i);
 	
 	clientMessage(ChatColor.GRAY + "[INFO] " + ChatColor.WHITE + AppInfo.projectName + " loaded");
 }
 function leaveGame()
 {
-	for(var i = 0; i < achievement.length; i++)
-		ModPE.saveData(i, AppData.achievement[i]['reached']);
+	for(var i = 0; i < AppData.achievements.length; i++)
+		ModPE.saveData(i, AppData.achievements[i]['reached']);
 }
