@@ -3,208 +3,142 @@
  * @name:		Orbitron
  * @website:	http://www.orbitrondev.com
  * === ABOUT PROJECT ===
- * @author:		Orbitron
+ * @author:		Manuele Vaccari (OrbitronDev)
  * @project:	Achievements
- * @version:	v1.1.0
- * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/Achievements.js
+ * @version:	v1.2.0
+ * @website:	https://raw.githubusercontent.com/OrbitronDev/ModPE/master/Achievements.js
  *
  * Testet with:
- * MCPE: v0.10.4
- * BlockLauncher: v1.8.1
+ * MCPE: v0.10.5
+ * BlockLauncher: v1.8.6
  *
  */
 
 // Project info
-var project		= "Achievements";
-var sname		= "ACH";
-var version		= "1.1.0";
-var author		= "Orbitron";
+var AppInfo = {
+	'projectName' : 'Achievements',
+	'shortName' : 'ACH',
+	'version' : '1.2.0'
+	'author' : 'Manuele Vaccari (OrbitronDev)'
+};
 
 // Values
-var achievement	= [
-	{
-		"id": 1,
-		"reached": false,
-		"message": "Monster Hunter!"
+var AppData = {
+	'achievements' : [
+		{ 'id': 1, 'reached': false, 'message': 'Monster Hunter!' },
+		{ 'id': 2, 'reached': false, 'message': 'Cow Tipper' },
+		{ 'id': 3, 'reached': false, 'message': 'Sniper Duel' },
+		{ 'id': 4, 'reached': false, 'message': 'Getting Wood' },
+		{ 'id': 5, 'reached': false, 'message': 'DIAMONDS!' },
+		{ 'id': 6, 'reached': false, 'message': 'Benchmarking' },
+		{ 'id': 7, 'reached': false, 'message': 'Hot Topic' },
+		{ 'id': 8, 'reached': false, 'message': 'Time to Mine!' },
+		{ 'id': 9, 'reached': false, 'message': 'Acquire Hardware' },
+		{ 'id': 10, 'reached': false, 'message': 'Time to Farm!' },
+		{ 'id': 11, 'reached': false, 'message': 'Bake Bread' },
+		{ 'id': 12, 'reached': false, 'message': 'The Lie' },
+		{ 'id': 13, 'reached': false, 'message': 'Getting an Upgrade' },
+		{ 'id': 14, 'reached': false, 'message': 'Time to Strike!' 	},
+		{ 'id': 15, 'reached': false, 'message': 'Librarian' }
+	]
+};
+
+// Additional functions
+var AppFunctions = {
+	'printColourMessage': function(sString) {
+		clientMessage(ChatColor.GRAY + '[' + ChatColor.RED + AppInfo.shortName + ChatColor.GRAY + '] ' + ChatColor.WHITE + sString);
 	},
-	{
-		"id": 2,
-		"reached": false,
-		"message": "Cow Tipper"
+	'printErrorMessage': function(sString) {
+		clientMessage(ChatColor.GRAY + '[' + ChatColor.RED + AppInfo.shortName + ChatColor.GRAY + '] ' + ChatColor.RED + sString);
 	},
-	{
-		"id": 3,
-		"reached": false,
-		"message": "Sniper Duel"
-	},
-	{
-		"id": 4,
-		"reached": false,
-		"message": "Getting Wood"
-	},
-	{
-		"id": 5,
-		"reached": false,
-		"message": "DIAMONDS!"
-	},
-	{
-		"id": 6,
-		"reached": false,
-		"message": "Benchmarking"
-	},
-	{
-		"id": 7,
-		"reached": false,
-		"message": "Hot Topic"
-	},
-	{
-		"id": 8,
-		"reached": false,
-		"message": "Time to Mine!"
-	},
-	{
-		"id": 9,
-		"reached": false,
-		"message": "Acquire Hardware"
-	},
-	{
-		"id": 10,
-		"reached": false,
-		"message": "Time to Farm!"
-	},
-	{
-		"id": 11,
-		"reached": false,
-		"message": "Bake Bread"
-	},
-	{
-		"id": 12,
-		"reached": false,
-		"message": "The Lie"
-	},
-	{
-		"id": 13,
-		"reached": false,
-		"message": "Getting an Upgrade"
-	},
-	{
-		"id": 14,
-		"reached": false,
-		"message": "Time to Strike!"
-	},
-	{
-		"id": 15,
-		"reached": false,
-		"message": "Librarian"
+	'showAchievement': function(iID) {
+		AppData.achievement[iID]['reached'] = true;
+		clientMessage('Achievement get! ' + AppData.achievement[iID]['message']);
 	}
-];
+};
 
 // Main functions
 function useItem(x, y, z, itemid, blockid, side, itemDamage, blockDamage)
 {
-	if(achievement[5]["reached"] === false && itemid == 58)
-	{
-		addonShowAchievement(5);
-	}
-	if(achievement[6]["reached"] === false && itemid == 61)
-	{
-		addonShowAchievement(6);
-	}
-	if(achievement[7]["reached"] === false && itemid == 270)
-	{
-		addonShowAchievement(7);
-	}
-	if(achievement[8]["reached"] === false && itemid == 265)
-	{
-		addonShowAchievement(8);
-	}
-	if(achievement[9]["reached"] === false && itemid == 290)
-	{
-		addonShowAchievement(9);
-	}
-	if(achievement[10]["reached"] === false && itemid == 297)
-	{
-		addonShowAchievement(10);
-	}
-	if(achievement[11]["reached"] === false && itemid == 354)
-	{
-		addonShowAchievement(11);
-	}
-	if(achievement[12]["reached"] === false)
-	{
-		if (itemid == 274 || itemid == 257 || itemid == 285 || itemid == 278)
-		{
-			addonShowAchievement(12);
-		}
-	}
-	if(achievement[13]["reached"] === false && itemid == 268)
-	{
-		addonShowAchievement(13);
-	}
-	if(achievement[14]["reached"] === false && itemid == 47)
-	{
-		addonShowAchievement(14);
-	}
+	if(!AppData.achievement[5]['reached'] && itemid === 58)
+		AppFunctions.showAchievement(5);
+	if(!AppData.achievement[6]['reached'] && itemid === 61)
+		AppFunctions.showAchievement(6);
+	if(!AppData.achievement[7]['reached'] && itemid === 270)
+		AppFunctions.showAchievement(7);
+	if(!AppData.achievement[8]['reached'] && itemid === 265)
+		AppFunctions.showAchievement(8);
+	if(!AppData.achievement[9]['reached'] && itemid === 290)
+		AppFunctions.showAchievement(9);
+	if(!AppData.achievement[10]['reached'] && itemid === 297)
+		AppFunctions.showAchievement(10);
+	if(!AppData.achievement[11]['reached'] && itemid === 354)
+		AppFunctions.showAchievement(11);
+	if(!AppData.achievement[12]['reached'] && (itemid == 274 || itemid === 257 || itemid === 285 || itemid === 278))
+		AppFunctions.showAchievement(12);
+	if(!AppData.achievement[13]['reached'] && itemid === 268)
+		AppFunctions.showAchievement(13);
+	if(!AppData.achievement[14]['reached'] && itemid === 47)
+		AppFunctions.showAchievement(14);
 }
+
 function attackHook(attacker, victim)
 {
-	if(achievement[0]["reached"] === false)
-	{
-		if(Entity.getEntityTypeId(victim) == 32 || Entity.getEntityTypeId(victim) == 33 || Entity.getEntityTypeId(victim) == 34 || Entity.getEntityTypeId(victim) == 35 || Entity.getEntityTypeId(victim) == 36)
-		{
-			addonShowAchievement(0);
-		}
-	}
-	if(achievement[1]["reached"] === false && Entity.getEntityTypeId(victim) == 11)
-	{
-		addonShowAchievement(1);
-	}
-	if(achievement[2]["reached"] === false && Entity.getEntityTypeId(victim) == 34 && Player.getCarriedItem() == 261)
-	{
-		addonShowAchievement(2);
-	}
+	if(!AppData.achievement[0]['reached'] && (Entity.getEntityTypeId(victim) === 32 || Entity.getEntityTypeId(victim) === 33 || Entity.getEntityTypeId(victim) === 34 || Entity.getEntityTypeId(victim) === 35 || Entity.getEntityTypeId(victim) === 36))
+		AppFunctions.showAchievement(0);
+	if(!AppData.achievement[1]['reached'] && Entity.getEntityTypeId(victim) === 11)
+		AppFunctions.showAchievement(1);
+	if(!AppData.achievement[2]['reached'] && Entity.getEntityTypeId(victim) === 34 && Player.getCarriedItem() === 261)
+		AppFunctions.showAchievement(2);
 }
+
+function destroyBlock(x, y, z, side)
+{
+	if (!AppData.achievement[3]['reached'] && Level.getTile(x, y, z) === 17)
+		AppFunctions.showAchievement(3);
+	if (!AppData.achievement[4]['reached'] && Level.getTile(x, y, z) === 56 && Player.getCarriedItem() === 257)
+		AppFunctions.showAchievement(4);
+}
+
 function procCmd(command)
 {
-	var cmd = command.toLowerCase().split(" ");
+	var cmd = command.toLowerCase().split(' ');
 	switch(cmd[0])
 	{
-		case "ach":
-		case "achievements":
+		case 'ach':
+		case 'achievements':
 		
 			switch(cmd[1])
 			{
-				case "save":
+				case 'save':
 				
 					for(var i = 0; i < achievement.length; i++)
-					{
-						ModPE.saveData(i, achievement[i]["reached"]);
-					}
-					addonColourMessage("Saved achievements!");
+						ModPE.saveData(i, AppData.achievement[i]['reached']);
+					
+					AppFunctions.printColourMessage("Saved achievements!");
 					break;
 				
-				case "load":
+				case 'load':
 				
 					for(var i = 0; i < achievement.length; i++)
-					{
-						achievement[i]["reached"] = ModPE.readData(i);
-					}
-					addonColourMessage("Loaded achievements!");
+						AppData.achievement[i]['reached'] = ModPE.readData(i);
+					
+					AppFunctions.printColourMessage("Loaded achievements!");
 					break;
 				
-				case "reset":
+				case 'reset':
 				
 					for(var i = 0; i < achievement.length; i++)
 					{
-						achievement[i]["reached"] = false;
-						ModPE.saveData(i, achievement[i]);
+						AppData.achievement[i]['reached'] = false;
+						ModPE.saveData(i, AppData.achievement[i]);
 					}
-					addonColourMessage("Resetted achievements!");
+					AppFunctions.printColourMessage("Resetted achievements!");
 					break;
 				
 				default:
 				
-					addonErrorMessage("Command " + p[1] + " does not exist!");
+					AppFunctions.printErrorMessage("Command " + p[1] + " does not exist!");
 					break;
 			}
 		
@@ -213,44 +147,16 @@ function procCmd(command)
 			break;
 	}
 }
-function destroyBlock(x, y, z, side)
-{
-	if (achievement[3]["reached"] === false && Level.getTile(x, y, z) == 17)
-	{
-		addonShowAchievement(3);
-	}
-	if (achievement[4]["reached"] === false && Level.getTile(x, y, z) == 56 && Player.getCarriedItem() == 257)
-	{
-		addonShowAchievement(4);
-	}
-}
+
 function newLevel(hasLevel)
 {
 	for(var i = 0; i < achievement.length; i++)
-	{
-		achievement[i]["reached"] = ModPE.readData(i);
-	}
-	clientMessage(ChatColor.GRAY + "[INFO] " + ChatColor.WHITE + project + " loaded");
+		AppData.achievement[i]['reached'] = ModPE.readData(i);
+	
+	clientMessage(ChatColor.GRAY + "[INFO] " + ChatColor.WHITE + AppInfo.projectName + " loaded");
 }
 function leaveGame()
 {
 	for(var i = 0; i < achievement.length; i++)
-	{
-		ModPE.saveData(i, achievement[i]["reached"]);
-	}
-}
-
-// Additional functions
-function addonColourMessage(string)
-{
-	clientMessage(ChatColor.GRAY + "["+ ChatColor.RED + sname + ChatColor.GRAY +"] " + ChatColor.WHITE + string);
-}
-function addonErrorMessage(string)
-{
-	clientMessage(ChatColor.GRAY + "["+ ChatColor.RED + sname + ChatColor.GRAY +"] " + ChatColor.RED + string);
-}
-function addonShowAchievement(id)
-{
-	achievement[id]["reached"] = true;
-	clientMessage("Achievement get! " + achievement[id]["message"]);
+		ModPE.saveData(i, AppData.achievement[i]['reached']);
 }
