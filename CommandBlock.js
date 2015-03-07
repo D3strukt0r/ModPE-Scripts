@@ -1,24 +1,26 @@
 /*
  * === ABOUT US ===
  * @name:		Orbitron
- * @website:	http://www.team-orbitron.com
+ * @website:	http://www.orbitrondev.com
  * === ABOUT PROJECT ===
  * @author:		Orbitron
  * @project:	CommandBlock
  * @version:	v1.0.0
- * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/CommandBlock.js
+ * @website:	https://raw.githubusercontent.com/OrbitronDev/ModPE/master/CommandBlock.js
  *
  * Testet with:
- * MCPE: v0.9.5
- * BlockLauncher: v1.7.9
+ * MCPE: v0.10.5
+ * BlockLauncher: v1.8.6
  *
  */
 
 // Project info
-var project		= "CommandBlock";
-var sname		= "CMB";
-var version		= "1.0.0";
-var author		= "Orbitron";
+var AppInfo = {
+	'projectName' : 'CommandBlock',
+	'shortName' : 'CMB',
+	'version' : '1.0.0'
+	'author' : 'Manuele Vaccari (OrbitronDev)'
+};
 
 // Values
 
