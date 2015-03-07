@@ -51,12 +51,12 @@ var AppFunctions = {
 	'printErrorMessage': function(sString) {
 		clientMessage(ChatColor.GRAY + '[' + ChatColor.RED + AppInfo.shortName + ChatColor.GRAY + '] ' + ChatColor.RED + sString);
 	},
-	'showAchievement': function(iID) {
-		AppData.achievements[iID]['reached'] = true;
-		clientMessage('Achievement get! ' + AppData.achievements[iID]['message']);
+	'showAchievement': function(iAchievementID) {
+		AppData.achievements[iAchievementID]['reached'] = true;
+		clientMessage('Achievement get! ' + AppData.achievements[iAchievementID]['message']);
 	},
-	'achieved': function(iID) {
-		if(AppData.achievements[iID]['reached'] === true)
+	'achieved': function(iAchievementID) {
+		if(AppData.achievements[iAchievementID]['reached'] === true)
 			return true;
 		return false;
 	},
