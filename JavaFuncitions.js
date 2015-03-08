@@ -9,8 +9,8 @@
  * @website:	https://raw.githubusercontent.com/OrbitronDev/ModPE/master/JavaFunction.js
  *
  * Testet with:
- * MCPE: v0.9.5
- * BlockLauncher: v1.7.9
+ * MCPE: v0.10.5
+ * BlockLauncher: v1.8.6
  *
  */
 
