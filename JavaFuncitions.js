@@ -5,7 +5,7 @@
  * === ABOUT PROJECT ===
  * @author:		Manuele Vaccari
  * @project:	JavaFunction
- * @version:	v1.0.1
+ * @version:	v1.2.0
  * @website:	https://raw.githubusercontent.com/OrbitronDev/ModPE/master/JavaFunction.js
  *
  * Testet with:
@@ -18,7 +18,7 @@
 var AppInfo = {
 	'projectName': 'JavaFunctions',
 	'shortName': 'Java',
-	'version': '1.0.1'
+	'version': '1.2.0'
 	'author': 'Manuele Vaccari (OrbitronDev)'
 };
 
@@ -106,10 +106,30 @@ function entityAddedHook(entity)
 	if(typeof onEntityAdded() != 'undefined') onEntityAdded(entity);
 	if(AppData.java && AppData.external) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod('onEntityAdded', entity);
 }
-function levelEventHook(player, eventType, x, y, z, data) {} //levelEventCallback *
-function blockEventHook(x, y, z, type, data) {} //blockEventCallback *
-function serverMessageReceiveHook(message) {} //handleChatPacketCallback *
-function chatReceiveHook(message, sender) {} //handleMessagePacketCallback *
+// calls "onMobEvent(...)"
+function levelEventHook(entity, eventType, x, y, z, data)
+{
+	if(typeof onMobEvent() != 'undefined') onMobEvent(entity, eventType, x, y, z, data);
+	if(AppData.java && AppData.external) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod('onMobEvent', entity, eventType, x, y, z, data);
+}
+// calls "onBlockEvent(...)"
+function blockEventHook(x, y, z, type, data)
+{
+	if(typeof onBlockEvent() != 'undefined') onBlockEvent(x, y, z, type, data);
+	if(AppData.java && AppData.external) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod('onBlockEvent', x, y, z, type, data);
+}
+// calls "onServerMessage(...)"
+function serverMessageReceiveHook(message)
+{
+	if(typeof onServerMessage() != 'undefined') onServerMessage(message);
+	if(AppData.java && AppData.external) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod('onServerMessage', message);
+}
+// calls "onServerPlayerMessage(...)"
+function chatReceiveHook(message, sender)
+{
+	if(typeof onServerPlayerMessage() != 'undefined') onServerPlayerMessage(message, sender);
+	if(AppData.java && AppData.external) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod('onServerPlayerMessage', message, sender);
+}
 
 // Main functions
 function newLevel(hasLevel)
