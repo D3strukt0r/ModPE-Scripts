@@ -47,155 +47,155 @@ function procCmd(command)
 		
 			switch(cmd[1])
 			{
-				case "chicken":
+				case 'chicken':
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.chicken);
-					Entity.setMobSkin(Player.getEntity(), "mob/chicken.png");
+					Entity.setMobSkin(Player.getEntity(), 'mob/chicken.png');
 					AppFunctions.printColourMessage('You are a chicken');
 					break;
 				
-				case "cow":
+				case 'cow':
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.cow);
-					Entity.setMobSkin(Player.getEntity(), "mob/cow.png");
+					Entity.setMobSkin(Player.getEntity(), 'mob/cow.png');
 					AppFunctions.printColourMessage('You are a cow');
 					break;
 				
-				case "pig":
+				case 'pig':
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.pig);
-					Entity.setMobSkin(Player.getEntity(), "mob/pig.png");
+					Entity.setMobSkin(Player.getEntity(), 'mob/pig.png');
 					AppFunctions.printColourMessage('You are a pig');
 					break;
 				
-				case "sheep":
+				case 'sheep':
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.sheep);
-					Entity.setMobSkin(Player.getEntity(), "mob/sheep_0.png");
+					Entity.setMobSkin(Player.getEntity(), 'mob/sheep_0.png');
 					AppFunctions.printColourMessage('You are a sheep');
 					break;
 				
-				case "wolf":
+				case 'wolf':
 				
-					addonErrorMessage("Not available yet");
+					AppFunctions.printErrorMessage('Not available yet');
 				//	Entity.setRenderType(Player.getEntity(), 1);
 				//	Entity.setMobSkin(Player.getEntity(), "mob/wolf.png");
 				//	addonColourMessage("You are a wolf");
 					break;
 				
-				case "villager":
+				case 'villager':
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.villager);
-					Entity.setMobSkin(Player.getEntity(), "mob/villager/villager.png");
+					Entity.setMobSkin(Player.getEntity(), 'mob/villager/villager.png');
 					AppFunctions.printColourMessage('You are a villager');
 					break;
 				
-				case "mushroom":
+				case 'mushroom':
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.mushroomCow);
-					Entity.setMobSkin(Player.getEntity(), "mob/mushroom.png");
+					Entity.setMobSkin(Player.getEntity(), 'mob/mushroom.png');
 					AppFunctions.printColourMessage('You are a mushroom cow');
 					break;
 				
-				case "zombie":
+				case 'zombie':
 				
-					addonErrorMessage("Not available yet");
+					AppFunctions.printErrorMessage('Not available yet');
 				//	Entity.setRenderType(Player.getEntity(), 1);
 				//	Entity.setMobSkin(Player.getEntity(), "mob/zombie.png");
 				//	addonColourMessage("You are a zombie");
 					break;
 				
-				case "creeper":
+				case 'creeper':
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.creeper);
-					Entity.setMobSkin(Player.getEntity(), "mob/creeper.png");
+					Entity.setMobSkin(Player.getEntity(), 'mob/creeper.png');
 					AppFunctions.printColourMessage('You are a creeper');
 					break;
 				
-				case "skeleton":
+				case 'skeleton':
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.skeleton);
-					Entity.setMobSkin(Player.getEntity(), "mob/skeleton.png");
+					Entity.setMobSkin(Player.getEntity(), 'mob/skeleton.png');
 					AppFunctions.printColourMessage('You are a skeleton');
 					break;
 				
-				case "spider":
+				case 'spider':
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.spider);
-					Entity.setMobSkin(Player.getEntity(), "mob/spider.png");
+					Entity.setMobSkin(Player.getEntity(), 'mob/spider.png');
 					AppFunctions.printColourMessage('You are a spider');
 					break;
 				
-				case "zombiepigman":
+				case 'zombiepigman':
 				
-					addonErrorMessage("Not available yet");
+					AppFunctions.printErrorMessage('Not available yet');
 				//	Entity.setRenderType(Player.getEntity(), 1);
 				//	Entity.setMobSkin(Player.getEntity(), "mob/pigzombie.png");
 				//	addonColourMessage("You are a zombie pigman");
 					break;
 				
-				case "slime":
+				case 'slime':
 				
-					addonErrorMessage("Not available yet");
+					AppFunctions.printErrorMessage('Not available yet');
 				//	Entity.setRenderType(Player.getEntity(), 1);
 				//	Entity.setMobSkin(Player.getEntity(), "mob/slime.png");
 				//	addonColourMessage("You are a slime");
 					break;
 				
-				case "magmacube":
+				case 'magmacube':
 				
-					addonErrorMessage("Not available yet");
+					AppFunctions.printErrorMessage('Not available yet');
 				//	Entity.setRenderType(Player.getEntity(), 1);
 				//	Entity.setMobSkin(Player.getEntity(), "mob/magmacube.png");
 				//	addonColourMessage("You are a magma cube");
 					break;
 				
-				case "enderman":
+				case 'enderman':
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.enderman);
-					Entity.setMobSkin(Player.getEntity(), "mob/enderman.png");
+					Entity.setMobSkin(Player.getEntity(), 'mob/enderman.png');
 					AppFunctions.printColourMessage('You are a enderman');
 					break;
 				
-				case "silverfish":
+				case 'silverfish':
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.silverfish);
-					Entity.setMobSkin(Player.getEntity(), "mob/silverfish.png");
+					Entity.setMobSkin(Player.getEntity(), 'mob/silverfish.png');
 					AppFunctions.printColourMessage('You are a silverfish');
 					break;
 				
-				case "steve":
+				case 'steve':
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.player);
-					Entity.setMobSkin(Player.getEntity(), "mob/char.png");
+					Entity.setMobSkin(Player.getEntity(), 'mob/char.png');
 					AppFunctions.printColourMessage('You are Steve');
 					break;
 				
-				case "tnt":
+				case 'tnt':
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.tnt);
 					AppFunctions.printColourMessage('You are a TNT block');
 					break;
 				
-				case "arrow":
+				case 'arrow':
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.arrow);
 					AppFunctions.printColourMessage('You are an arrow');
 					break;
 				
-				case "egg":
+				case 'egg':
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.egg);
 					AppFunctions.printColourMessage('You are an egg');
 					break;
 				
-				case "snowball":
+				case 'snowball':
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.snowball);
 					AppFunctions.printColourMessage('You are a snowball');
 					break;
 				
-				case "minecart":
+				case 'minecart':
 				
 					Entity.setRenderType(Player.getEntity(), EntityRenderType.minecart);
 					AppFunctions.printColourMessage('You are a minecart');
