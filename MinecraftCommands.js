@@ -1,24 +1,40 @@
 /*
  * === ABOUT US ===
  * @name:		Orbitron
- * @website:	http://www.team-orbitron.com
+ * @website:	http://www.orbitrondev.com
  * === ABOUT PROJECT ===
- * @author:		Orbitron
+ * @author:		Manuele Vaccari
  * @project:	Disguise
- * @version:	v1.0.1
- * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/MinecraftCommands.js
+ * @version:	v1.2.0
+ * @website:	https://raw.githubusercontent.com/OrbitronDev/ModPE/master/MinecraftCommands.js
  *
  * Testet with:
- * MCPE: v0.9.5
- * BlockLauncher: v1.7.9
+ * MCPE: v0.10.5
+ * BlockLauncher: v1.8.6
  *
  */
  
 // Project info
-var project		= "MinecraftCommands";
-var sname		= "MCC";
-var version		= "1.0.0";
-var author		= "Orbitron";
+var AppInfo = {
+	'projectName': 'MinecraftCommands',
+	'shortName': 'MCC',
+	'version': '1.2.0'
+	'author': 'Manuele Vaccari (OrbitronDev)'
+};
+
+// Values
+var AppData = {
+    helpPages : [
+		{ '/achievement (x)', '/clear', '/debug <start|stop> (x)', '/defaultgamemode <mode> (x)' },
+		{ '/difficulty <new difficulty>', '/effect <effect> [seconds] [amplifier] (x)', '/enchant <enchantmentID> [level] (x)', "/gamemode <mode>", "/gamerule <rule name> [value] (x)" },
+		{ '/give <item> [amount]', '/kill', '/me <action...> (x)', '/playsound <sound> [x] [y] [z]', '/publish (x)' },
+		{ '/say <message...> (x)', '/scoreboard ... (x)', '/seed', '/setblock', '/setworldspawn' },
+		{ '/spawnpoint (x)', '/spreadplayers', '/summon', '/tell <message...> (x)', '/tellraw <message...> (x)' },
+		{ '/testfor', '/testforblocks', '/time <set|add|query> <value>', '/toggledownfall', '/tp <x> <y> <z>' },
+		{ '/weather', '/xp <amount>' }
+	]
+};
+
 var values		= {
 	helpPages : [
 		{ "/achievement (x)", "/clear", "/debug <start|stop> (x)", "/defaultgamemode <mode> (x)" },
