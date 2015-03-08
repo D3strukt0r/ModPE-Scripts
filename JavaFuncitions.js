@@ -1,12 +1,12 @@
 /*
  * === ABOUT US ===
  * @name:		Orbitron
- * @website:	http://www.team-orbitron.com
+ * @website:	http://www.orbitrondev.com
  * === ABOUT PROJECT ===
- * @author:		Orbitron
+ * @author:		Manuele Vaccari
  * @project:	JavaFunction
  * @version:	v1.0.1
- * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/JavaFunction.js
+ * @website:	https://raw.githubusercontent.com/OrbitronDev/ModPE/master/JavaFunction.js
  *
  * Testet with:
  * MCPE: v0.9.5
@@ -14,45 +14,55 @@
  *
  */
 
+// Project info
+var AppInfo = {
+	'projectName': 'JavaFunctions',
+	'shortName': 'Java',
+	'version': '1.0.1'
+	'author': 'Manuele Vaccari (OrbitronDev)'
+};
+
 // Values
-var Java = true,
-	External = true;
+var AppData = {
+    'java': true,
+    'external': true
+};
 
 // calls "onUseItem(...)"
 function useItem(x, y, z, itemid, blockid, side, itemDamage, blockDamage)
 {
-	if(onUseItem() typeof != "undefined") onUseItem(x, y, z, itemid, blockid, side, itemDamage, blockDamage);
-	if(Java && External) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod("onUseItem", x, y, z, itemid, blockid, side, itemDamage, blockDamage);
+	if(onUseItem() typeof != 'undefined') onUseItem(x, y, z, itemid, blockid, side, itemDamage, blockDamage);
+	if(AppData.java && AppData.external) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod('onUseItem', x, y, z, itemid, blockid, side, itemDamage, blockDamage);
 }
 // calls "onDestroyedBlock(...)"
 function destroyBlock(x, y, z, side)
 {
-	if(onDestroyedBlock() typeof != "undefined") onDestroyedBlock(x, y, z, side);
-	if(Java && External) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod("onDestroyedBlock", x, y, z, side);
+	if(onDestroyedBlock() typeof != 'undefined') onDestroyedBlock(x, y, z, side);
+	if(AppData.java && AppData.external) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod('onDestroyedBlock', x, y, z, side);
 }
 // calls "onStartDestroyBlock(...)"
 function startDestroyBlock(x, y, z, side)
 {
-	if(onStartDestroyingBlock() typeof != "undefined") onStartDestroyingBlock(x, y, z, side);
-	if(Java && External) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod("onStartDestroyingBlock", x, y, z, side);
+	if(onStartDestroyingBlock() typeof != 'undefined') onStartDestroyingBlock(x, y, z, side);
+	if(AppData.java && AppData.external) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod('onStartDestroyingBlock', x, y, z, side);
 }
 // calls "onStartNewWorld(...)"
 function newLevel(hasLevel)
 {
-	if(onStartNewWorld() typeof != "undefined") onStartNewWorld(x, y, z, side);
-	if(Java && External) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod("onStartNewWorld", hasLevel);
+	if(onStartNewWorld() typeof != 'undefined') onStartNewWorld(x, y, z, side);
+	if(AppData.java && AppData.external) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod('onStartNewWorld', hasLevel);
 }
 // calls "onWorldSelected(...)"
 function selectLevelHook()
 {
-	if(onWorldSelected() typeof != "undefined") onWorldSelected(x, y, z, side);
-	if(Java && External) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod("onWorldSelected");
+	if(onWorldSelected() typeof != 'undefined') onWorldSelected(x, y, z, side);
+	if(AppData.java && AppData.external) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod('onWorldSelected');
 }
 // calls "onLeavingWorld(...)"
 function leaveGame()
 {
-	if(onLeavingWorld() typeof != "undefined") onLeavingWorld(x, y, z, side);
-	if(Java && External) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod("onLeavingWorld");
+	if(onLeavingWorld() typeof != 'undefined') onLeavingWorld(x, y, z, side);
+	if(AppData.java && AppData.external) net.zhuoweizhang.mcpelauncher.ScriptManager.callScriptMethod('onLeavingWorld');
 }
 function attackHook(attacker, victim) {} //attackCallback *
 function modTick() {} //tickCallback *
@@ -65,3 +75,9 @@ function levelEventHook(player, eventType, x, y, z, data) {} //levelEventCallbac
 function blockEventHook(x, y, z, type, data) {} //blockEventCallback *
 function serverMessageReceiveHook(message) {} //handleChatPacketCallback *
 function chatReceiveHook(message, sender) {} //handleMessagePacketCallback *
+
+// Main functions
+function newLevel(hasLevel)
+{
+	clientMessage(ChatColor.GRAY + '[INFO] ' + ChatColor.WHITE + AppInfo.projectName + ' loaded');
+}
