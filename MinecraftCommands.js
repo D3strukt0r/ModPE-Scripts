@@ -330,6 +330,30 @@ var AppFunctions = {
 	},
 	'printErrorMessage': function(sString) {
 		clientMessage(ChatColor.GRAY + '[' + ChatColor.RED + AppInfo.shortName + ChatColor.GRAY + '] ' + ChatColor.RED + sString);
+	},
+	'showHelp': function(sCommand, sDescription, sUsage, sExample) {
+		AppFunctions.printColourMessage('Help for the ' + ChatColor.AQUA + sCommand + ChatColor.WHITE + ' command.');
+		AppFunctions.printColourMessage('Description: ' + sDescription + '.');
+		AppFunctions.printColourMessage('Syntax: ' + ChatColor.AQUA + '/' + sCommand + ' ' + sUsage);
+		AppFunctions.printColourMessage('Example: ' + ChatColor.AQUA + '/' + sCommand + ' ' + sExample);
+	}
+	'showHelpPage': function(iPage) {
+		if(iPage % 1 === 0)
+		{
+			if(iPage < 1)
+				AppFunctions.printErrorMessage('The page number must be above 0!');
+			else if(iPage > AppData.helpPages.length)
+				AppFunctions.printErrorMessage('The page number must be below ' + (AppData.helpPages.length + 1) + '!');
+			else
+			{
+				AppFunctions.printColourMessage('Showing help page ' + iPage + '/' + AppData.helpPages.length)
+				for(var i = 0; i <= 4; i++)
+					if(typeof AppData.helpPages[iPage - 1][i] !== 'undefined')
+						AppFunctions.printColourMessage(AppData.helpPages[iPage - 1][i]);
+			}
+		}
+		else
+			AppFunctions.printErrorMessage('The page number must be a whole number!');
 	}
 };
 
@@ -495,8 +519,167 @@ function procCmd(command)
 			}
 			break;
 		
+		case '?':
 		case 'help':
 		
+			switch(cmd[1])
+			{
+				case "asc":
+				case "ascend":
+				
+					AppFunctions.showHelp("ascend", "Ascends the player to the platform above", "", "");
+					break;
+				
+				case "back":
+				
+					AppFunctions.showHelp("back", "Teleports you to last death point", "", "");
+					break;
+				/*
+				case "bind":
+				
+					AppFunctions.showHelp("bind", "Binds a command to a GUI button", "<command> [parameters]", "jump");
+					break;
+				*/
+				case "bomb":
+				
+					AppFunctions.showHelp("bomb", "Explodes a specified location", "<on|off|detonate>", "");
+					break;
+				
+				case "bounce":
+				
+					AppFunctions.showHelp("bounce", "Launches the player into the air", "[strength]", "3");
+					break;
+				
+				case "cannon":
+				
+					AppFunctions.showHelp("cannon", "Launches ignited TNT in the direction the player is facing", "", "");
+					break;
+				
+				case "clear":
+				case "clearinventory":
+				
+					AppFunctions.showHelp("clear", "Clears the player's survival inventory", "", "");
+					break;
+				
+				case "commands":
+				
+					AppFunctions.showHelp("commands", "Lists all avaiable commands", "", "");
+					break;
+				
+				case "coords":
+				case "coordinates":
+				
+					AppFunctions.showHelp("coords", "Shows the player's current coordinates", "[on|off|info]", "");
+					break;
+				
+				case "del":
+				case "delete":
+				
+					AppFunctions.showHelp("delete", "Removes the holding item", "", "");
+					break;
+				
+				case "delhome":
+				
+					AppFunctions.showHelp("delhome", "Removes the saved home", "", "");
+					break;
+				
+				case "desc":
+				case "descend":
+				
+					AppFunctions.showHelp("descend", "Descends the player to the platform below", "", "");
+					break;
+				/*
+				case "enderpearl":
+				
+					addonShowHelp("enderpearl", "Teleports you with a 'enderpearl'", "[on|off]", "");
+					break;
+				*//*
+				case "entity":
+				
+					addonShowHelp("entity", "Do something with the entities in the world", "<kill|burn|explode> <all|type>", "kill pig");
+					break;
+				*/
+				case "eval":
+				case "exec":
+				
+					AppFunctions.showHelp("eval", "Execute own code", "<code>", "clientMessage(\"Hi wazzuuup\");");
+					break;
+				
+				case "explode":
+				
+					AppFunctions.showHelp("explode", "Sets off an explosion at your location", "[radius]", "10");
+					break;
+				
+				case "f3":
+				
+					AppFunctions.showHelp("F3", "Shows world and player information", "[on|off]", "");
+					break;
+				
+				case "give":
+				
+					AppFunctions.showHelp("give", "Gives the player the specified item", "<id|itemname> <quantity>", "diamond 64");
+					break;
+				
+				case "gm":
+				case "gamemode":
+				
+					AppFunctions.showHelp("gamemode", "Changes your gamemode", "[0|s|survival|1|c|creative]", "");
+					break;
+				
+				case "gms":
+				
+					AppFunctions.showHelp("gms", "Changes your gamemode to survival", "", "");
+					break;
+				
+				case "gms":
+				
+					AppFunctions.showHelp("gms", "Changes your gamemode to creative", "", "");
+					break;
+				
+				case "heal":
+				
+					AppFunctions.showHelp("heal", "Heals the player by the specified points", "[quantity]", "20");
+					break;
+				
+				case "health":
+				
+					AppFunctions.showHelp("health", "Sets the health of the player to pre-defiined figures", "<min|max|infinite|get|set>", "set 100");
+					break;
+				
+				case "home":
+				
+					AppFunctions.showHelp("home", "Teleports you to your saved home", "", "");
+					break;
+				
+				case "hole":
+				
+					AppFunctions.showHelp("hole", "Creates a hole underneath you", "", "");
+					break;
+				
+				case "ignite":
+				
+					AppFunctions.showHelp("ignite", "Sets the player on fire", "[seconds]", "10");
+					break;
+				
+				default:
+				
+					if(typeof cmd[1] !== "undefined")
+					{
+						if(parseInt(cmd[1]))
+						{
+							addonShowHelpPage(cmd[1]);
+						}
+						else
+						{
+							addonErrorMessage("Specified command name " + cmd[1] + " does not exist!");
+						}
+					}
+					else
+					{
+						addonShowHelpPage(1);
+					}
+					break;
+			}
 			break;
 		
 		// /kill
