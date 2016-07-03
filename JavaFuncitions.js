@@ -18,14 +18,14 @@
 var AppInfo = {
 	'projectName': 'JavaFunctions',
 	'shortName': 'Java',
-	'version': '1.2.0'
+	'version': '1.2.1'
 	'author': 'Manuele Vaccari (OrbitronDev)'
 };
 
 // Values
 var AppData = {
-    'java': true,
-    'external': true
+    'java': true, // Does this phone support Java? (or asked in an other way, is it Android?)
+    'external': true // Is this code an own script (true), or is it included in other scripts? (false)
 };
 
 // calls "onUseItem(...)"
