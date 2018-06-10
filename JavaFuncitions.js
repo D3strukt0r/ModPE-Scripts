@@ -18,7 +18,7 @@
 var AppInfo = {
 	'projectName': 'JavaFunctions',
 	'shortName': 'Java',
-	'version': '1.2.1'
+	'version': '1.2.1',
 	'author': 'Manuele Vaccari (OrbitronDev)'
 };
 

@@ -1,9 +1,9 @@
 /*
  * === ABOUT US ===
- * @name:		Orbitron
- * @website:	http://www.orbitrondev.com
+ * @name:		OrbitronDev
+ * @website:	https://www.orbitrondev.org
  * === ABOUT PROJECT ===
- * @author:		Manuele Vaccari (OrbitronDev)
+ * @author:		Manuele Vaccari
  * @project:	Achievements
  * @version:	v1.2.0
  * @website:	https://raw.githubusercontent.com/OrbitronDev/ModPE/master/Achievements.js
@@ -18,7 +18,7 @@
 var AppInfo = {
 	'projectName': 'Achievements',
 	'shortName': 'ACH',
-	'version': '1.2.0'
+	'version': '1.2.0',
 	'author': 'Manuele Vaccari (OrbitronDev)'
 };
 
@@ -94,7 +94,7 @@ function useItem(x, y, z, itemid, blockid, side, itemDamage, blockDamage)
 		AppFunctions.showAchievement(10);
 	if(!AppFunctions.achieved(11) && itemid === 354)
 		AppFunctions.showAchievement(11);
-	if(!AppFunctions.achieved(12) && (itemid == 274 || itemid === 257 || itemid === 285 || itemid === 278))
+	if(!AppFunctions.achieved(12) && (itemid === 274 || itemid === 257 || itemid === 285 || itemid === 278))
 		AppFunctions.showAchievement(12);
 	if(!AppFunctions.achieved(13) && itemid === 268)
 		AppFunctions.showAchievement(13);

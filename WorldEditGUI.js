@@ -1,9 +1,9 @@
 /*
  * === ABOUT US ===
- * @name:		Orbitron
- * @website:	http://www.team-orbitron.com
+ * @name:		OrbitronDev
+ * @website:	https://www.orbitrondev.org
  * === ABOUT PROJECT ===
- * @author:		Orbitron
+ * @author:		Manuele Vaccari
  * @project:	WorldEditGUI
  * @version:	v1.0.0
  * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/WorldEditGUI.js

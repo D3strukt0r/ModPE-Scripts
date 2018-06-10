@@ -1,9 +1,9 @@
 /*
  * === ABOUT US ===
- * @name:		Orbitron
- * @website:	http://www.orbitrondev.com
+ * @name:		OrbitronDev
+ * @website:	https://www.orbitrondev.org
  * === ABOUT PROJECT ===
- * @author:		Orbitron
+ * @author:		Manuele Vaccari
  * @project:	SinglePlayerCommands
  * @version:	v1.0.10
  * @website:	https://raw.githubusercontent.com/OfficialOrbitron/ModPE/master/Scripts/SinglePlayerCommands.js

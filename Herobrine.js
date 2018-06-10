@@ -1,7 +1,7 @@
 /*
  * === ABOUT US ===
- * @name:		Orbitron
- * @website:	http://www.orbitrondev.com
+ * @name:		OrbitronDev
+ * @website:	https://www.orbitrondev.org
  * === ABOUT PROJECT ===
  * @author:		Manuele Vaccari
  * @project:	Herobrine
@@ -18,7 +18,7 @@
 var AppInfo = {
 	'projectName': 'Herobrine',
 	'shortName': 'HB',
-	'version': '1.0.0'
+	'version': '1.0.0',
 	'author': 'Manuele Vaccari (OrbitronDev)'
 };
 

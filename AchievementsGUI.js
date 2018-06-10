@@ -1,9 +1,9 @@
 /*
  * === ABOUT US ===
- * @name:		Orbitron
- * @website:	http://www.orbitrondev.com
+ * @name:		OrbitronDev
+ * @website:	https://www.orbitrondev.org
  * === ABOUT PROJECT ===
- * @author:		Orbitron
+ * @author:		Manuele Vaccari
  * @project:	AchievementsGUI
  * @version:	v1.2.0
  * @website:	https://raw.githubusercontent.com/OrbitronDev/ModPE/master/AchievementsGUI.js
@@ -18,29 +18,29 @@
 var AppInfo = {
 	'projectName': 'Achievements',
 	'shortName': 'ACH',
-	'version': '1.2.0'
+	'version': '1.2.0',
 	'author': 'Manuele Vaccari (OrbitronDev)'
 };
 
 // Values
 var AppData = {
-	'achievements' : [
-		1: false,
-		2: false,
-		3: false,
-		4: false,
-		5: false,
-		6: false,
-		7: false,
-		8: false,
-		9: false,
-		10: false,
-		11: false,
-		12: false,
-		13: false,
-		14: false,
-		15: false
-	],
+	'achievements' : {
+        1: false,
+        2: false,
+        3: false,
+        4: false,
+        5: false,
+        6: false,
+        7: false,
+        8: false,
+        9: false,
+        10: false,
+        11: false,
+        12: false,
+        13: false,
+        14: false,
+        15: false
+    },
 	'java': {
 		'ctx': com.mojang.minecraftpe.MainActivity.currentMainActivity.get(),
 		'gui': null,

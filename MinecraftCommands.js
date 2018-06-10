@@ -18,7 +18,7 @@
 var AppInfo = {
 	'projectName': 'MinecraftCommands',
 	'shortName': 'MCC',
-	'version': '1.2.0'
+	'version': '1.2.0',
 	'author': 'Manuele Vaccari (OrbitronDev)'
 };
 
